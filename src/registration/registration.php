@@ -13,19 +13,22 @@
     <header>
         <section>
 
-        <div class="nav-bar"><p>Home</p></div>
+            <div class="nav-bar">
+                <p>Home</p>
+            </div>
 
         </section>
     </header>
     <main>
-        <section>
+        <section class="form-block">
             <div class="wrapper-form-registration">
+                <p class="form-name">Registration</p>
                 <form action="." method="post">
-                    <p class="form-name">Registration</p>
-                    <input type="text" name="input-login" class="inputText form-input">
-                    <input type="text" name="input-psw" class="inputNumber form-input">
-                    <button type="submit">
-                        Submit
+                    <input type="text" name="input-login" class="inputText form-input" placeholder="login">
+                    <input type="password" name="input-psw" class="inputNumber form-input" placeholder="password">
+                    <input type="hiden" name="input-psw-conf" class="inputNumber form-input" placeholder="password">
+                    <button type="submit" name="confirm-registrtion" class="form-btn">
+                        Sign up
                     </button>
                 </form>
             </div>
@@ -33,7 +36,7 @@
 
             </div>
             <div class="wrapper-link-registration">
-
+                <p class="link-registration">Sign in</p>
             </div>
         </section>
     </main>

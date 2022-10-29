@@ -11,11 +11,9 @@ class UtilsForm {
 
     initElement() {
         this.elements = {
-            wrapperForm: this.rootElement.querySelector('form'),
             input: this.rootElement.querySelectorAll('input'),
-            inputText: this.rootElement.querySelectorAll('.inputText'),
-            inputNumber: this.rootElement.querySelectorAll('.inputNumber'),
-            buttonSubmit: this.rootElement.querySelector('button[type="submit"]'),
+            inputOnlyText: this.rootElement.querySelectorAll('.inputOnlyText'),
+            inputOnlyNumber: this.rootElement.querySelectorAll('.inputOnlyNumber'),
         };
     }
 
@@ -28,19 +26,36 @@ class UtilsForm {
             });
         });
 
-        // Delete all special symbols
-        this.elements.inputText.forEach(element => {
+        // Delete all special symbols and numeric
+        this.elements.inputOnlyText.forEach(element => {
             element.addEventListener('input', (event) => {
                 event.target.value = event.target.value.toString().replace(/[^a-zA-Z ]/g, "");
             });
         });
 
          // Delete all no numeric
-        this.elements.inputNumber.forEach(element => {
+        this.elements.inputOnlyNumber.forEach(element => {
             element.addEventListener('input', (event) => {
                 event.target.value = event.target.value.toString().replace(/\D/g,'');
             });
         });
+    }
+
+    // To check if where are some empty elements,
+    // returns all empty elements
+    getEmptyInput() {
+        let listEmptyInputs = Array();
+
+        this.elements.input.forEach(element => {
+            if (element.value.toString().replace(/\s/g, '') == '') {
+                listEmptyInputs.push(element);
+            }
+        });
+        
+        if (listEmptyInputs.length > 0) {
+            return listEmptyInputs;
+        }
+       return null;
     }
 }
 
