@@ -15,7 +15,7 @@
     <main>
         <section>
             <div class="wrapper-form-login">
-                <form action="." method="post">
+                <form action="" method="post">
                     <input type="text" name="input-login" class="inputText">
                     <input type="text" name="input-psw" class="inputNumber">
                     <button type="submit">
