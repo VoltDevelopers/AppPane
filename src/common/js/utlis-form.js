@@ -11,7 +11,6 @@ class UtilsForm {
 
     initElement() {
         this.elements = {
-            wrapperForm: this.rootElement.querySelector('form'),
             input: this.rootElement.querySelectorAll('input'),
             inputOnlyText: this.rootElement.querySelectorAll('.inputOnlyText'),
             inputOnlyNumber: this.rootElement.querySelectorAll('.inputOnlyNumber'),
