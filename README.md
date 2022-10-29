@@ -2,12 +2,13 @@
 ## ToDo
 ### Design
  - [ ] Page Main 
- - [ ] Page Login 
- - [ ] Page Registration 
- - [ ] Page Product 
+ - [x] Page Login 
+ - [x] Page Registration 
+ - [x] Page Product 
  - [ ] Page Shopping Bag 
- - [ ] Page Account
+ - [ ] Design Account
  - [ ] Page Manage Account
+ - [ ] Page Orders Account
  - [ ] Page Address
  - [ ] Design PopUp
  - [ ] Design Logout
