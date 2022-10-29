@@ -15,9 +15,10 @@
     <main>
         <section>
             <div class="wrapper-form-login">
-                <form action="" method="post">
-                    <input type="text" name="input-login" class="inputText">
-                    <input type="text" name="input-psw" class="inputNumber">
+                <form method="post">
+                    <input type="text" name="input-login" autocomplete="current-login">
+                    <input type="password" name="input-psw" autocomplete="current-password">
+                    <input type="hidden" name="input-psw-hash">
                     <button type="submit">
                         Submit
                     </button>
