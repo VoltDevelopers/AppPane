@@ -5,7 +5,7 @@
  - [x] Page Login 
  - [x] Page Registration 
  - [x] Page Product 
- - [ ] Page Shopping Bag 
+ - [x] Page Shopping Bag 
  - [ ] Design Account
  - [ ] Page Manage Account
  - [ ] Page Orders Account
