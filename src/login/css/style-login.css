@@ -1,0 +1,21 @@
+main > section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 33px;
+}
+
+.wrapper-form-login >:first-child{
+    margin-bottom: 33px;
+}
+
+.wrapper-link-registration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.separate-line-login {
+    width: 140px;
+    margin-top: 20px;
+}
