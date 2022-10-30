@@ -34,7 +34,7 @@ section {
 }
 
 header {
-    height: 120px;
+    height: 100px;
 
     display: flex;
     align-items: center;
@@ -51,9 +51,9 @@ header {
 }
 
 .icon-logo {
-    width: 63px;
-    height: 100px;
-
+    height: 80px;
+    width: 50px;
+    
     background-image: url('../img/icon-logo.svg');
     background-repeat: no-repeat;
     background-size: cover;
