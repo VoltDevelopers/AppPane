@@ -5,17 +5,17 @@ main > section {
     gap: 33px;
 }
 
-.wrapper-form-registration >:first-child{
+.wrapper-form-login >:first-child{
     margin-bottom: 33px;
 }
 
-.wrapper-link-login {
+.wrapper-link-registration {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.separate-line-registration {
+.separate-line-login {
     width: 140px;
     margin-top: 20px;
 }

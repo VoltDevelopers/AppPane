@@ -1,3 +1,5 @@
+import MD5 from '../../common/js/hash-function.js';
+
 class UtilsForm {
     constructor(parentElement) {
         this.rootElement = parentElement;
@@ -41,13 +43,12 @@ class UtilsForm {
         });
     }
 
-    // To check if where are some empty elements,
-    // returns all empty elements
+    // To check if where are some empty elements
     getEmptyInput() {
         let listEmptyInputs = Array();
 
         this.elements.input.forEach(element => {
-            if (element.value.toString().replace(/\s/g, '') == '') {
+            if (element.getAttribute('type') != 'hidden' && element.value.toString().replace(/\s/g, '') == '') {
                 listEmptyInputs.push(element);
             }
         });
@@ -56,6 +57,10 @@ class UtilsForm {
             return listEmptyInputs;
         }
        return null;
+    }
+
+    getHash(value) {
+        return MD5(value.toString());
     }
 }
 
