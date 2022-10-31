@@ -17,7 +17,7 @@
         <header>
             <div class="wrapper-header-left wrapper-header">
                 <h4>
-                    <a href="">
+                    <a href="../main/main.php">
                         Home
                     </a>
                 </h4>
@@ -55,7 +55,7 @@
             </div>
             <div class="wrapper-link-login">
                 <h4>
-                    <a href="" class="fuchsia">
+                    <a href="../login/login.php" class="fuchsia">
                         Sign In
                     </a>
                 </h4>
