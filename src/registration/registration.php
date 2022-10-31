@@ -38,11 +38,11 @@
                     Registration
                 </h3>
                 <form method="post">
-                    <input type="text" name="input-login" placeholder="login">
-                    <input type="password" name="input-psw" placeholder="password">
-                        <input type="hidden" name="input-psw-hash">
-                    <input type="password" name="input-psw-conf" placeholder="password">
-                        <input type="hidden" name="input-psw-conf-hash">
+                    <input type="text" name="input-login" placeholder="login" maxlength="12" minlength="8">
+                    <input type="password" name="input-psw" placeholder="password" maxlength="12" minlength="8">
+                    <input type="hidden" name="input-psw-hash">
+                    <input type="password" name="input-psw-conf" placeholder="password" maxlength="12" minlength="8">
+                    <input type="hidden" name="input-psw-conf-hash">
                     <button type="submit" class="large">
                         <h4 class="light">
                             Submit
@@ -51,7 +51,7 @@
                 </form>
             </div>
             <div class="separate-line separate-line-registration">
-                
+
             </div>
             <div class="wrapper-link-login">
                 <h4>
