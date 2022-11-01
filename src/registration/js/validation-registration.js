@@ -16,6 +16,7 @@ class ValidationRegistration {
 
     initElements() {
         this.elements = {
+            formRegistration: this.rootElement.querySelector('form'),
             inputLogin: this.rootElement.querySelector('input[name="input-login"]'),
             inputPsw: this.rootElement.querySelector('input[name="input-psw"]'),
             inputPswHash: this.rootElement.querySelector('input[name="input-psw-hash"]'),
@@ -25,36 +26,25 @@ class ValidationRegistration {
     }
 
     initEventListener() {
-        var pass = "qwerty123456";
+        this.elements.formRegistration.addEventListener('submit', (event) => {
+            const emptyElements = this.utilsForm.getEmptyInput();
 
-        this.elements.inputPsw.addEventListener('input', (event) => {
+            if (emptyElements == null) {
+                const hashPsw = this.utilsForm.getHash(this.elements.inputPsw.value);
+                this.elements.inputPsw.value = '';
+                this.elements.inputPswHash.value = hashPsw;
 
-  
-        });
+                const hashPswConf = this.utilsForm.getHash(this.elements.inputPswConf.value);
+                this.elements.inputPswConf.value = '';
+                this.elements.inputPswConfHash.value = hashPswConf;
 
-        this.elements.inputPswConf.addEventListener('input', (event) => {
-            String.prototype.hashCode = function () {
-                var hash = 0,
-                    i, chr;
-                if (this.length === 0) return hash;
-                for (i = 0; i < this.length; i++) {
-                    chr = this.charCodeAt(i);
-                    hash = ((hash << 5) - hash) + chr;
-                    hash |= 0; // Convert to 32bit integer
+                if (hashPsw !== hashPswConf) {
+                    event.preventDefault();
                 }
-                return hash;
-            }
-
-            var hashPass = this.elements.inputPswConf.value.hashCode();
-            var hashPassConf = this.elements.inputPsw.value.hashCode();
-
-            console.log(hashPass,hashPassConf);
-
-            if (this.elements.inputPswConf.value == this.elements.inputPsw.value  && hashPass == hashPassConf) {
-                console.log("Your pass is correct");
+            } else {
+                event.preventDefault();
             }
         });
-
     }
 }
 
