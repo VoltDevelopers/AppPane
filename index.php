@@ -1,4 +1,4 @@
 <?php
-    header('Location: ./src/login/login.php');
+    header('Location: ./src/bag/bag.php');
     die();
 ?>
