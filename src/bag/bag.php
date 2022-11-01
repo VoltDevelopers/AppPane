@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,51 +14,32 @@
 <body>
     <section>
         <header>
-            
+
             <div class="wrapper-header-left wrapper-header">
-
-            <h4>
-
-                <a href="../main/main.php">Home</a>
-
-            </h4>
-
-            <h4>
-
-                <a href="../main/main.php">Contacts</a>
-
-            </h4>
-
+                <h4>
+                    <a href="../main/main.php">Home</a>
+                </h4>
+                <h4>
+                    <a href="../main/main.php">Contacts</a>
+                </h4>
             </div>
-
             <div class="wrapper-header-center wrapper-header ">
                 <div class="icon-logo">
                 </div>
             </div>
             <div class="wrapper-header-right wrapper-header ">
-
-            <h4>
-
-            <a href="../login/login.php">Account</a>
-
-            </h4>
-
-            <div class="icon-cart">cart logo</div>
-            
+                <h4>
+                    <a href="../login/login.php">Account</a>
+                </h4>
+                    <div class="icon-cart">cart logo</div>
             </div>
-
         </header>
     </section>
-
     <main>
+        <h2>Your shopping bag</h2>
+        <?php
 
-    <h2>Your shopping bag</h2>
-
-    <?php
-
-    ?>
-
+        ?>
     </main>
-
 </body>
 </html>
