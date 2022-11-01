@@ -9,30 +9,20 @@
     <link rel="stylesheet" href="../common/css/style-page.css">
     <link rel="stylesheet" href="../common/css/style-font.css">
     <link rel="stylesheet" href="./css/style-main.css">
+    <link rel="stylesheet" href="./css/style-product.css">
 </head>
 
 <body>
     <section>
         <header>
-            <div class="wrapper-header-left wrapper-header">
-                <h4>
-                    <a href="../main/main.php">
-                        Home
-                    </a>
-                </h4>
-            </div>
-            <div class="wrapper-header-center wrapper-header ">
-                <div class="icon-logo">
-                </div>
-            </div>
-            <div class="wrapper-header-right wrapper-header ">
-
-            </div>
+           <object data="">
         </header>
     </section>
     <main>
         <section>
-           
+            <div class="temp">
+
+            </div>
         </section>
     </main>
 </body>
