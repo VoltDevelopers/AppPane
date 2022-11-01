@@ -26,6 +26,10 @@ class ValidationRegistration {
     }
 
     initEventListener() {
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+
         this.elements.formRegistration.addEventListener('submit', (event) => {
             const emptyElements = this.utilsForm.getEmptyInput();
 
@@ -42,7 +46,11 @@ class ValidationRegistration {
                     this.elements.inputPswConf.style.border = "2px solid red";
                     event.preventDefault();
                 }
-            } else {
+            } 
+            else {
+                emptyElements.forEach(element => {
+                    element.style.border = "2px solid red";
+                });
                 event.preventDefault();
             }
         });

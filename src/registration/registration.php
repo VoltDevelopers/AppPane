@@ -64,6 +64,11 @@
     </main>
 
 </body>
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
 <script type="module" src="./js/view-registration.js"></script>
 
 </html>
