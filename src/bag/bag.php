@@ -36,9 +36,9 @@
     </section>
     <main>
         <h2>Your shopping bag</h2>
-        <?php
-
-        ?>
+        <div class="articles-wrapper">
+        </div>
     </main>
 </body>
+<script type = "module" src="./js/view-bag.js"></script>
 </html>
