@@ -39,6 +39,7 @@ class ValidationRegistration {
                 this.elements.inputPswConfHash.value = hashPswConf;
 
                 if (hashPsw !== hashPswConf) {
+                    this.elements.inputPswConf.style.border = "2px solid red";
                     event.preventDefault();
                 }
             } else {
