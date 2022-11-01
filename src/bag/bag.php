@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../common/css/style-page.css">
     <link rel="stylesheet" href="../common/css/style-font.css">
     <link rel="stylesheet" href="../common/css/style-form.css">
-    <link rel="stylesheet" href="./css/style-login.css">
+    <link rel="stylesheet" href="css/style-shopping-bag.css">
 </head>
 <body>
     <section>
@@ -37,6 +37,7 @@
     <main>
         <h2>Your shopping bag</h2>
         <div class="articles-wrapper">
+
         </div>
     </main>
 </body>
