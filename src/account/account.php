@@ -38,10 +38,7 @@
                 <h4>
                     <a href="../login/login.php" class="active-menu">Account</a>
                 </h4>
-                <h4>
-                    <a href="../login/login.php">Carello</a>
-                </h4>
-                <!-- <div class="icon-cart">cart logo</div> -->
+                <div class="icon-shopping-bag"></div>
             </div>
         </header>
     </section>
