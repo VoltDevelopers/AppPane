@@ -38,11 +38,11 @@
                     Registration
                 </h3>
                 <form method="post" autocomplete="on" > 
-                    <input type="text" name="input-login" placeholder="login"  minlength="6" formenctype="multipart/form-data">
-                    <input type="password" name="input-psw" placeholder="password"  minlength="12" formenctype="multipart/form-data">
-                    <input type="hidden" name="input-psw-hash" formenctype="multipart/form-data">
-                    <input type="password" name="input-psw-conf" placeholder="password"  minlength="12"formenctype="multipart/form-data">
-                    <input type="hidden" name="input-psw-conf-hash" formenctype="multipart/form-data">
+                    <input type="text" name="input-login" placeholder="login"  minlength="6" >
+                    <input type="password" name="input-psw" placeholder="password"  minlength="12" >
+                    <input type="hidden" name="input-psw-hash" >
+                    <input type="password" name="input-psw-conf" placeholder="password"  minlength="12">
+                    <input type="hidden" name="input-psw-conf-hash" >
                     <button type="submit" class="large">
                         <h4 class="light">
                             Submit
