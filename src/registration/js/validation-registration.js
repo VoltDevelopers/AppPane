@@ -26,10 +26,6 @@ class ValidationRegistration {
     }
 
     initEventListener() {
-        if ( window.history.replaceState ) {
-            window.history.replaceState( null, null, window.location.href );
-        }
-
         this.elements.formRegistration.addEventListener('submit', (event) => {
             const emptyElements = this.utilsForm.getEmptyInput();
 

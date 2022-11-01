@@ -43,7 +43,7 @@
         </header>
     </section>
     <main class="wrapper-main-block">
-        <div class="wrapper-form" style="display: block;">
+        <div class="wrapper-form"  id="modify-credentianl" style="display: block;">
             <form method="post">
                 <input type="email" name="input-login" placeholder="Email" maxlength="30">
                 <input type="password" name="input-psw" placeholder="Password" minlength="12">
@@ -54,7 +54,7 @@
                 </button>
             </form>
         </div>
-        <div class="wrapper-form">
+        <div class="wrapper-form" id="modify-personal-data">
             <form method="post">
                 <input type="text" name="input-login" placeholder="Nome" maxlength="30">
                 <input type="password" name="input-psw" placeholder="Cognome" maxlength="30">
