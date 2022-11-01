@@ -42,12 +42,20 @@ header {
     flex-direction: row;
 }
 
-.wrapper-header {
-    width: 500px;
+.wrapper-header-left {
+    width: 400px;
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+}
+
+.wrapper-header-right {
+    width: 400px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .icon-logo {
@@ -60,17 +68,15 @@ header {
     background-position: bottom center, 50%, 50%;
 }
 
-.wrapper-header-left{
-    justify-content: flex-start;
-}
-
-.wrapper-header-right{
-    justify-content: flex-end;
-}
 
 .bung {
     width: 1px;
     height: 1px;
+}
+
+.active-menu{
+    text-decoration: underline #B700A4 2px;
+    text-underline-offset: 10px;
 }
 
 .separate-line {
