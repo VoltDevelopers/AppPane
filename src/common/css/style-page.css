@@ -74,10 +74,10 @@ header {
     height: 1px;
 }
 
-.active-menu{
+/* .active-menu{
     text-decoration: underline #B700A4 2px;
     text-underline-offset: 10px;
-}
+} */
 
 .separate-line {
     display: flex;
