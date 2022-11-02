@@ -1,12 +1,3 @@
-.wrapper-block
-{
-    flex-direction: column;
-    align-items: center;
-    width: 500px;
-    height: 400px;
-    background-color: aqua;
-}
-
 .wrapper-main-block
 {
     display: flex;

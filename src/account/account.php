@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,33 +39,38 @@
         </header>
     </section>
     <main class="wrapper-main-block">
-        <div class="wrapper-form"  id="modify-credentianl" style="display: block;">
-            <form method="post">
-                <input type="email" name="input-login" placeholder="Email" maxlength="30">
-                <input type="password" name="input-psw" placeholder="Password" minlength="12">
-                <button type="submit" class="large">
-                    <h4 class="light">
-                        Apply
-                    </h4>
-                </button>
-            </form>
-        </div>
-        <div class="wrapper-form" id="modify-personal-data">
-            <form method="post">
-                <input type="text" name="input-login" placeholder="Nome" maxlength="30">
-                <input type="password" name="input-psw" placeholder="Cognome" maxlength="30">
+        <section>
+            <div class="wrapper-form" id="modify-credentianl" style="display: block;">
+                <form method="post" name="modify-credentianl">
+                    <input type="email" name="input-email" placeholder="Email" maxlength="30">
+                    <input type="password" name="input-psw" placeholder="Password" minlength="12">
+                    <input type="hidden" name="input-psw-hash">
+                    <button type="submit" class="large">
+                        <h4 class="light">
+                            Apply
+                        </h4>
+                    </button>
+                </form>
+            </div>
+        </section>
+        <section>
+            <div class="wrapper-form" id="modify-personal-data">
+                <form method="post" name="modify-personal-data">
+                    <input type="text" name="input-name" placeholder="Nome" maxlength="30">
+                    <input type="text" name="input-surname" placeholder="Cognome" maxlength="30">
 
-                <input type="password" name="input-psw-conf" placeholder="Telefono" maxlength="12" class="marginTop">
-                <input type="password" name="input-psw" placeholder="Indirizzo" maxlength="40" >
-                <input type="password" name="input-psw-conf" placeholder="CAP" maxlength="5">
-                <input type="password" name="input-psw" placeholder="Città" maxlength="20">
-                <button type="submit" class="large">
-                    <h4 class="light">
-                        Apply
-                    </h4>
-                </button>
-            </form>
-        </div>
+                    <input type="tel" name="input-tel" placeholder="Telefono" maxlength="12" class="marginTop">
+                    <input type="text" name="input-street" placeholder="Indirizzo" maxlength="40">
+                    <input type="text" name="input-cap" placeholder="CAP" maxlength="5">
+                    <input type="text" name="input-city" placeholder="Città" maxlength="20">
+                    <button type="submit" class="large">
+                        <h4 class="light">
+                            Apply
+                        </h4>
+                    </button>
+                </form>
+            </div>
+        </section>
     </main>
 </body>
 
