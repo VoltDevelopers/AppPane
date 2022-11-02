@@ -70,6 +70,16 @@ header {
     background-position: bottom center, 50%, 50%;
 }
 
+.cart-logo {
+    height: 63px;
+    width: 80px;
+    
+    background-image: url('../img/icon-shopping-bag.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center, 50%, 50%;
+}
+
 .wrapper-header-left{
     justify-content: flex-start;
     gap: 40px;

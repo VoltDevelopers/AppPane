@@ -32,6 +32,7 @@
     align-items: center;
     height: 203px;
     width:70%;
+    max-width: 70%;
 
 }
 h6 {

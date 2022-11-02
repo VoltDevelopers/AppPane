@@ -29,7 +29,7 @@
                 <h4>
                     <a href="../login/login.php">Account</a>
                 </h4>
-                    <div class="icon-cart">cart logo</div>
+                    <div class="cart-logo"></div>
             </div>
         </header>
     </section>
