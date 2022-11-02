@@ -31,33 +31,35 @@ h2 {
 }
 
 h3 {
-    font-size: 38px;;
+    font-size: 38px;
 }
 
 h4 {
-    font-size: 28px;;
+    font-size: 28px;
 }
 
 h5 {
-    font-size: 22px;;
+    font-size: 22px;
 }
 
 h6 {
-    font-size: 18px;;
+    font-size: 18px;
 }
 
 a {
-    text-decoration: none !important;
+    text-decoration: none ;
     transition: 0.1s linear all
 }
 
 a:hover {
     color: #6A6A6A;
+    text-decoration: underline #B700A4 2px;
+    text-underline-offset: 10px;
 }
 
 input,
 textarea {
-    font-size: 26px;;
+    font-size: 22px;;
 }
 
 .light {

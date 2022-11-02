@@ -20,6 +20,11 @@ class UtilsForm {
     }
 
     initEventListener() {
+        // Remove form alert after refresh 
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+        
         // Base XSS protection
         this.elements.input.forEach(element => {
             element.addEventListener('input', (event) => {
@@ -35,10 +40,10 @@ class UtilsForm {
             });
         });
 
-         // Delete all no numeric
+        // Delete all no numeric
         this.elements.inputOnlyNumber.forEach(element => {
             element.addEventListener('input', (event) => {
-                event.target.value = event.target.value.toString().replace(/\D/g,'');
+                event.target.value = event.target.value.toString().replace(/\D/g, '');
             });
         });
     }
@@ -52,11 +57,11 @@ class UtilsForm {
                 listEmptyInputs.push(element);
             }
         });
-        
+
         if (listEmptyInputs.length > 0) {
             return listEmptyInputs;
         }
-       return null;
+        return null;
     }
 
     getHash(value) {
