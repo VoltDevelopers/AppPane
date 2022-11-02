@@ -1,0 +1,46 @@
+.wrapper-dersc-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+
+    margin-top: 170px;
+    margin-bottom: 250px;
+}
+
+.wrapper-text {
+    max-width: 400px;
+
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.wrapper-img {
+    width: 550px;
+    height: 390px;
+
+    background-color: aliceblue;
+}
+
+.wrapper-week-products {
+    display: flex;
+    flex-direction: column;;
+}
+
+.wrapper-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+    margin-bottom: 80px;
+}
+
+.wrapper-products {
+    width: 100%;
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}

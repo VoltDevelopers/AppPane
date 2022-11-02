@@ -42,12 +42,22 @@ header {
     flex-direction: row;
 }
 
-.wrapper-header {
-    width: 500px;
+.wrapper-header-left {
+    width: 350px;
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 40px;
+}
+
+.wrapper-header-right {
+    width: 350px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 40px;
 }
 
 .icon-logo {
@@ -73,6 +83,11 @@ header {
 .bung {
     width: 1px;
     height: 1px;
+}
+
+.active-menu{
+    text-decoration: underline #B700A4 2px;
+    text-underline-offset: 10px;
 }
 
 .separate-line {

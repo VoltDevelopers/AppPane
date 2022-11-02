@@ -1,0 +1,22 @@
+.wrapper-main-block
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.marginTop{
+    margin-top: 42px;
+}
+
+#modify-credentianl
+{
+    display: flex;
+    align-self: flex-start;
+}
+
+main>section
+{
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+}
