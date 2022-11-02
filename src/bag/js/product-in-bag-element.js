@@ -25,11 +25,12 @@ class ProductInBagElement{
             btnRemoveQuantity: this.rootElement.querySelector(".remove-quantity-btn"),
             productPrice: this.rootElement.querySelector(".product-price"),
         }
+
     }
 
     initEventListener(){
-
-
+       
+        
     }
 }
 
