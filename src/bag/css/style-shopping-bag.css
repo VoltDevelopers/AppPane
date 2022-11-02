@@ -29,6 +29,7 @@
     flex-direction: column;
     align-items: center;
     margin-left: 30px;
+    width: 600px;
 }
 
 .product-header-wrapper {
@@ -40,11 +41,8 @@
 
 .description-wrapper {
 
-    max-width: 500px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
+    max-width: 450px;
+    align-self: flex-start;
     margin-top: 40px;
 }
 
