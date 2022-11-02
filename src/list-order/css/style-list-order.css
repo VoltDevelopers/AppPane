@@ -31,18 +31,25 @@ ul {
     color: #B700A4;
 }
 
-.wrapper-address-price-block
-{
+.wrapper-address-price-block {
     display: flex;
     justify-content: space-between;
 }
 
-.wrapper-price
-{
+.wrapper-price {
     display: flex;
 }
 
-.wrapper-price > h4:nth-child(2)
-{
+.wrapper-price>h4:nth-child(2) {
     color: #B700A4;
+}
+
+.wrapper-address-block {
+    display: flex;
+}
+
+.wrapper-date-product {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
