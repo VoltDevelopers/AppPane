@@ -15,9 +15,27 @@
 <body>
     <section>
         <header>
-            <object data="">
-
-            </object>
+            <div class="wrapper-header-left wrapper-header">
+                <h5>
+                    <a href="../main/main.php" class="active-menu">Home</a>
+                </h5>
+                <h5>
+                    <a href="#">Contacts</a>
+                </h5>
+            </div>
+            <div class="wrapper-header-center wrapper-header ">
+                <div class="icon-logo">
+                </div>
+            </div>
+            <div class="wrapper-header-right wrapper-header ">
+                <h5>
+                    <a href="../list-order/list-order.php">Orders</a>
+                </h5>
+                <h5>
+                    <a href="../account/account.php">Account</a>
+                </h5>
+                <div class="icon-shopping-bag"></div>
+            </div>
         </header>
     </section>
     <main>

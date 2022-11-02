@@ -4,7 +4,8 @@
     justify-content: space-evenly;
     flex-direction: row;
 
-    margin-bottom: 350px;
+    margin-top: 170px;
+    margin-bottom: 250px;
 }
 
 .wrapper-text {
@@ -17,7 +18,7 @@
 }
 
 .wrapper-img {
-    width: 630px;
+    width: 550px;
     height: 390px;
 
     background-color: aliceblue;
