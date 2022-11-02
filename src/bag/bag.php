@@ -10,26 +10,30 @@
     <link rel="stylesheet" href="../common/css/style-font.css">
     <link rel="stylesheet" href="css/style-shopping-bag.css">
 </head>
+
 <body>
     <section>
         <header>
             <div class="wrapper-header-left wrapper-header">
-                <h4>
+                <h5>
                     <a href="../main/main.php">Home</a>
-                </h4>
-                <h4>
-                    <a href="../main/main.php">Contacts</a>
-                </h4>
+                </h5>
+                <h5>
+                    <a href="#">Contacts</a>
+                </h5>
             </div>
             <div class="wrapper-header-center wrapper-header ">
                 <div class="icon-logo">
                 </div>
             </div>
             <div class="wrapper-header-right wrapper-header ">
-                <h4>
-                    <a href="../login/login.php">Account</a>
-                </h4>
-                    <div class="cart-logo"></div>
+                <h5>
+                    <a href="../list-order/list-order.php">Orders</a>
+                </h5>
+                <h5>
+                    <a href="../account/account.php">Account</a>
+                </h5>
+                <div class="icon-shopping-bag"></div>
             </div>
         </header>
     </section>
@@ -40,5 +44,6 @@
         </div>
     </main>
 </body>
-<script type = "module" src="./js/view-bag.js"></script>
+<script type="module" src="./js/view-bag.js"></script>
+
 </html>
