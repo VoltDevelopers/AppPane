@@ -8,6 +8,7 @@ h2,
 h3,
 h4,
 h5,
+h6,
 span,
 a,
 input,
@@ -38,7 +39,11 @@ h4 {
 }
 
 h5 {
-    font-size: 26px;;
+    font-size: 22px;;
+}
+
+h6 {
+    font-size: 18px;;
 }
 
 a {
@@ -63,4 +68,8 @@ textarea {
 
 .fuchsia {
     color: #B700A4;
+}
+
+.color-gray {
+    color: #606060;
 }

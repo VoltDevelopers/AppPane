@@ -27,6 +27,7 @@ class ValidationFormCredentionals
 
     initEventListener() {
         this.elements.formRegistration.addEventListener('submit', (event) => {
+            debugger
             const emptyElements = this.utilsForm.getEmptyInput();
 
             console.log("Hello world");

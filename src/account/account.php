@@ -42,8 +42,8 @@
         <section>
             <div class="wrapper-form" id="modify-credentianl" style="display: block;">
                 <form method="post" name="modify-credentianl">
-                    <input type="email" name="input-email" placeholder="Email" maxlength="30">
-                    <input type="password" name="input-psw" placeholder="Password" minlength="12">
+                    <input type="email" name="input-email" placeholder="Email" maxlength="30" autocomplete="current-login">
+                    <input type="password" name="input-psw" placeholder="Password" minlength="12" autocomplete="current-password">
                     <input type="hidden" name="input-psw-hash">
                     <button type="submit" class="large">
                         <h4 class="light">
@@ -73,5 +73,6 @@
         </section>
     </main>
 </body>
+<script src="./js/view-account.js" type="module"></script>
 
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +11,10 @@
     <link rel="stylesheet" href="./css/style-login.css">
     <title>Login</title>
 </head>
+
 <body>
-<section>
-    <header>
+    <section>
+        <header>
             <div class="wrapper-header-left wrapper-header">
                 <h4>
                     <a href="../main/main.php">
@@ -25,9 +27,9 @@
                 </div>
             </div>
             <div class="wrapper-header-right wrapper-header ">
-    
+
             </div>
-    </header>
+        </header>
     </section>
     <main>
         <section>
@@ -38,7 +40,7 @@
                 <form method="post">
                     <input type="text" name="input-login" autocomplete="current-login" placeholder="login">
                     <input type="password" name="input-psw" autocomplete="current-password" placeholder="password">
-                        <input type="hidden" name="input-psw-hash">
+                    <input type="hidden" name="input-psw-hash">
                     <button type="submit" class="large">
                         <h4 class="light">
                             Submit
@@ -47,7 +49,7 @@
                 </form>
             </div>
             <div class="separate-line separate-line-login">
-                
+
             </div>
             <div class="wrapper-link-registration">
                 <h4>
@@ -60,4 +62,5 @@
     </main>
 </body>
 <script type="module" src="./js/view-login.js"></script>
+
 </html>
