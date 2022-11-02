@@ -8,6 +8,12 @@
     margin-top: 42px;
 }
 
+#modify-credentianl
+{
+    display: flex;
+    align-self: flex-start;
+}
+
 
 .icon-shopping-bag
 {
@@ -18,4 +24,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center, 50%, 50%;
+}
+
+main>section
+{
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
 }

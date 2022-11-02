@@ -52,8 +52,6 @@
                     </button>
                 </form>
             </div>
-        </section>
-        <section>
             <div class="wrapper-form" id="modify-personal-data">
                 <form method="post" name="modify-personal-data">
                     <input type="text" name="input-name" placeholder="Name" maxlength="30" class="inputOnlyText">
