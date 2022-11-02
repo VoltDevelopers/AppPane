@@ -16,18 +16,25 @@
     <section>
         <header>
             <div class="wrapper-header-left wrapper-header">
-                <h4>
-                    <a href="../main/main.php">
-                        Home
-                    </a>
-                </h4>
+                <h5>
+                    <a href="../main/main.php">Home</a>
+                </h5>
+                <h5>
+                    <a href="#">Contacts</a>
+                </h5>
             </div>
             <div class="wrapper-header-center wrapper-header ">
                 <div class="icon-logo">
                 </div>
             </div>
             <div class="wrapper-header-right wrapper-header ">
-
+                <h5>
+                    <a href="../list-order/list-order.php">Orders</a>
+                </h5>
+                <h5>
+                    <a href="../account/account.php">Account</a>
+                </h5>
+                <div class="icon-shopping-bag"></div>
             </div>
         </header>
     </section>
@@ -37,12 +44,12 @@
                 <h3>
                     Registration
                 </h3>
-                <form method="post"> 
-                    <input type="text" name="input-login" placeholder="login"  minlength="6" >
-                    <input type="password" name="input-psw" placeholder="password"  minlength="12" >
-                    <input type="hidden" name="input-psw-hash" >
-                    <input type="password" name="input-psw-conf" placeholder="password"  minlength="12">
-                    <input type="hidden" name="input-psw-conf-hash" >
+                <form method="post">
+                    <input type="text" name="input-login" placeholder="login" minlength="6">
+                    <input type="password" name="input-psw" placeholder="password" minlength="12">
+                    <input type="hidden" name="input-psw-hash">
+                    <input type="password" name="input-psw-conf" placeholder="password" minlength="12">
+                    <input type="hidden" name="input-psw-conf-hash">
                     <button type="submit" class="large">
                         <h4 class="light">
                             Submit

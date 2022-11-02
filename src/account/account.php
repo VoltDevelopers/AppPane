@@ -16,31 +16,31 @@
     <section>
         <header>
             <div class="wrapper-header-left wrapper-header">
-                <h4>
+                <h5>
                     <a href="../main/main.php">Home</a>
-                </h4>
-                <h4>
-                    <a href="../main/main.php">Contacts</a>
-                </h4>
+                </h5>
+                <h5>
+                    <a href="#">Contacts</a>
+                </h5>
             </div>
             <div class="wrapper-header-center wrapper-header ">
                 <div class="icon-logo">
                 </div>
             </div>
             <div class="wrapper-header-right wrapper-header ">
-                <h4>
-                    <a href="../login/login.php">Orders</a>
-                </h4>
-                <h4>
-                    <a href="../login/login.php" class="active-menu">Account</a>
-                </h4>
+                <h5>
+                    <a href="../list-order/list-order.php">Orders</a>
+                </h5>
+                <h5>
+                    <a href="../account/account.php" class="active-menu">Account</a>
+                </h5>
                 <div class="icon-shopping-bag"></div>
             </div>
         </header>
     </section>
     <main class="wrapper-main-block">
         <section>
-            <div class="wrapper-form" id="modify-credentianl" >
+            <div class="wrapper-form" id="modify-credentianl">
                 <form method="post" name="modify-credentianl">
                     <input type="email" name="input-email" placeholder="Email" maxlength="30" autocomplete="current-login">
                     <input type="password" name="input-psw" placeholder="Password" minlength="12" autocomplete="current-password">

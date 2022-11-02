@@ -2,8 +2,7 @@
     margin: 10px;
 }
 
-.wrapper-order
-{
+.wrapper-order {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,14 +10,39 @@
 
 .horizontal-line {
     width: 1300px;
-    height: 0px;
+    height: 1px;
 
-    border: 1px solid #1D1D1D;
+    background: #1d1d1d;
 }
 
 .wrapper-block {
-    width: 1183px;
-    height: 362px;
+    width: 1000px;
+    min-height: 362px;
 
-    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+    padding: 10px;
+    justify-content: space-between;
+
+}
+
+ul {
+    color: #B700A4;
+}
+
+.wrapper-address-price-block
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper-price
+{
+    display: flex;
+}
+
+.wrapper-price > h4:nth-child(2)
+{
+    color: #B700A4;
 }

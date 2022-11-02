@@ -1,4 +1,4 @@
 <?php
-    header('Location: ./src/list-order/list-order.php');
+    header('Location: ./src/main/main.php');
     die();
 ?>

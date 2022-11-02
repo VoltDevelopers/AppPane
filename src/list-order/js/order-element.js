@@ -5,7 +5,7 @@ class OrderElement {
         this.productId = null;
 
         const parser = new DOMParser();
-        const templateString = `<div class="wrapper-product"><div class="wrapper-product-img"><div class="product-tag"><h6 class="tag-inner"></h6></div></div><div class="wrapper-product-desc"><div class="product-desc"><h4 class="product-name"></h4><h6 class="product-price color-gray"></h6></div><button><h5 class="light">Add to bag</h5></button></div></div>`;
+        const templateString = `<div class="wrapper-order">    <div class="horizontal-line">    </div>    <div class="wrapper-block">        <div class="wrapper-date">            <h4></h4>        </div>        <div class="wrapper-block-list">            <h4>Your order:</h4>            <ul>                <li>                    <h5 class="wrapper-product"></h5>                </li>                <li>                    <h5 class="wrapper-product"></h5>                </li>            </ul>        </div>        <div class="wrapper-address-price-block">            <div class="wrapper-address">                <h4>Address :</h4>            </div>            <div class="wrapper-price">                <h4>Price:<span class="fuchsia"></span></h4>            </div>        </div>    </div></div>`;
         const templateElement = parser.parseFromString(templateString, 'text/html');
         this.template = templateElement.documentElement.querySelector("body > div");
     }
@@ -17,40 +17,36 @@ class OrderElement {
 
     initElements() {
         this.elements = {
-            productImg: this.template.querySelector('.wrapper-product-img'),
-            productTag: this.template.querySelector('.tag-inner'),
-            productName: this.template.querySelector('.product-name'),
-            productPrice: this.template.querySelector('.product-price'),
-            buttonAddToBag: this.template.querySelector('button'),
+            orderDate: this.template.querySelector('.wrapper-date'),
+            orderProduct: this.template.querySelector('.wrapper-product'),
+            orderAddress: this.template.querySelector('.wrapper-address'),
+            orderPrice: this.template.querySelector('#total-price'),
         };
 
         this.rootElement.appendChild(this.template);
     }
 
     initEventListeners() {
-        this.elements.buttonAddToBag.addEventListener('click', (event) => {
-            console.log(`Product(${this.productId}) has been added to the shopping bag`);
-        });
     }
 
-    setProductId(id) {
+    setOrderId(id) {
         this.productId = id;
     }
 
-    setProductImg(path) {
-        this.elements.productImg.style.backgroundImage = `url('${path}')`;
+
+    setOrderProduct(product) {
+        this.elements.orderProduct.innerHTML = product.toString();
     }
 
-    setProductTag(tag) {
-        this.elements.productTag.innerHTML = tag.toString();
+    setOrderPrice(price) {
+        this.elements.orderPrice.innerHTML = price.toString();
+    }
+    setOrderDate(date) {
+        this.elements.orderDate.innerHTML = date.toString();
     }
 
-    setProductName(name) {
-        this.elements.productName.innerHTML = name.toString();
-    }
-
-    setProductPrice(price) {
-        this.elements.productPrice.innerHTML = price.toString();
+    setOrderAddress(address) {
+        this.elements.orderAddress.innerHTML = address.toString();
     }
 }
 
