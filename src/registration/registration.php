@@ -33,7 +33,7 @@
                     <a href="../list-order/list-order.php">Orders</a>
                 </h5>
                 <h5 class="wrapper-popup-block">
-                    <a href="">Account</a>
+                    <a href="../account/account.php">Account</a>
                     <div class="wrapper-popup-menu">
                         <div class="popup-arrow ">
 

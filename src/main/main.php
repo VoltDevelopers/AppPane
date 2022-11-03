@@ -17,8 +17,8 @@
     <section>
     <header>
             <div class="wrapper-header-left wrapper-header">
-                <h5 class="active-menu">
-                    <a href="../main/main.php">Home</a>
+                <h5>
+                    <a class="active-menu" href="../main/main.php">Home</a>
                 </h5>
                 <h5>
                     <a href="#">Contacts</a>
@@ -33,7 +33,7 @@
                     <a href="../list-order/list-order.php">Orders</a>
                 </h5>
                 <h5 class="wrapper-popup-block">
-                    <a href="">Account</a>
+                    <a href="../account/account.php">Account</a>
                     <div class="wrapper-popup-menu">
                         <div class="popup-arrow ">
 

@@ -32,8 +32,8 @@
                 <h5>
                     <a href="../list-order/list-order.php">Orders</a>
                 </h5>
-                <h5 class="wrapper-popup-block" class="active-menu">
-                    <a href="">Account</a>
+                <h5 class="wrapper-popup-block">
+                    <a href="#" class="active-menu">Account</a>
                     <div class="wrapper-popup-menu">
                         <div class="popup-arrow ">
 
@@ -43,7 +43,7 @@
                                 <div class="wrapper-popup-icon-gear">
 
                                 </div>
-                                <a href="../account/account.php">Settings</a>
+                                <a href="#">Settings</a>
                             </div>
                             <div class="popup-line">
                                 <div class="wrapper-popup-icon-arrow">

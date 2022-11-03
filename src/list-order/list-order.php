@@ -29,11 +29,11 @@
                 </div>
             </div>
             <div class="wrapper-header-right wrapper-header ">
-                <h5 class="active-menu">
-                    <a href="../list-order/list-order.php">Orders</a>
+                <h5 >
+                    <a class="active-menu" href="../list-order/list-order.php">Orders</a>
                 </h5>
                 <h5 class="wrapper-popup-block">
-                    <a href="">Account</a>
+                    <a href="../account/account.php">Account</a>
                     <div class="wrapper-popup-menu">
                         <div class="popup-arrow ">
 
