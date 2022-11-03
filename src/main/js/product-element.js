@@ -17,6 +17,7 @@ class ProductElement {
 
     initElements() {
         this.elements = {
+            wrapperProduct: this.template,
             productImg: this.template.querySelector('.wrapper-product-img'),
             productTag: this.template.querySelector('.tag-inner'),
             productName: this.template.querySelector('.product-name'),
@@ -31,6 +32,15 @@ class ProductElement {
         this.elements.buttonAddToBag.addEventListener('click', (event) => {
             console.log(`Product(${this.productId}) has been added to the shopping bag`);
         });
+    }
+
+    showProduct() {
+        console.log(this.elements.wrapperProduct);
+        this.elements.wrapperProduct.style.display = 'flex';
+    }
+
+    hideProduct() {
+        this.elements.wrapperProduct.style.display = 'none';
     }
 
     setProductId(id) {
@@ -51,6 +61,10 @@ class ProductElement {
 
     setProductPrice(price) {
         this.elements.productPrice.innerHTML = price.toString();
+    }
+
+    getFilter() {
+        return this.elements.productTag.innerHTML;
     }
 }
 
