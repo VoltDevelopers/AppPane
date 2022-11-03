@@ -42,7 +42,7 @@ class ValidationRegistration {
                     this.elements.inputPswConf.style.border = "2px solid red";
                     event.preventDefault();
                 }
-            } 
+            }
             else {
                 emptyElements.forEach(element => {
                     element.style.border = "2px solid red";
