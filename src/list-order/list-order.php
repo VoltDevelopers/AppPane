@@ -54,7 +54,6 @@
                         </div>
                     </div>
                 </h5>
-                </h5>
                 <div class="icon-shopping-bag"></div>
             </div>
         </header>
