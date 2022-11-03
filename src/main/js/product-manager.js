@@ -18,7 +18,7 @@ class ProductManager {
 
     showOnlyProducts(filterName) {
         this.hideAllProducts();
-
+        
         this.products.forEach(product => {
             const filterProduct = product.getFilter();
             if (filterProduct == filterName) {

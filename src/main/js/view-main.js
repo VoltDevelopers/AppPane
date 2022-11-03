@@ -1,6 +1,7 @@
 import ProductElement from './product-element.js';
-import FilterElement from './filter-element.js';
 import ProductManager from './product-manager.js';
+import FilterElement from './filter-element.js';
+import FilterManager from './filter-manager.js';
 
 
 let temp = new ProductElement(document.querySelector('.wrapper-products'));
@@ -35,3 +36,7 @@ let filter1 = new FilterElement(document.querySelector('.wrapper-filtrs'), produ
 filter1.init();
 let filter2 = new FilterElement(document.querySelector('.wrapper-filtrs'), productManager, 'Pane');
 filter2.init();
+
+const filters = [filter1, filter2];
+
+const filterManager = new FilterManager(filters);

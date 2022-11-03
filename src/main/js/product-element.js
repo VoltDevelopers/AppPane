@@ -35,7 +35,6 @@ class ProductElement {
     }
 
     showProduct() {
-        console.log(this.elements.wrapperProduct);
         this.elements.wrapperProduct.style.display = 'flex';
     }
 

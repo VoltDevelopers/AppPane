@@ -4,7 +4,6 @@ class FilterElement {
         this.productManager = productManager;
         this.elements = {};
         this.filterName = filterName;
-        this.isActive = false;
 
         const parser = new DOMParser();
         const templateString = `<div class="wrapper-filter-element"><h5>${this.filterName}</h5></div>`;
@@ -14,7 +13,6 @@ class FilterElement {
 
     init() {
         this.initElements();
-        this.initEventListener();
     }
 
     initElements() {
@@ -25,18 +23,18 @@ class FilterElement {
         this.rootElement.appendChild(this.template);
     }
 
-    initEventListener() {
-        this.elements.wrapperFilter.addEventListener('click', (event) => {
-            if (this.isActive) {
-                this.productManager.showAllProducts();
-                event.target.style.background = '#A38D75';
-                this.isActive = false;
-            } else {
-                this.productManager.showOnlyProducts(this.filterName);
-                event.target.style.background = '#1D1D1D';
-                this.isActive = true;
-            }
-        });
+    applyFilter() {
+        this.productManager.showOnlyProducts(this.filterName);
+        this.elements.wrapperFilter.style.background = '#1D1D1D';
+    }
+
+    cancelFilter() {
+        this.productManager.showAllProducts();
+        this.elements.wrapperFilter.style.background = '#A38D75';
+    }
+
+    getFilterElement() {
+        return this.elements.wrapperFilter;
     }
 }
 
