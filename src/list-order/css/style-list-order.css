@@ -17,11 +17,10 @@
 
 .wrapper-block {
     width: 1000px;
-    min-height: 362px;
 
     display: flex;
     flex-direction: column;
-    gap: 90px;
+    gap: 40px;
     padding: 10px;
     justify-content: space-between;
 
@@ -51,5 +50,5 @@ ul {
 .wrapper-date-product {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 20px;
 }
