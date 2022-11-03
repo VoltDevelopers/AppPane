@@ -15,7 +15,7 @@
 
 <body>
     <section>
-        <header>
+    <header>
             <div class="wrapper-header-left wrapper-header">
                 <h5>
                     <a href="../main/main.php">Home</a>
@@ -54,7 +54,10 @@
                         </div>
                     </div>
                 </h5>
-                <div class="icon-shopping-bag"></div>
+                <a href="../bag/bag.php">
+                    <div class="icon-shopping-bag"></div>
+                </a>
+
             </div>
         </header>
     </section>
