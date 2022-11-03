@@ -70,9 +70,10 @@ header {
     background-position: bottom center, 50%, 50%;
 }
 
-.cart-logo {
-    height: 63px;
-    width: 80px;
+.icon-shopping-bag
+{
+    height: 52px;
+    width: 65px;
     
     background-image: url('../img/icon-shopping-bag.svg');
     background-repeat: no-repeat;
