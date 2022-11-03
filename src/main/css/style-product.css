@@ -1,6 +1,4 @@
 .wrapper-product {
-    width: 80%;
-
     display: flex;
     flex-direction: column;
 
@@ -9,14 +7,18 @@
 
 .wrapper-product-img {
     position: relative;
-
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center, 50%, 50%;
+    height: 240px;
     width: 100%;
+    border-radius: 2px;
 }
 
 .product-tag {
     position: absolute;
     left: 10px;
-    top: 10px;
+    top: -10px;
 
     padding: 0 4px;
     border-radius: 25px;
@@ -43,8 +45,8 @@
 }
 
 button {
-    width: 140px;
-    height: 60px;
+    width: 120px;
+    height: 50px;
 
     background: #1D1D1D;
     border-radius: 5px;
