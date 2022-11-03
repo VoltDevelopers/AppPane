@@ -8,9 +8,10 @@
     <title>Main</title>
     <link rel="stylesheet" href="../common/css/style-page.css">
     <link rel="stylesheet" href="../common/css/style-font.css">
+    <link rel="stylesheet" href="../common/css/style-popup.css">
     <link rel="stylesheet" href="./css/style-main.css">
     <link rel="stylesheet" href="./css/style-product.css">
-    <link rel="stylesheet" href="../common/css/style-popup.css">
+    <link rel="stylesheet" href="./css/style-filter.css">
 </head>
 
 <body>
@@ -76,7 +77,7 @@
             <div class="wrapper-week-products">
                 <div class="wrapper-title">
                     <h3>
-                        Take a look of our week products
+                        Take a look of our week products:
                     </h3>
                     <div class="wrapper-filtrs">
 

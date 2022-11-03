@@ -6,7 +6,7 @@ class FilterElement {
         this.filterName = filterName;
 
         const parser = new DOMParser();
-        const templateString = `<div class="wrapper-filter-element"><h5>${this.filterName}</h5></div>`;
+        const templateString = `<div class="wrapper-filter-element"><h5 class="light">${this.filterName}</h5></div>`;
         const templateElement = parser.parseFromString(templateString, 'text/html');
         this.template = templateElement.documentElement.querySelector("body > div");
     }
