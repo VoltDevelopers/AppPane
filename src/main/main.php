@@ -17,7 +17,7 @@
     <section>
     <header>
             <div class="wrapper-header-left wrapper-header">
-                <h5>
+                <h5 class="active-menu">
                     <a href="../main/main.php">Home</a>
                 </h5>
                 <h5>
