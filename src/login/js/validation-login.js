@@ -29,12 +29,15 @@ class ValidationLogin {
 
     initEventListener() {
         this.elements.formLogin.addEventListener('submit', (event) => {
-            this.emptyElements = this.utilsForm.getEmptyInput();
+            const emptyElements = this.utilsForm.getEmptyInput();
 
-            if(this.emptyElements == null) {
+            if(emptyElements == null) {
                 this.hashUserPsw();
                 // todo
             } else {
+                emptyElements.forEach(element => {
+                    element.style.border = "2px solid red";
+                });
                 event.preventDefault();
             }
         });
