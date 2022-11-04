@@ -1,15 +1,15 @@
 .wrapper-product{
 
 display: flex;
-justify-content: center;
+justify-content: space-evenly;
 align-items: center;
 
 }
 
 .wrapper-image{
 
-height: 300px;
-width: 400px;
+height: 440px;
+width: 530px;
 background-color: yellow;
 border: solid red;
 
@@ -21,15 +21,27 @@ border: solid red;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    margin-left: 80px;
+    width: 550px;
 
 }
 
-.wrapper-product-name{
+.wrapper-product-description{
 
-
+    margin-top: 30px;
 
 }
+
+.wrapper-product-bottom-content{
+
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 100px;
+    align-items: center;
+    flex-direction: row;
+
+}
+
 .add-to-bag-btn{
 
     width: 150px;
@@ -37,7 +49,7 @@ border: solid red;
     
     margin-top: 35px;
     border-radius: 5px;
-
+    color: whitesmoke;
     background: #1D1D1D;
     
     transition: 0.1s linear all;
@@ -45,4 +57,13 @@ border: solid red;
 }
  .add-to-bag-btn:hover{
     background: #6A6A6A;
+ }
+
+ .wrapper-add-remove-quantity{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+
  }
