@@ -3,8 +3,28 @@ require('connection.php');
 $connMySQL = new ConnectionMySQL();
 $pdo = $connMySQL->getConnection();
 
-$stmt = $pdo->query('SELECT * FROM tclienti');
-while ($row = $stmt->fetch()) {
-    echo var_dump($row);
+$json = file_get_contents('php://input');
+$data = json_decode($json);
+
+$email = $data->email;
+$password = $data->password;
+
+$stmt = $pdo->prepare('SELECT * FROM tclienti WHERE email=:email AND password=:password');
+$stmt->execute(['email' => $email, 'password' => $password]);
+$user = $stmt->fetch();
+$result = null;
+
+if ($user != null) {
+    $result = array(
+        'data' => $user,
+        'status' => 200,
+    );
+} else {
+    $result = array(
+        'data' => $email,
+        'status' => 508,
+    );
 }
+
+echo json_encode($result);
 ?>

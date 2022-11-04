@@ -1,5 +1,4 @@
 <?php
-    require('./src/common/php/authentication.php');
-    // header('Location: ./src/main/main.php');
-    // die();
+    header('Location: ./src/login/login.php');
+    die();
 ?>
