@@ -18,15 +18,14 @@ class ValidationLogin {
     }
 
     initElement() {
-        this.utilsForm.init();
-
         this.elements = {
             formLogin: this.rootElement.querySelector('form'),
             inputLogin: this.rootElement.querySelector('input[name="input-login"]'),
             inputPsw: this.rootElement.querySelector('input[name="input-psw"]'),
             inputPswHash: this.rootElement.querySelector('input[name="input-psw-hash"]'),
         };
-
+        
+        this.utilsForm.init();
     }
 
     initEventListener() {
@@ -48,6 +47,7 @@ class ValidationLogin {
                         console.log("response.data: ", response.data);
 
                         if (response.status == '200') {
+                            // todo session
                             location.href = '../main/main.php';
                         } else {
                             this.elements.inputLogin.style.border = "2px solid red";

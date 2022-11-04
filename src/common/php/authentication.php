@@ -19,6 +19,7 @@ if ($user != null) {
         'data' => $user,
         'status' => 200,
     );
+    // todo session
 } else {
     $result = array(
         'data' => $email,
