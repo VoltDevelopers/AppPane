@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/style-main.css">
     <link rel="stylesheet" href="./css/style-product.css">
     <link rel="stylesheet" href="./css/style-filter.css">
+    <link rel="shortcut icon" href="../common/img/icon-shopping-bag.svg"/>
 </head>
 
 <body>

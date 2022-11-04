@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../common/css/style-form.css">
     <link rel="stylesheet" href="./css/style-registration.css">
     <link rel="stylesheet" href="../common/css/style-popup.css">
+    <link rel="shortcut icon" href="../common/img/icon-shopping-bag.svg"/>
     <title>Registration</title>
 </head>
 
