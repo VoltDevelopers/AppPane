@@ -32,6 +32,10 @@ class ProductElement {
         this.elements.buttonAddToBag.addEventListener('click', (event) => {
             console.log(`Product(${this.productId}) has been added to the shopping bag`);
         });
+        this.elements.productImg.addEventListener('click', (event) => {
+            location.href = "../product-page/product-page.php";
+            sessionStorage.setItem("productId", this.productId);
+        });
     }
 
     showProduct() {

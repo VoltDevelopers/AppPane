@@ -95,5 +95,4 @@
     </main>
 </body>
 <script type="module" src="./js/view-main.js"></script>
-
 </html>
