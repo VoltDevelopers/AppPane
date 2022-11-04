@@ -5,8 +5,6 @@ class ValidationContactUS {
         this.rootElement = parentElement;
         this.elements = {};
 
-        this.emptyElements = null;
-
         this.utilsForm = new UtilsForm(this.rootElement);
     }
 
