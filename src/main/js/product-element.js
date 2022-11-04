@@ -5,7 +5,7 @@ class ProductElement {
         this.productId = null;
 
         const parser = new DOMParser();
-        const templateString = `<div class="wrapper-product"><div class="wrapper-product-img"><div class="product-tag"><h6 class="tag-inner"></h6></div></div><div class="wrapper-product-desc"><div class="product-desc"><h4 class="product-name"></h4><h6 class="product-price color-gray"></h6></div><button><h5 class="light">Add to bag</h5></button></div></div>`;
+        const templateString = `<div class="wrapper-product"><div class="wrapper-product-img"><div class="product-tag"><h6 class="tag-inner"></h6></div></div><div class="wrapper-product-desc"><div class="product-desc"><h5 class="product-name"></h5><h6 class="product-price color-gray"></h6></div><button><h6 class="light">Add to bag</h6></button></div></div>`;
         const templateElement = parser.parseFromString(templateString, 'text/html');
         this.template = templateElement.documentElement.querySelector("body > div");
     }
@@ -17,6 +17,7 @@ class ProductElement {
 
     initElements() {
         this.elements = {
+            wrapperProduct: this.template,
             productImg: this.template.querySelector('.wrapper-product-img'),
             productTag: this.template.querySelector('.tag-inner'),
             productName: this.template.querySelector('.product-name'),
@@ -31,6 +32,14 @@ class ProductElement {
         this.elements.buttonAddToBag.addEventListener('click', (event) => {
             console.log(`Product(${this.productId}) has been added to the shopping bag`);
         });
+    }
+
+    showProduct() {
+        this.elements.wrapperProduct.style.display = 'flex';
+    }
+
+    hideProduct() {
+        this.elements.wrapperProduct.style.display = 'none';
     }
 
     setProductId(id) {
@@ -51,6 +60,10 @@ class ProductElement {
 
     setProductPrice(price) {
         this.elements.productPrice.innerHTML = price.toString();
+    }
+
+    getFilter() {
+        return this.elements.productTag.innerHTML;
     }
 }
 

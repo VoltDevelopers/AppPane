@@ -38,8 +38,17 @@
     margin-bottom: 80px;
 }
 
+.wrapper-filtrs{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 20px;
+}
+
 .wrapper-products {
     width: 100%;
+    height: 100%;
     
     display: grid;
     grid-template-columns: repeat(3, 1fr);
