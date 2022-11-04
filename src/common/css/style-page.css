@@ -90,7 +90,7 @@ header {
 .wrapper-header-right{
     justify-content: flex-end;
     gap: 40px;
-
+}
 .icon-shopping-bag:hover
 {
     height: 58px;
@@ -100,7 +100,7 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center, 50%, 50%;
->>>>>>> origin
+
 }
 
 .bung {
