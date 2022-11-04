@@ -38,7 +38,7 @@
         </header>
     </section>
     <main>
-        <h2 style="margin-left:40px;">Your shopping bag</h2>
+        <h3 style="margin-left:40px;">Your shopping bag</h3>
         <div class="articles-wrapper">
 
         </div>
