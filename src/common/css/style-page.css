@@ -81,14 +81,15 @@ header {
     background-position: bottom center, 50%, 50%;
 }
 
-.wrapper-header-left{
-    justify-content: flex-start;
-    gap: 40px;
-}
-
-.wrapper-header-right{
-    justify-content: flex-end;
-    gap: 40px;
+.icon-shopping-bag:hover
+{
+    height: 58px;
+    width: 65px;
+    
+    background-image: url('../img/icon-open-bag.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center, 50%, 50%;
 }
 
 .bung {

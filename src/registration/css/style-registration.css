@@ -1,11 +1,11 @@
-main > section {
+main>section {
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 33px;
 }
 
-.wrapper-form-registration >:first-child{
+.wrapper-form-registration>:first-child {
     margin-bottom: 33px;
 }
 

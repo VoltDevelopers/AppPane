@@ -9,18 +9,20 @@
     <link rel="stylesheet" href="../common/css/style-font.css">
     <link rel="stylesheet" href="../common/css/style-form.css">
     <link rel="stylesheet" href="./css/style-list-order.css">
+    <link rel="stylesheet" href="../common/css/style-popup.css">
+    <link rel="shortcut icon" href="../common/img/icon-shopping-bag.svg"/>
     <title>Main</title>
 </head>
 
 <body>
     <section>
-        <header>
+    <header>
             <div class="wrapper-header-left wrapper-header">
                 <h5>
                     <a href="../main/main.php">Home</a>
                 </h5>
                 <h5>
-                    <a href="#">Contacts</a>
+                    <a href="../contact-us/contact-us.php">Contacts</a>
                 </h5>
             </div>
             <div class="wrapper-header-center wrapper-header ">
@@ -28,13 +30,35 @@
                 </div>
             </div>
             <div class="wrapper-header-right wrapper-header ">
-                <h5>
-                    <a href="../list-order/list-order.php" class="active-menu">Orders</a>
+                <h5 >
+                    <a class="active-menu" href="../list-order/list-order.php">Orders</a>
                 </h5>
-                <h5>
+                <h5 class="wrapper-popup-block">
                     <a href="../account/account.php">Account</a>
+                    <div class="wrapper-popup-menu">
+                        <div class="popup-arrow ">
+
+                        </div>
+                        <div class="popup-inner">
+                            <div class="popup-line">
+                                <div class="wrapper-popup-icon-gear">
+
+                                </div>
+                                <a href="../account/account.php">Settings</a>
+                            </div>
+                            <div class="popup-line">
+                                <div class="wrapper-popup-icon-arrow">
+
+                                </div>
+                                <a href="../main/main.php">Logout</a>
+                            </div>
+                        </div>
+                    </div>
                 </h5>
-                <div class="icon-shopping-bag"></div>
+                <a href="../bag/bag.php">
+                    <div class="icon-shopping-bag"></div>
+                </a>
+
             </div>
         </header>
     </section>
@@ -42,8 +66,12 @@
         <section>
             <h3 class="wrapper-name">Your orders:</h3>
             <div class="wrapper-order">
-                
-            </div>
+
+    </div>
+    <div class="wrapper-block">
+        
+    </div>
+</div>
         </section>
     </main>
 </body>

@@ -1,4 +1,5 @@
 import UtilsForm from '../../common/js/utlis-form.js';
+import UtilsFetch from '../../common/js/utils-fetch.js';
 
 class ValidationRegistration {
     constructor(parentElement) {
@@ -6,7 +7,7 @@ class ValidationRegistration {
         this.elements = {};
 
         this.utilsForm = new UtilsForm(this.rootElement);
-        this.utilsForm.init();
+        this.utilsFetch = new UtilsFetch();
     }
 
     init() {
@@ -23,10 +24,14 @@ class ValidationRegistration {
             inputPswConf: this.rootElement.querySelector('input[name="input-psw-conf"]'),
             inputPswConfHash: this.rootElement.querySelector('input[name="input-psw-conf-hash"]'),
         };
+
+        this.utilsForm.init();
     }
 
     initEventListener() {
         this.elements.formRegistration.addEventListener('submit', (event) => {
+            event.preventDefault();
+
             const emptyElements = this.utilsForm.getEmptyInput();
 
             if (emptyElements == null) {
@@ -40,14 +45,34 @@ class ValidationRegistration {
 
                 if (hashPsw !== hashPswConf) {
                     this.elements.inputPswConf.style.border = "2px solid red";
-                    event.preventDefault();
+                } else {
+                    const data = {
+                        'email': this.elements.inputLogin.value,
+                        'password': this.elements.inputPswHash.value
+                    };
+
+                    this.utilsFetch.postData('./php/registration.php', data)
+                        .then(response => {
+                            console.log("response.status: ", response.status);
+                            console.log("response.data: ", response.data);
+
+                            if (response.status == '200') {
+                                // todo session
+                                location.href = '../main/main.php';
+                            } else {
+                                this.elements.inputLogin.style.border = "2px solid red";
+                                this.elements.inputPsw.style.border = "2px solid red";
+                                this.elements.inputPswConf.style.border = "2px solid red";
+                                this.elements.inputPswHash.value = '';
+                                this.elements.inputPswConfHash.value = '';
+                            }
+                        });
                 }
-            } 
+            }
             else {
                 emptyElements.forEach(element => {
                     element.style.border = "2px solid red";
                 });
-                event.preventDefault();
             }
         });
     }

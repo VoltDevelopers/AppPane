@@ -1,0 +1,12 @@
+.wrapper-filter-element {
+    padding: 3px 15px;
+    border-radius: 5px;
+
+    background: #A38D75;
+
+    cursor: pointer;
+}
+
+.wrapper-filter-element:hover {
+    background: #1D1D1D;
+}
