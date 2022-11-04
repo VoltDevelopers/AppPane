@@ -5,25 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
     <link rel="stylesheet" href="../common/css/style-page.css">
     <link rel="stylesheet" href="../common/css/style-font.css">
+    <link rel="stylesheet" href="../common/css/style-form.css">
+    <link rel="stylesheet" href="./css/style-contact-us.css">
     <link rel="stylesheet" href="../common/css/style-popup.css">
-    <link rel="stylesheet" href="./css/style-main.css">
-    <link rel="stylesheet" href="./css/style-product.css">
-    <link rel="stylesheet" href="./css/style-filter.css">
-    <link rel="shortcut icon" href="../common/img/icon-shopping-bag.svg"/>
+    <link rel="shortcut icon" href="../common/img/icon-shopping-bag.svg" />
+    <title>Contact Us</title>
 </head>
 
 <body>
     <section>
-    <header>
+        <header>
             <div class="wrapper-header-left wrapper-header">
                 <h5>
-                    <a class="active-menu" href="../main/main.php">Home</a>
+                    <a href="../main/main.php">Home</a>
                 </h5>
                 <h5>
-                <a href="../contact-us/contact-us.php">Contacts</a>
+                    <a href="../contact-us/contact-us.php">Contacts</a>
                 </h5>
             </div>
             <div class="wrapper-header-center wrapper-header ">
@@ -59,40 +58,36 @@
                 <a href="../bag/bag.php">
                     <div class="icon-shopping-bag"></div>
                 </a>
-
             </div>
         </header>
     </section>
     <main>
         <section>
-            <div class="wrapper-dersc-main">
-                <div class="wrapper-text">
-                    <h4>
-                        Take a look of our products
-                    </h4>
-                    <h6>
-                        gh an of up attempt gravity. Situation to be at offending elsewhere distrusts if. Particular use for considered projection cultivated. Worth of do doubt shall it their. Extensive existence up me contained he pronounce do. Excellence inquietude assistance precaution any impression man sufficient.
-                    </h6>
-                </div>
-                <div class="wrapper-img">
-
-                </div>
-            </div>
-            <div class="wrapper-week-products">
-                <div class="wrapper-title">
-                    <h3>
-                        Take a look of our week products:
-                    </h3>
-                    <div class="wrapper-filtrs">
-
+            <div class="wrapper-form-contact-us wrapper-form">
+                <h3>
+                    Contact Us
+                </h3>
+                <form>
+                    <div class="wrapper-credential">
+                        <input type="text" placeholder="Your name" name="input-user" minlength="6">
+                        <input type="email" placeholder="Your email" name="input-email" >
                     </div>
-                </div>
-                <div class="wrapper-products">
-
-                </div>
+                    <div class="wrapper-description-problem">
+                        <textarea name="input-problem"  class="description-problem" cols="30" rows="10" placeholder="Describe your problem"></textarea>
+                    </div>
+                    <button type="submit" class="large">
+                        <h4 class="light">
+                            Submit
+                        </h4>
+                    </button>
+                    
+                </form>
             </div>
+
         </section>
     </main>
+
 </body>
-<script type="module" src="./js/view-main.js"></script>
+<script type="module" src="./js/view-contact-us.js"></script>
+
 </html>
