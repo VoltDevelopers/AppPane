@@ -19,13 +19,6 @@ class ProductInBagElement {
     }
 
     initElement() {
-
-    //    for (let i = 0; i < this.nProductsInCart; i++){
-    //         let item = this.template.cloneNode(true);
-    //         item.setAttribute("id", i);
-    //         this.rootElement.appendChild(item);
-    //     }
-
         this.elements = {
             wrapperProduct: this.template,
             productName: this.template.querySelector(".product-name"),
@@ -38,17 +31,6 @@ class ProductInBagElement {
         }
 
         this.rootElement.appendChild(this.template);
-
-        // for(let i = 0; i < this.nProductsInCart;i++){
-        //     this.elements.productName[i].setAttribute("id", i);
-        //     this.elements.btnRemoveArticle[i].setAttribute("id", i);
-        //     this.elements.productDescription[i].setAttribute("id", i);
-        //     this.elements.btnAddQuantity[i].setAttribute("id", i);
-        //     this.elements.currentQuantity[i].setAttribute("id", i);
-        //     this.elements.btnRemoveQuantity[i].setAttribute("id", i);
-        //     this.elements.productPrice[i].setAttribute("id", i);
-        // }
-        // console.log(this.elements);
     }
 
     initEventListener() {
