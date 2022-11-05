@@ -65,7 +65,7 @@ class ProductPageElement{
     }
 
     setProductImg(path){
-        this.elements.productImg.innerHTML = path;
+        this.elements.productImg.style.backgroundImage = `url('${path}')`;
     }
 
     setProductName(name){
