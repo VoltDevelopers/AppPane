@@ -1,21 +1,18 @@
-.wrapper-main-block
-{
+.wrapper-main-block {
     display: flex;
     justify-content: space-evenly;
 }
 
-.marginTop{
+.marginTop {
     margin-top: 42px;
 }
 
-#modify-credentianl
-{
+#modify-credentianl {
     display: flex;
     align-self: flex-start;
 }
 
-main>section
-{
+main>section {
     display: flex;
     flex-direction: row;
     gap: 80px;

@@ -110,13 +110,12 @@ header {
     background: #1D1D1D;
 }
 
-section.wrapper-footer
-{
+section.wrapper-footer {
     margin: 0px;
 }
 
 footer {
-    height: 205px;
+    height: 100px;
 
     margin: 0px;
 
@@ -124,11 +123,9 @@ footer {
 }
 
 
-.icon-footer{
-
+/* .icon-footer{
     height: 200px;
 
     background-image: url('../img/icon-footer.svg');
     background-repeat: repeat;
-}
-
+} */
