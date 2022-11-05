@@ -10,15 +10,19 @@ class FilterManager {
         this.filters.forEach(filter => {
             filter.getFilterElement().addEventListener('click', (event) => {
                 if (this.activeFilter) {
+
                     this.activeFilter.cancelFilter();
                     if (this.activeFilter != filter) {
                         filter.applyFilter();
+                        this.activeFilter = filter;
+                    }else{
+                        filter.cancelFilter();
                         this.activeFilter = null;
                     }
                 } else {
                     filter.applyFilter();
+                    this.activeFilter = filter;
                 }
-                this.activeFilter = filter;
             });
         });
     }
