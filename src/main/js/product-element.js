@@ -54,14 +54,18 @@ class ProductElement {
                 });
             } else {
                 if (!CookieManager.getCookie('temp_bag_product_index')) {
-                    CookieManager.setCookie('temp_bag_product_index', '0', 60);
+                    CookieManager.setCookie('temp_bag_product_index', '0', 60 * 60);
                 }
                 const index = parseInt(CookieManager.getCookie('temp_bag_product_index')) + 1;
-                CookieManager.setCookie(`temp_product_in_bag_${index}`, JSON.stringify(data), 60);
-                CookieManager.setCookie('temp_bag_product_index', index, 60);
+                CookieManager.setCookie(`temp_product_in_bag_${index}`, JSON.stringify(data), 60 * 60);
+                CookieManager.setCookie('temp_bag_product_index', index, 60 * 60);
             }
 
 
+        });
+        this.elements.productImg.addEventListener('click', (event) => {
+            CookieManager.setCookie('temp_id_product', this.productId, 180);
+            location.href = '../product-page/product-page.php';
         });
     }
 

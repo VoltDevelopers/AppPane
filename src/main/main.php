@@ -62,5 +62,4 @@
     <?php include '../common/php/footer.php'; ?>
 </body>
 <script type="module" src="./js/view-main.js"></script>
-
 </html>
