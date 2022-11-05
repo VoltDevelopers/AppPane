@@ -1,6 +1,9 @@
 import ProductPageElement from "./product-page-element.js";
+import CookieManager from "../../common/js/cookie-manager.js";
 
-let productId = sessionStorage.getItem("productId");
+const idProduct = CookieManager.getCookie('temp_id_product');
+console.log(idProduct);
+
 let temp = new ProductPageElement(document.querySelector(".main-container"));
 temp.init();
 temp.setProductImg("");
