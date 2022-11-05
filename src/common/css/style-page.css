@@ -112,10 +112,16 @@ header {
 
 section.wrapper-footer {
     margin: 0px;
+
+    position: relative;
+    min-height: 15vh;
 }
 
 footer {
     height: 100px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 
     margin: 0px;
 
@@ -124,7 +130,7 @@ footer {
 
 
 /* .icon-footer{
-    height: 200px;
+    height: 100px;
 
     background-image: url('../img/icon-footer.svg');
     background-repeat: repeat;
