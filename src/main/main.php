@@ -12,10 +12,15 @@
     <link rel="stylesheet" href="./css/style-main.css">
     <link rel="stylesheet" href="./css/style-product.css">
     <link rel="stylesheet" href="./css/style-filter.css">
+    <link rel= "stylesheet" href="../common/css/style-loading-screen.css">
     <link rel="shortcut icon" href="../common/img/icon-shopping-bag.svg"/>
 </head>
 
 <body>
+
+    <div class="wrapper-loader">
+        <span class = "loader"><span class="loader-inner"></span></span>
+    </div>
     <section>
         <header>
             <div class="wrapper-header-left wrapper-header">
@@ -114,5 +119,6 @@
     <?php include '../common/php/footer.php';?>
 </body>
 <script type="module" src="./js/view-main.js"></script>
+<script src = "../common/js/loading-screen.js"></script>
 
 </html>
