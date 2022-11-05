@@ -17,7 +17,7 @@
 
 <body>
     <section>
-    <header>
+        <header>
             <div class="wrapper-header-left wrapper-header">
                 <h5>
                     <a class="active-menu" href="../main/main.php">Home</a>
@@ -31,6 +31,10 @@
                 </div>
             </div>
             <div class="wrapper-header-right wrapper-header ">
+                <?php
+                require('../common/php/token-manager.php');
+                if (TokenManager::isAuthenticated()) {
+                ?>
                 <h5>
                     <a href="../list-order/list-order.php">Orders</a>
                 </h5>
@@ -51,15 +55,26 @@
                                 <div class="wrapper-popup-icon-arrow">
 
                                 </div>
-                                <a href="../main/main.php">Logout</a>
+                                <a href="../common/php/logout.php">Logout</a>
                             </div>
                         </div>
                     </div>
                 </h5>
+                <?php
+                } else {
+                ?>
+                <h5>
+                    <a href="../registration/registration.php">Sign Up</a>
+                </h5>
+                <h5>
+                    <a href="../login/login.php">Sign In</a>
+                </h5>
+                <?php
+                }
+                ?>
                 <a href="../bag/bag.php">
                     <div class="icon-shopping-bag"></div>
                 </a>
-
             </div>
         </header>
     </section>
@@ -71,7 +86,10 @@
                         Take a look of our products
                     </h4>
                     <h6>
-                        gh an of up attempt gravity. Situation to be at offending elsewhere distrusts if. Particular use for considered projection cultivated. Worth of do doubt shall it their. Extensive existence up me contained he pronounce do. Excellence inquietude assistance precaution any impression man sufficient.
+                        gh an of up attempt gravity. Situation to be at offending elsewhere distrusts if. Particular use
+                        for considered projection cultivated. Worth of do doubt shall it their. Extensive existence up
+                        me contained he pronounce do. Excellence inquietude assistance precaution any impression man
+                        sufficient.
                     </h6>
                 </div>
                 <div class="wrapper-img">
@@ -93,6 +111,7 @@
             </div>
         </section>
     </main>
+    <?php include '../common/php/footer.php';?>
 </body>
 <script type="module" src="./js/view-main.js"></script>
 </html>

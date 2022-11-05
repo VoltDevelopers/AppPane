@@ -22,7 +22,7 @@
                     <a href="../main/main.php">Home</a>
                 </h5>
                 <h5>
-                    <a href="../contact-us/contact-us.php">Contacts</a>
+                    <a href="../contact-us/contact-us.php" class="active-menu">Contacts</a>
                 </h5>
             </div>
             <div class="wrapper-header-center wrapper-header ">
@@ -70,23 +70,23 @@
                 <form>
                     <div class="wrapper-credential">
                         <input type="text" placeholder="Your name" name="input-user" minlength="6">
-                        <input type="email" placeholder="Your email" name="input-email" >
+                        <input type="email" placeholder="Your email" name="input-email">
                     </div>
                     <div class="wrapper-description-problem">
-                        <textarea name="input-problem"  class="description-problem" cols="30" rows="10" placeholder="Describe your problem"></textarea>
+                        <textarea name="input-problem" class="description-problem" cols="30" rows="10" placeholder="Describe your problem"></textarea>
                     </div>
                     <button type="submit" class="large">
                         <h4 class="light">
                             Submit
                         </h4>
                     </button>
-                    
+
                 </form>
             </div>
 
         </section>
     </main>
-
+    <?php include '../common/php/footer.php'; ?>
 </body>
 <script type="module" src="./js/view-contact-us.js"></script>
 

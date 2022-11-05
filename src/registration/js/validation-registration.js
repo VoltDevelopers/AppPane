@@ -53,12 +53,13 @@ class ValidationRegistration {
 
                     this.utilsFetch.postData('./php/registration.php', data)
                         .then(response => {
-                            console.log("response.status: ", response.status);
-                            console.log("response.data: ", response.data);
-
                             if (response.status == '200') {
-                                // todo session
-                                location.href = '../main/main.php';
+                                this.utilsFetch.postData('../common/php/authentication.php', data)
+                                    .then(response => {
+                                        if (response.status == '200') {
+                                            location.href = '../main/main.php';
+                                        }
+                                    });
                             } else {
                                 this.elements.inputLogin.style.border = "2px solid red";
                                 this.elements.inputPsw.style.border = "2px solid red";
