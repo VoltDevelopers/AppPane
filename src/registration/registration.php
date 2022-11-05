@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../common/css/style-form.css">
     <link rel="stylesheet" href="./css/style-registration.css">
     <link rel="stylesheet" href="../common/css/style-popup.css">
+    <link rel="shortcut icon" href="../common/img/icon-shopping-bag.svg"/>
     <title>Registration</title>
 </head>
 
@@ -21,7 +22,7 @@
                     <a href="../main/main.php">Home</a>
                 </h5>
                 <h5>
-                    <a href="#">Contacts</a>
+                    <a href="../contact-us/contact-us.php">Contacts</a>
                 </h5>
             </div>
             <div class="wrapper-header-center wrapper-header ">
@@ -92,7 +93,7 @@
             </div>
         </section>
     </main>
-
+    <?php include '../common/php/footer.php';?>
 </body>
 <script type="module" src="./js/view-registration.js"></script>
 

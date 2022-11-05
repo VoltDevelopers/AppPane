@@ -10,18 +10,19 @@
     <link rel="stylesheet" href="../common/css/style-form.css">
     <link rel="stylesheet" href="./css/style-list-order.css">
     <link rel="stylesheet" href="../common/css/style-popup.css">
+    <link rel="shortcut icon" href="../common/img/icon-shopping-bag.svg" />
     <title>Main</title>
 </head>
 
 <body>
     <section>
-    <header>
+        <header>
             <div class="wrapper-header-left wrapper-header">
                 <h5>
                     <a href="../main/main.php">Home</a>
                 </h5>
                 <h5>
-                    <a href="#">Contacts</a>
+                    <a href="../contact-us/contact-us.php">Contacts</a>
                 </h5>
             </div>
             <div class="wrapper-header-center wrapper-header ">
@@ -29,7 +30,7 @@
                 </div>
             </div>
             <div class="wrapper-header-right wrapper-header ">
-                <h5 >
+                <h5>
                     <a class="active-menu" href="../list-order/list-order.php">Orders</a>
                 </h5>
                 <h5 class="wrapper-popup-block">
@@ -66,13 +67,14 @@
             <h3 class="wrapper-name">Your orders:</h3>
             <div class="wrapper-order">
 
-    </div>
-    <div class="wrapper-block">
-        
-    </div>
-</div>
+            </div>
+            <div class="wrapper-block">
+
+            </div>
+            </div>
         </section>
     </main>
+    <?php include '../common/php/footer.php'; ?>
 </body>
 <script src="./js/view-list-order.js" type="module"></script>
 

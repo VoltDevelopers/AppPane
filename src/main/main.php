@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/style-main.css">
     <link rel="stylesheet" href="./css/style-product.css">
     <link rel="stylesheet" href="./css/style-filter.css">
+    <link rel="shortcut icon" href="../common/img/icon-shopping-bag.svg"/>
 </head>
 
 <body>
@@ -22,7 +23,7 @@
                     <a class="active-menu" href="../main/main.php">Home</a>
                 </h5>
                 <h5>
-                    <a href="#">Contacts</a>
+                <a href="../contact-us/contact-us.php">Contacts</a>
                 </h5>
             </div>
             <div class="wrapper-header-center wrapper-header ">
@@ -110,6 +111,7 @@
             </div>
         </section>
     </main>
+    <?php include '../common/php/footer.php';?>
 </body>
 <script type="module" src="./js/view-main.js"></script>
 
