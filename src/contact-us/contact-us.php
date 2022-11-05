@@ -22,7 +22,7 @@
                     <a href="../main/main.php">Home</a>
                 </h5>
                 <h5>
-                    <a href="../contact-us/contact-us.php">Contacts</a>
+                    <a href="../contact-us/contact-us.php" class="active-menu">Contacts</a>
                 </h5>
             </div>
             <div class="wrapper-header-center wrapper-header ">
