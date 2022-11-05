@@ -20,30 +20,10 @@ try {
         'data' => null,
         'status' => 200,
     );
-
-    $url = '../../common/php/authentication.php';
-    $data = array('email' => $email, 'password' => $password);
-    $options = array(
-        'http' => array(
-            'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-            'method' => 'POST',
-            'content' => http_build_query($data)
-        )
-    );
-
-    $context = stream_context_create($options);
-    $resp = file_get_contents($url, false, $context);
-    
-    if ($resp === FALSE) {
-        $result = array(
-            'data' => null,
-            'status' => 504,
-        );
-    }
 } catch (PDOException $e) {
     $result = array(
         'data' => $e,
-        'status' => 503,
+        'status' => 504,
     );
 }
 

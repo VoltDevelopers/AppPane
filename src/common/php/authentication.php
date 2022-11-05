@@ -26,7 +26,7 @@ if ($user != null) {
 } else {
     $result = array(
         'data' => null,
-        'status' => 508,
+        'status' => 503,
     );
 }
 
