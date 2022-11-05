@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="../common/css/style-form.css">
     <link rel="stylesheet" href="./css/style-account.css">
     <link rel="stylesheet" href="../common/css/style-popup.css">
-    <link rel="shortcut icon" href="../common/img/icon-shopping-bag.svg"/>
+    <link rel="shortcut icon" href="../common/img/icon-shopping-bag.svg" />
     <title>Main</title>
 </head>
 
 <body>
     <section>
-    <header>
+        <header>
             <div class="wrapper-header-left wrapper-header">
                 <h5>
                     <a href="../main/main.php">Home</a>
@@ -94,6 +94,7 @@
             </div>
         </section>
     </main>
+    <?php include '../common/php/footer.php'; ?>
 </body>
 <script src="./js/view-account.js" type="module"></script>
 
