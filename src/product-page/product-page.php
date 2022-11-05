@@ -24,12 +24,13 @@
             ?>
         </header>
     </section>
-    <section>
-        <div class="main-container">
-        </div>
-
-    </section>
-
+    <main>
+        <section>
+            <div class="main-container">
+            </div>
+        </section>
+    </main>
+    <?php include '../common/php/footer.php'; ?>
 </body>
 <script type="module" src="./js/view-product-page.js"></script>
 
