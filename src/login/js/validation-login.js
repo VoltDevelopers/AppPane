@@ -24,7 +24,7 @@ class ValidationLogin {
             inputPsw: this.rootElement.querySelector('input[name="input-psw"]'),
             inputPswHash: this.rootElement.querySelector('input[name="input-psw-hash"]'),
         };
-        
+
         this.utilsForm.init();
     }
 
@@ -43,11 +43,7 @@ class ValidationLogin {
 
                 this.utilsFetch.postData('../common/php/authentication.php', data)
                     .then(response => {
-                        console.log("response.status: ", response.status);
-                        console.log("response.data: ", response.data);
-
                         if (response.status == '200') {
-                            // todo session
                             location.href = '../main/main.php';
                         } else {
                             this.elements.inputLogin.style.border = "2px solid red";
