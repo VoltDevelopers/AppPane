@@ -16,3 +16,10 @@ section
 {
     margin-bottom: 50px;
 }
+
+section.wrapper-footer {
+    margin: 0px;
+
+    position: relative;
+    min-height: 20vh;
+}

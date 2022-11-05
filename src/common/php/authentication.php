@@ -1,5 +1,7 @@
 <?php
 require('connection.php');
+require('token-manager.php');
+
 $connMySQL = new ConnectionMySQL();
 $pdo = $connMySQL->getConnection();
 
@@ -19,11 +21,12 @@ if ($user != null) {
         'data' => $user,
         'status' => 200,
     );
-    // todo session
+
+    TokenManager::authenticate($user['id']);
 } else {
     $result = array(
-        'data' => $email,
-        'status' => 508,
+        'data' => null,
+        'status' => 503,
     );
 }
 

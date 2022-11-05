@@ -1,5 +1,6 @@
 <?php
 require('../../common/php/connection.php');
+
 $connMySQL = new ConnectionMySQL();
 $pdo = $connMySQL->getConnection();
 
@@ -22,7 +23,7 @@ try {
 } catch (PDOException $e) {
     $result = array(
         'data' => $e,
-        'status' => 503,
+        'status' => 504,
     );
 }
 

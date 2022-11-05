@@ -1,3 +1,6 @@
+import CookieManager from "../../common/js/cookie-manager.js";
+import UtilsFetch from '../../common/js/utils-fetch.js';
+
 class ProductElement {
     constructor(parentElement) {
         this.rootElement = parentElement;
@@ -8,6 +11,8 @@ class ProductElement {
         const templateString = `<div class="wrapper-product"><div class="wrapper-product-img"><div class="product-tag"><h6 class="tag-inner"></h6></div></div><div class="wrapper-product-desc"><div class="product-desc"><h5 class="product-name"></h5><h6 class="product-price color-gray"></h6></div><button><h6 class="light">Add to bag</h6></button></div></div>`;
         const templateElement = parser.parseFromString(templateString, 'text/html');
         this.template = templateElement.documentElement.querySelector("body > div");
+
+        this.utilsFetch = new UtilsFetch();
     }
 
     init() {
@@ -30,7 +35,33 @@ class ProductElement {
 
     initEventListeners() {
         this.elements.buttonAddToBag.addEventListener('click', (event) => {
-            console.log(`Product(${this.productId}) has been added to the shopping bag`);
+            const data = {
+                'idClient': CookieManager.getCookie('user_auth'),
+                'idProduct': this.productId,
+                'quantity': 1,
+                'token': CookieManager.getCookie('user_id'),
+            };
+
+            if (data.idClient) {
+                this.utilsFetch.postData('../common/php/add-product-to-bag.php', data)
+                .then(response => {
+                    if (response.status == '200') {
+                        // todo alert
+                        console.log('Added');
+                    } else {
+                        console.log(response.data);
+                    }
+                });
+            } else {
+                if (!CookieManager.getCookie('temp_bag_product_index')) {
+                    CookieManager.setCookie('temp_bag_product_index', '0', 60);
+                }
+                const index = parseInt(CookieManager.getCookie('temp_bag_product_index')) + 1;
+                CookieManager.setCookie(`temp_product_in_bag_${index}`, JSON.stringify(data), 60);
+                CookieManager.setCookie('temp_bag_product_index', index, 60);
+            }
+
+
         });
         this.elements.productImg.addEventListener('click', (event) => {
             location.href = "../product-page/product-page.php";

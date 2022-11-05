@@ -25,12 +25,12 @@ class FilterElement {
 
     applyFilter() {
         this.productManager.showOnlyProducts(this.filterName);
-        this.elements.wrapperFilter.style.background = '#1D1D1D';
+        this.elements.wrapperFilter.classList.add('wrapper-filter-element-color');
     }
 
     cancelFilter() {
         this.productManager.showAllProducts();
-        this.elements.wrapperFilter.style.background = '#A38D75';
+        this.elements.wrapperFilter.classList.add('wrapper-filter-element');
     }
 
     getFilterElement() {

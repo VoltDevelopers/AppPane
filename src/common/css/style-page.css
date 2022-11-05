@@ -63,29 +63,27 @@ header {
 .icon-logo {
     height: 80px;
     width: 50px;
-    
+
     background-image: url('../img/icon-logo.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center, 50%, 50%;
 }
 
-.icon-shopping-bag
-{
+.icon-shopping-bag {
     height: 52px;
     width: 65px;
-    
+
     background-image: url('../img/icon-shopping-bag.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center, 50%, 50%;
 }
 
-.icon-shopping-bag:hover
-{
+.icon-shopping-bag:hover {
     height: 58px;
     width: 65px;
-    
+
     background-image: url('../img/icon-open-bag.svg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -97,7 +95,7 @@ header {
     height: 1px;
 }
 
-.active-menu{
+.active-menu {
     text-decoration: underline #B700A4 2px;
     text-underline-offset: 10px;
 }
@@ -111,3 +109,29 @@ header {
 
     background: #1D1D1D;
 }
+
+section.wrapper-footer {
+    margin: 0px;
+
+    position: relative;
+    min-height: 15vh;
+}
+
+footer {
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    margin: 0px;
+
+    background: #A38D75;
+}
+
+
+/* .icon-footer{
+    height: 100px;
+
+    background-image: url('../img/icon-footer.svg');
+    background-repeat: repeat;
+} */
