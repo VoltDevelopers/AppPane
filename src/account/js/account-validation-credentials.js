@@ -1,12 +1,13 @@
 import UtilsForm from '../../common/js/utlis-form.js';
+import UtilsFetch from '../../common/js/utils-fetch.js';
 
-class ValidationFormCredentionals
-{
+class ValidationFormCredentionals {
     constructor(parentElement) {
         this.rootElement = parentElement;
         this.elements = {};
 
         this.utilsForm = new UtilsForm(this.rootElement);
+        this.utilsFetch = new UtilsFetch();
     }
 
     init() {
@@ -34,7 +35,21 @@ class ValidationFormCredentionals
             event.preventDefault();
 
             if (emptyElements == null) {
-         } 
+                const data = {
+                    'email': this.elements.inputEmail.value,
+                    'psw': this.elements.inputPsw.value,
+                    'pswHash': this.elements.inputPswHash.value,
+                };
+
+                this.utilsFetch.postData('./php/account-credentials.php', data)
+                    .then(response => {
+                        if (response.status == '200') {
+                            location.href = '../main/main.php';
+                        } else {
+                            console.log(response.data);
+                        }
+                    });
+            }
             else {
                 emptyElements.forEach(element => {
                     element.style.border = "2px solid red";
