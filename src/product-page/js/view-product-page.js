@@ -1,8 +1,20 @@
 import ProductPageElement from "./product-page-element.js";
 import CookieManager from "../../common/js/cookie-manager.js";
+import UtilsFetch from "../../common/js/utils-fetch.js";
 
 const idProduct = CookieManager.getCookie('temp_id_product');
 console.log(idProduct);
+
+const data = {
+
+    'idProduct' : idProduct,
+
+};
+
+UtilsFetch.postData('./php/product-connection.php', data)
+   .then((response) => {
+        console.log(response);
+   });
 
 let temp = new ProductPageElement(document.querySelector(".main-container"));
 temp.init();

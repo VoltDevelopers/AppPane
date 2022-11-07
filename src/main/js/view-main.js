@@ -6,7 +6,7 @@ import FilterManager from './filter-manager.js';
 
 let temp = new ProductElement(document.querySelector('.wrapper-products'));
 temp.init();
-temp.setProductId('23');
+temp.setProductId('2');
 temp.setProductImg('../common/img-product/bread-1.jpg');
 temp.setProductTag('Pizza');
 temp.setProductName('Pane');
@@ -14,7 +14,7 @@ temp.setProductPrice('4.55$');
 
 let temp2 = new ProductElement(document.querySelector('.wrapper-products'));
 temp2.init();
-temp2.setProductId('24');
+temp2.setProductId('1');
 temp2.setProductImg('../common/img-product/bread-2.jpg');
 temp2.setProductTag('Pane');
 temp2.setProductName('Pane Super');
@@ -22,7 +22,7 @@ temp2.setProductPrice('5.55$');
 
 let temp3 = new ProductElement(document.querySelector('.wrapper-products'));
 temp3.init();
-temp3.setProductId('24');
+temp3.setProductId('3');
 temp3.setProductImg('../common/img-product/bread-1.jpg');
 temp3.setProductTag('Pane');
 temp3.setProductName('Pane Super');
