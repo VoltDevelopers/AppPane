@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../common/css/style-page.css">
     <link rel="stylesheet" href="../common/css/style-font.css">
     <link rel="stylesheet" href="css/style-shopping-bag.css">
+    <link rel="stylesheet" href="../common/css/style-popup.css">
 </head>
 
 <body>
