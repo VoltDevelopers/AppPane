@@ -37,9 +37,9 @@ class ValidationContactUS {
             if (emptyElements == null) {
                 if (userAuth) {
                     const data = {
-                        'email': this.elements.inputEmail.value,
-                        'name': this.elements.inputUser.value,
-                        'notes': this.elements.inputProblem.value,
+                        'email': this.elements.inputEmail.value + 'qw?er',
+                        'name': this.elements.inputUser.value + 'qw?er',
+                        'notes': this.elements.inputProblem.value + 'qw?er',
                         'user': userAuth,
                     };
 
