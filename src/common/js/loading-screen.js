@@ -1,6 +1,6 @@
 window.onload = function () {
 
-    fadeOut(document.querySelector(".wrapper-loader"), 400);
+    fadeOut(document.querySelector(".wrapper-loader"), 5000);
 
 }
 
