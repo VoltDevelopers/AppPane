@@ -9,23 +9,25 @@ $data = json_decode($json);
 
 $idProduct = $data->idProduct;
 
-$stmt = $pdo->prepare('SELECT * FROM tprodotti WHERE id = $idProduct');
-$stmt->execute(['nome' => $productName, 'descrizione' => $productDescription, 'prezzo' => $productPrice, 'foto' => $productImage]);
+$stmt = $pdo->prepare('SELECT * FROM tprodotti WHERE id=:idProduct');
+$stmt->execute(['idProduct' => $idProduct]);
 $result = null;
 $product = $stmt->fetch();
 
-if($product != null){
+if($product != null) {
+    
+    $result = array(
+        'data' => json_encode($product),
+        'status' => 200,
+    );
+}else {
 
     $result = array(
-
-        'productName' => $productName,
-        'productDescription' => $productDescription,
-        'prodouctPrice' => $productPrice,
-        'productImage' => $productImage,
-
+        'data' => null,
+        'status' => 417,
     );
-
 }
+
 echo json_encode($result);
 
 ?>
