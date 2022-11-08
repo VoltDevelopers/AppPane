@@ -31,13 +31,11 @@
             <div class="wrapper-dersc-main">
                 <div class="wrapper-text">
                     <h4>
-                        Take a look of our products
+                        Acquista i nostri prodotti
                     </h4>
                     <h6>
-                        gh an of up attempt gravity. Situation to be at offending elsewhere distrusts if. Particular use
-                        for considered projection cultivated. Worth of do doubt shall it their. Extensive existence up
-                        me contained he pronounce do. Excellence inquietude assistance precaution any impression man
-                        sufficient.
+                        Diamo la possibilità a tutti, amici, clienti e, soprattutto, chi abita distante da noi, di mangiare i nostri prodotti acquistandoli on-line!<br>
+                        Il pane ed i nostri prodotti da forno si mantengono per diversi giorni, vi invitiamo a fare scorte sostanziose per rendere il servizio più efficiente e sostenibile.
                     </h6>
                 </div>
                 <div class="wrapper-img">
@@ -47,7 +45,7 @@
             <div class="wrapper-week-products">
                 <div class="wrapper-title">
                     <h3>
-                        Take a look of our week products:
+                        Dai un' occhiata ai nostri prodotti settimanali:
                     </h3>
                     <div class="wrapper-filtrs">
 
