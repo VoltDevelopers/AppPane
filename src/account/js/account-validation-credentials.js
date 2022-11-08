@@ -7,7 +7,6 @@ class ValidationFormCredentionals {
         this.elements = {};
 
         this.utilsForm = new UtilsForm(this.rootElement);
-        this.utilsFetch = new UtilsFetch();
     }
 
     init() {
@@ -41,7 +40,7 @@ class ValidationFormCredentionals {
                     'pswHash': this.elements.inputPswHash.value,
                 };
 
-                this.utilsFetch.postData('./php/account-credentials.php', data)
+                UtilsFetch.postData('./php/account-credentials.php', data)
                     .then(response => {
                         if (response.status == '200') {
                             location.href = '../main/main.php';
@@ -49,8 +48,7 @@ class ValidationFormCredentionals {
                             console.log(response.data);
                         }
                     });
-            }
-            else {
+            } else {
                 emptyElements.forEach(element => {
                     element.style.border = "2px solid red";
                 });
