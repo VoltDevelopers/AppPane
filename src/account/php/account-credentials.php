@@ -8,11 +8,8 @@ $json = file_get_contents('php://input');
 $data = json_decode($json);
 
 $email = $data->email;
-$name = $data->name;
-$notes = $data->notes;
-$user = $data->user;
-
-$all = ($notes . $name . $email);
+$psw = $data->psw;
+$pswHash = $data->pswHash;
 
 $result = null;
 
