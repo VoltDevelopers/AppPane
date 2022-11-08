@@ -1,7 +1,6 @@
 import UtilsForm from '../../common/js/utlis-form.js';
 
-class ValidationFormPersonalData
-{
+class ValidationFormPersonalData {
     constructor(parentElement) {
         this.rootElement = parentElement;
         this.elements = {};
@@ -36,8 +35,8 @@ class ValidationFormPersonalData
             event.preventDefault();
 
             if (emptyElements == null) {
-         } 
-            else {
+                 // todo
+            } else {
                 emptyElements.forEach(element => {
                     element.style.border = "2px solid red";
                 });

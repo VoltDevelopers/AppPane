@@ -25,12 +25,12 @@ class FilterElement {
 
     applyFilter() {
         this.productManager.showOnlyProducts(this.filterName);
-        this.elements.wrapperFilter.classList.add('wrapper-filter-element-color');
+        this.elements.wrapperFilter.className = 'wrapper-filter-element wrapper-filter-element-color';
     }
 
     cancelFilter() {
         this.productManager.showAllProducts();
-        this.elements.wrapperFilter.classList.add('wrapper-filter-element');
+        this.elements.wrapperFilter.className = 'wrapper-filter-element';
     }
 
     getFilterElement() {
