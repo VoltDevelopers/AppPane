@@ -2,9 +2,8 @@ class ProductInBagElement {
     constructor(parentElement) {
         this.rootElement = parentElement;
         this.elements = {};
-        // this.nProductsInCart = 5;
-
         this.productId = null;
+
         const parser = new DOMParser();
         const templateString = '<div class="article-wrapper"><div class="image-wrapper"><div class="product-type-wrapper"></div></div><div class="right-wrapper"><div class="product-header-wrapper"><h4 class="product-name"></h4><button type="button" class="remove-article-btn">X</button></div><div class="description-wrapper"><h6 class="product-description"></h6></div><div class="product-footer-wrapper"><div class="add-remove-quantity-wrapper"><button type="button" class="add-quantity-btn">+</button><h4 class="current-quantity"></h4><button type="button" class="remove-quantity-btn">-</button></div><div class="price-wrapper"><h5 class="product-price">Total: <span class = "fuchsia"></span></h5></div></div></div></div>';
         const templateElement = parser.parseFromString(templateString, 'text/html');
@@ -37,7 +36,7 @@ class ProductInBagElement {
         });
 
         this.elements.btnAddQuantity.addEventListener('click', (event) => {
-            let newQuantity = parseInt(this.elements.currentQuantity.textContent) + 1;
+            const newQuantity = parseInt(this.elements.currentQuantity.textContent) + 1;
             this.elements.currentQuantity.innerHTML = newQuantity;
         });
 
@@ -67,7 +66,7 @@ class ProductInBagElement {
     }
 
     setProductInBagPrice(price) {
-        let text = this.elements.productPrice.textContent + price;
+        let text = this.elements.productPrice.textContent + '$' +price;
         this.elements.productPrice.innerHTML = text;
     }
 }
