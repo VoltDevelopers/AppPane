@@ -42,10 +42,14 @@ ul {
 }
 
 .image-wrapper {
-    width: 320px;
-    height: 260px;
-    border: solid red;
-    background-color: yellow;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center, 50%, 50%;
+    height: 340px;
+    width: 360px;
+    border-radius: 2px;
+
 
 }
 

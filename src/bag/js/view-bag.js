@@ -27,6 +27,7 @@ await UtilsFetch.postData('./php/bag-product.php', data)
                 product.init();
                 product.setProductInBagId(productElement['id']);
                 product.setProductInBagName(productElement['nome']);
+                product.setProductImg('../common/' + productElement['foto']);
                 product.setProductInBagDescription(productElement['descrizione']);
                 product.setProductInBagCurrentQuantity(productElement['quantita']);
                 product.setProductInBagPrice(productElement['prezzo']);
