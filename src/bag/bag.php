@@ -31,11 +31,11 @@
 
             </div>
             <div class="order-all">
-                <h4 class="light">Order:</h4>
+                <h4>Order:</h4>
                 <ul class="rep-order" style="margin-left: -25px;">
                 </ul>
                 <div class="create-order">
-                    <h5 class="light">Total: <span class="fuchsia order-price"></span></h5>
+                    <h5>Total: <span class="fuchsia order-price"></span></h5>
                     <button type="button" class="btn-order">
                         <h5 class="light">Order</h5>
                     </button>

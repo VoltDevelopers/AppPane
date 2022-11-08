@@ -2,7 +2,7 @@
     margin-top: 40px;
     min-width: 250px;
 
-    background: #A38D75;
+    border: 3px solid #A38D75;
     padding: 10px 30px;
     border-radius: 5px;
 }

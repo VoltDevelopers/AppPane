@@ -47,8 +47,11 @@ button.large{
     height: 50px;
     
     margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button:hover {
-    background: #6A6A6A;
+    background: #A38D75;
 }
