@@ -1,3 +1,11 @@
+<?php
+require_once('../common/php/token-manager.php');
+
+if (!TokenManager::isAuthenticated()) {
+    header('Location: ../main/main.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +26,7 @@
     <section>
         <header>
             <?php
-            require('../common/php/token-manager.php');
+            require_once('../common/php/token-manager.php');
             $page = 'orders';
             $active = 'class="active-menu"';
             require('../common/php/header.php');
