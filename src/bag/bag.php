@@ -25,7 +25,7 @@
         </header>
     </section>
     <main>
-        <h3 style="text-align: center; margin-bottom: 30px;">Your shopping bag</h3>
+        <h3 style="text-align: center; margin-bottom: 30px;" class="bag-status"></h3>
         <div class="wrapper-order">
             <div class="articles-wrapper">
 

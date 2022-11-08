@@ -5,6 +5,7 @@ import ManagerCreateOrder from "./manager-create-order.js";
 
 const wrapperProducts = document.querySelector('.articles-wrapper');
 const wrapperOrder = document.querySelector('.order-all');
+const bagStatus = document.querySelector(".bag-status");
 const data = {
     'idClient': CookieManager.getCookie('user_auth'),
     'token': CookieManager.getCookie('user_id'),
@@ -20,8 +21,10 @@ let totalPrice = 0;
 await UtilsFetch.postData('./php/bag-product.php', data)
     .then(response => {
         if (response.status == '200') {
+            wrapperProducts.style.display = "flex";
+            wrapperOrder.style.display = "block";
+            bagStatus.innerHTML = "I tuoi prodotti";
             const productData = JSON.parse(response.data);
-            console.log(productData);
             productData.forEach(productElement => {
                 const product = new ProductInBagElement(wrapperProducts);
                 product.init();
@@ -39,6 +42,9 @@ await UtilsFetch.postData('./php/bag-product.php', data)
             temp.setTotalPrice(totalPrice);
         } else {
             console.log(response);
+            wrapperProducts.style.display = "none";
+            wrapperOrder.style.display = "none";
+            bagStatus.innerHTML = "Non ci sono prodotti nel carrello";
             // todo log error
         }
     });
