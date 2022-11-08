@@ -8,7 +8,6 @@ class ValidationContactUS {
         this.elements = {};
 
         this.utilsForm = new UtilsForm(this.rootElement);
-        this.utilsFetch = new UtilsFetch();
     }
 
     init() {
@@ -43,7 +42,7 @@ class ValidationContactUS {
                         'user': userAuth,
                     };
 
-                    this.utilsFetch.postData('./php/contact-us.php', data)
+                    UtilsFetch.postData('./php/contact-us.php', data)
                         .then(response => {
                             if (response.status == '200') {
                                 location.href = '../main/main.php';
@@ -59,10 +58,6 @@ class ValidationContactUS {
                     element.style.border = "2px solid red";
                 });
             }
-
-
-
-
         });
     }
 }
