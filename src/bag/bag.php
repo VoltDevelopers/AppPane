@@ -24,9 +24,14 @@
         </header>
     </section>
     <main>
-        <h3 style="margin-left:40px;">Your shopping bag</h3>
+        <h3 style="text-align: center; margin-bottom: 30px;">Your shopping bag</h3>
         <div class="articles-wrapper">
 
+        </div>
+        <div class="order-all">
+            <button>
+                Order All
+            </button>
         </div>
     </main>
     <?php include '../common/php/footer.php'; ?>
