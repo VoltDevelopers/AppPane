@@ -11,8 +11,6 @@ class ProductElement {
         const templateString = `<div class="wrapper-product"><div class="wrapper-product-img"><div class="product-tag"><h6 class="tag-inner"></h6></div></div><div class="wrapper-product-desc"><div class="product-desc"><h5 class="product-name"></h5><h6 class="product-price color-gray"></h6></div><button><h6 class="light">Add to bag</h6></button></div></div>`;
         const templateElement = parser.parseFromString(templateString, 'text/html');
         this.template = templateElement.documentElement.querySelector("body > div");
-
-        this.utilsFetch = new UtilsFetch();
     }
 
     init() {
@@ -43,7 +41,7 @@ class ProductElement {
             };
 
             if (data.idClient) {
-                this.utilsFetch.postData('../common/php/add-product-to-bag.php', data)
+                UtilsFetch.postData('../common/php/add-product-to-bag.php', data)
                 .then(response => {
                     if (response.status == '200') {
                         // todo alert

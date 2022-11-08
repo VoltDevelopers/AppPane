@@ -9,7 +9,6 @@ class ValidationLogin {
         this.emptyElements = null;
 
         this.utilsForm = new UtilsForm(this.rootElement);
-        this.utilsFetch = new UtilsFetch();
     }
 
     init() {
@@ -41,7 +40,7 @@ class ValidationLogin {
                     'password': this.elements.inputPswHash.value
                 };
 
-                this.utilsFetch.postData('../common/php/authentication.php', data)
+                UtilsFetch.postData('../common/php/authentication.php', data)
                     .then(response => {
                         if (response.status == '200') {
                             location.href = '../main/main.php';
