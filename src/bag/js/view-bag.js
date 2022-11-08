@@ -1,19 +1,34 @@
+import CookieManager from "../../common/js/cookie-manager.js";
+import UtilsFetch from '../../common/js/utils-fetch.js';
 import ProductInBagElement from './product-in-bag-element.js';
 
-const parentElement = document.querySelector(".articles-wrapper");
+const wrapperProducts = document.querySelector('.articles-wrapper');
+const data = {
+    'idClient': CookieManager.getCookie('user_auth'),
+    'token': CookieManager.getCookie('user_id'),
+};
 
-let temp1 = new ProductInBagElement(parentElement);
-temp1.init();
-temp1.setProductInBagId("4");
-temp1.setProductInBagName('pane pizza');
-temp1.setProductInBagDescription('Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Doneceu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.Quisque sit amet est et sapien ullamcorper');
-temp1.setProductInBagCurrentQuantity("5");
-temp1.setProductInBagPrice("43$");
+const productInBagList = [];
+const productList = [];
 
-let temp2 = new ProductInBagElement(parentElement);
-temp2.init();
-temp2.setProductInBagId("6");
-temp2.setProductInBagName('pizza margherita');
-temp2.setProductInBagDescription('Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Doneceu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.Quisque sit amet est et sapien ullamcorper');
-temp2.setProductInBagCurrentQuantity("2");
-temp2.setProductInBagPrice("45$");
+await UtilsFetch.postData('./php/bag-product.php', data)
+    .then(response => {
+        if (response.status == '200') {
+            const productData = JSON.parse(response.data);
+            console.log(productData);
+            productData.forEach(productElement => {
+                const product = new ProductInBagElement(wrapperProducts);
+                product.init();
+                product.setProductInBagId(productElement['id']);
+                product.setProductInBagName(productElement['nome']);
+                product.setProductInBagDescription(productElement['descrizione']);
+                product.setProductInBagCurrentQuantity(productElement['quantita']);
+                product.setProductInBagPrice(productElement['prezzo']);
+
+                productList.push(product);
+            });
+        } else {
+            console.log(response);
+            // todo log error
+        }
+    });
