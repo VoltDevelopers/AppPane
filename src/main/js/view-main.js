@@ -6,8 +6,11 @@ import FilterElement from './filter-element.js';
 import FilterManager from './filter-manager.js';
 
 const wrapperProducts = document.querySelector('.wrapper-products');
+const wrapperFilters = document.querySelector('.wrapper-filtrs');
+
 const data = {};
 const productList = [];
+const filterList = [];
 
 let dataProduct = null;
 let dataFilter = null;
@@ -30,7 +33,7 @@ await UtilsFetch.postData('./php/main-filter.php', data)
         }
     });
 
-dataProduct.forEach(product => {
+await dataProduct.forEach(product => {
     const productElement = new ProductElement(wrapperProducts);
     productElement.init();
     productElement.setProductId(product['id']);
@@ -42,15 +45,12 @@ dataProduct.forEach(product => {
     productList.push(productElement);
 });
 
- // const productManager = new ProductManager(productList);
+const productManager = new ProductManager(productList);
 
-        // FILTRI
+await dataFilter.forEach(filter => {
+    const filterElement = new FilterElement(wrapperFilters, productManager, filter['categoria']);
+    filterElement.init();
+    filterList.push(filterElement);
+});
 
-        // let filter1 = new FilterElement(document.querySelector('.wrapper-filtrs'), productManager, 'Pizza');
-        // filter1.init();
-        // let filter2 = new FilterElement(document.querySelector('.wrapper-filtrs'), productManager, 'Pane');
-        // filter2.init();
-
-        // const filters = [filter1, filter2];
-
-        // const filterManager = new FilterManager(filters);
+const filterManager = new FilterManager(filterList);
