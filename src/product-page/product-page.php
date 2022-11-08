@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product page</title>
     <link rel="stylesheet" href="../common/css/style-page.css">
+    <link rel="stylesheet" href="../common/css/style-form.css">
     <link rel="stylesheet" href="../common/css/style-font.css">
     <link rel="stylesheet" href="../common/css/style-popup.css">
     <link rel="shortcut icon" href="../common/img/icon-shopping-bag.svg" />
