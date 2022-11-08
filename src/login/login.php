@@ -32,7 +32,7 @@
                     Login
                 </h3>
                 <form method="post">
-                    <input type="text" name="input-login" autocomplete="current-login" placeholder="login">
+                    <input type="email" name="input-login" autocomplete="current-login" placeholder="email">
                     <input type="password" name="input-psw" autocomplete="current-password" placeholder="password">
                     <input type="hidden" name="input-psw-hash">
                     <button type="submit" class="large">

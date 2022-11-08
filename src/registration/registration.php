@@ -32,7 +32,7 @@
                     Registration
                 </h3>
                 <form method="post">
-                    <input type="text" name="input-login" placeholder="login" minlength="6">
+                    <input type="email" name="input-login" placeholder="email" minlength="6">
                     <input type="password" name="input-psw" placeholder="password" minlength="12">
                     <input type="hidden" name="input-psw-hash">
                     <input type="password" name="input-psw-conf" placeholder="password" minlength="12">
