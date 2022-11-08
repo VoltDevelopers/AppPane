@@ -1,4 +1,6 @@
 import UtilsForm from '../../common/js/utlis-form.js';
+import CookieManager from '../../common/js/cookie-manager.js';
+import UtilsFetch from '../../common/js/utils-fetch.js';
 
 class ValidationFormPersonalData
 {
@@ -7,6 +9,7 @@ class ValidationFormPersonalData
         this.elements = {};
 
         this.utilsForm = new UtilsForm(this.rootElement);
+        this.utilsFetch = new UtilsFetch();
     }
 
     init() {
@@ -31,12 +34,30 @@ class ValidationFormPersonalData
     initEventListener() {
         this.elements.formRegistration.addEventListener('submit', (event) => {
             const emptyElements = this.utilsForm.getEmptyInput();
+            const userAuth = CookieManager.getCookie('user_auth');
 
-            console.log("Hello world");
             event.preventDefault();
 
             if (emptyElements == null) {
-         } 
+                const data = {
+                    'name': this.elements.inputName.value,
+                    'surname': this.elements.inputSurname.value,
+                    'tel': this.elements.inputTel.value,
+                    'street': this.elements.inputStreet.value,
+                    'zip': this.elements.inputCAP.value,
+                    'city': this.elements.inputCity.value,
+                    'userId': userAuth,
+                };
+
+                this.utilsFetch.postData('./php/account-personal-data.php', data)
+                    .then(response => {
+                        if (response.status == '200') {
+                            location.href = '../main/main.php';
+                        } else {
+                            console.log(response.data);
+                        }
+                    });
+            }
             else {
                 emptyElements.forEach(element => {
                     element.style.border = "2px solid red";
