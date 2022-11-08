@@ -18,8 +18,8 @@ class ConnectionMySQL
      function __construct(){
           try {
                $this->connection = new PDO($this->dsn, ConnectionMySQL::user, ConnectionMySQL::pass, ConnectionMySQL::options);
-          } catch (\PDOException $e) {
-               throw new \PDOException($e->getMessage(), (int) $e->getCode());
+          } catch (PDOException $e) {
+               throw new PDOException($e->getMessage(), (int) $e->getCode());
           }
      }
 

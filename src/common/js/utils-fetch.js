@@ -1,5 +1,5 @@
 class UtilsFetch {
-    static async postData(url = '', data = {}) {
+     static async postData(url = '', data = {}) {
         const response = await fetch(
             url,
             {
