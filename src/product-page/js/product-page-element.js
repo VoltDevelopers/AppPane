@@ -4,6 +4,8 @@ class ProductPageElement {
         this.rootElement = parentElement;
         this.elements = {};
         this.productId = null;
+        this.isFirstTime = true;
+        this.productBasePrice = 0;
 
         const parser = new DOMParser();
         const templateString = '<div class="wrapper-product"><div class="wrapper-image"></div><div class="wrapper-product-contents"><div class="wrapper-product-name"><h4 class="product-name"></h4></div><div class="wrapper-product-price"><h4 class = "product-price"></h4></div><div class="wrapper-product-description"><h6 class="product-description"></h6></div><div class="wrapper-product-bottom-content"><button type="button" class = "add-to-bag-btn"><h6 class="light">Add to bag</h6></button><div class="wrapper-add-remove-quantity"><div class="icon-plus"></div><h4 class = "current-quantity">1</h4><div class="icon-minus"></div></div></div></div></div>';
@@ -27,7 +29,6 @@ class ProductPageElement {
             currentQuantity: this.template.querySelector(".current-quantity"),
             btnRemoveQuantity: this.template.querySelector(".icon-minus"),
         }
-
         this.rootElement.appendChild(this.template);
     }
 
@@ -39,6 +40,7 @@ class ProductPageElement {
         this.elements.btnAddQuantity.addEventListener("click", (event) => {
             const newQuantity = parseInt(this.elements.currentQuantity.textContent) + 1;
             this.elements.currentQuantity.innerHTML = newQuantity;
+            this.setProductPrice(this.getNewPrice(true));
         });
 
         this.elements.btnRemoveQuantity.addEventListener("click", (event) => {
@@ -46,6 +48,7 @@ class ProductPageElement {
             if (newQuantity > 1) {
                 newQuantity--;
                 this.elements.currentQuantity.innerHTML = newQuantity;
+                this.setProductPrice(this.getNewPrice(false));
             }
         });
     }
@@ -63,13 +66,27 @@ class ProductPageElement {
     }
 
     setProductPrice(price) {
-        this.elements.productPrice.innerHTML = "$" + price;
+        this.elements.productPrice.innerHTML = "$" + price.toString();
     }
 
     setProductDescription(description) {
         this.elements.productDescription.innerHTML = description;
     }
 
+    getNewPrice(isPlus) {
+        let newPrice = 0;
+        let priceNum = this.elements.productPrice.textContent.split("$");
+        if (this.isFirstTime) {
+            this.productBasePrice = priceNum[1];
+            this.isFirstTime = false;
+        }
+        if (isPlus) {
+            newPrice = parseInt(priceNum[1]) + parseInt(this.productBasePrice);
+        } else {
+            newPrice = parseInt(priceNum[1]) - parseInt(this.productBasePrice);
+        }
+        return newPrice;
+    }
 }
 
 export default ProductPageElement;
