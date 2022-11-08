@@ -1,5 +1,5 @@
 <?php
-require('token-manager.php');
+require_once('token-manager.php');
 
 TokenManager::logout();
 ?>

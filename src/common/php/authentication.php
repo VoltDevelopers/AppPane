@@ -1,6 +1,6 @@
 <?php
-require('connection.php');
-require('token-manager.php');
+require_once('connection.php');
+require_once('token-manager.php');
 
 $connMySQL = new ConnectionMySQL();
 $pdo = $connMySQL->getConnection();
