@@ -23,7 +23,7 @@ UtilsFetch.postData('./php/product-connection.php', data)
             temp.setProductName(product['nome']);
             temp.setProductPrice(product['prezzo']);
             temp.setProductDescription(product['descrizione']);
-            temp.setProductImg('../common/img-product/bread-1.jpg');
+            temp.setProductImg('../common/' + product['foto']);
 
 
         } else {
