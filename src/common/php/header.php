@@ -39,6 +39,9 @@
             </div>
         </div>
     </h5>
+    <a href="../bag/bag.php">
+        <div class="icon-shopping-bag"></div>
+    </a>
     <?php
     } else {
     ?>
@@ -48,10 +51,11 @@
     <h5>
         <a href="../login/login.php">Sign In</a>
     </h5>
+    <a href="">
+        <div class="icon-shopping-bag"></div>
+    </a>
     <?php
     }
     ?>
-    <a href="../bag/bag.php">
-        <div class="icon-shopping-bag"></div>
-    </a>
+    
 </div>
