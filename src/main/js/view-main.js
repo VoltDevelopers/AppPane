@@ -37,7 +37,7 @@ await dataProduct.forEach(product => {
     const productElement = new ProductElement(wrapperProducts);
     productElement.init();
     productElement.setProductId(product['id']);
-    productElement.setProductImg('../common/img-product/bread-2.jpg');
+    productElement.setProductImg('../common/' + product['foto']);
     productElement.setProductTag(dataFilter[product['idCategoria'] - 1]['categoria']);
     productElement.setProductName(product['nome']);
     productElement.setProductPrice('$' + product['prezzo']);

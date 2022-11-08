@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="../common/css/style-font.css">
     <link rel="stylesheet" href="css/style-shopping-bag.css">
     <link rel="stylesheet" href="../common/css/style-popup.css">
-    <link rel="stylesheet" href="../list-order/css/style-list-order.css">
-    <link rel="shortcut icon" href="../common/img/icon-shopping-bag.svg" />
+    <link rel="stylesheet" href="../common/css/style-form.css">
 </head>
 
 <body>
@@ -26,21 +25,23 @@
         </header>
     </section>
     <main>
-        <section>
+        <h3 style="text-align: center; margin-bottom: 30px;">Your shopping bag</h3>
+        <div class="wrapper-order">
+            <div class="articles-wrapper">
 
-            <h3 class="wrapper-name">Your shopping bag</h3>
-            <div class="wrapper-order">
-
-                <div class="wrapper-block">
-                    <div class="horizontal-line"> </div>
-                    <div class="order-all">
-                        <button>
-                            Order All
-                        </button>
-                    </div>
+            </div>
+            <div class="order-all">
+                <h4>Order:</h4>
+                <ul class="rep-order" style="margin-left: -25px;">
+                </ul>
+                <div class="create-order">
+                    <h5>Total: <span class="fuchsia order-price"></span></h5>
+                    <button type="button" class="btn-order">
+                        <h5 class="light">Order</h5>
+                    </button>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
     <?php include '../common/php/footer.php'; ?>
 </body>

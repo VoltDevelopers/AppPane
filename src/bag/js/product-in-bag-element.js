@@ -19,6 +19,7 @@ class ProductInBagElement {
         this.elements = {
             wrapperProduct: this.template,
             productName: this.template.querySelector(".product-name"),
+            productImg: this.template.querySelector(".image-wrapper"),
             btnRemoveArticle: this.template.querySelector(".icon-close"),
             productDescription: this.template.querySelector(".product-description"),
             btnAddQuantity: this.template.querySelector(".icon-plus"),
@@ -55,6 +56,10 @@ class ProductInBagElement {
 
     setProductInBagName(name) {
         this.elements.productName.innerHTML = name;
+    }
+
+    setProductImg(path) {
+        this.elements.productImg.style.backgroundImage = `url('${path}')`;
     }
 
     setProductInBagDescription(description) {
