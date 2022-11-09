@@ -41,11 +41,18 @@ await UtilsFetch.postData('./php/bag-product.php', data)
             });
             temp.setTotalPrice(totalPrice);
         } else {
-            console.log(response);
-            wrapperProducts.style.display = "none";
-            wrapperOrder.style.display = "none";
-            bagStatus.innerHTML = "Non ci sono prodotti nel carrello";
-            // todo log error
+            const cookieProductsIndex = CookieManager.getCookie('temp_bag_product_index');
+            if (cookieProductsIndex) {
+                for (let i = 1; i <= cookieProductsIndex; i++) {
+                    const tempProduct = CookieManager.getCookie('temp_product_in_bag_' + i);
+                    console.log(tempProduct);
+                }
+            } else {
+                wrapperProducts.style.display = "none";
+                wrapperOrder.style.display = "none";
+                bagStatus.innerHTML = "Non ci sono prodotti nel carrello";
+                // todo log error
+            }
         }
     });
 
