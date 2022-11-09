@@ -5,12 +5,6 @@
     padding: 35px 20px;
 }
 
-
-/* .wrapper-product:hover{
-    filter: blur(4px);
-    -webkit-filter: blur(4px);
-}
- */
 .hide {
     position: absolute;
     top: 50%;
@@ -32,12 +26,6 @@
 
     transition: 0.6s, transform 0.5s;
 }
-
-/* .tag-inner:hover
-{
-    filter: blur(2px);
-    -webkit-filter: blur(2px);
-} */
 
 .wrapper-product-img:hover .hide {
     visibility: visible;
