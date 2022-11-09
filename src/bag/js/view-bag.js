@@ -37,6 +37,7 @@ await UtilsFetch.postData('./php/bag-product.php', data)
                 productList.push(product);
 
                 totalPrice += parseInt(productElement['prezzo']);
+
                 temp.setOrderProduct(productElement['nome'], productElement['quantita']);
             });
             temp.setTotalPrice(totalPrice);

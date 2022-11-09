@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/style-login.css">
     <link rel="stylesheet" href="../common/css/style-popup.css">
     <link rel="shortcut icon" href="../common/img/icon-shopping-bag.svg" />
-    <title>Login</title>
+    <title>Appane</title>
 </head>
 
 <body>
