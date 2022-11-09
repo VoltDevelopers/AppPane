@@ -138,6 +138,7 @@ footer {
     background-size: cover;
     background-position: bottom center, 50%, 50%;
 
+    cursor: pointer;
 }
 
 .icon-plus{
@@ -150,6 +151,7 @@ footer {
     background-size: cover;
     background-position: bottom center, 50%, 50%;
 
+    cursor: pointer;
 }
 
 .icon-minus{
@@ -161,6 +163,8 @@ footer {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center, 50%, 50%;
+
+    cursor: pointer;
 }
 
 

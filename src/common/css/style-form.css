@@ -40,6 +40,8 @@ button {
     background: #1D1D1D;
     
     transition: 0.1s linear all;
+
+    cursor: pointer;
 }
 
 button.large{
@@ -50,6 +52,8 @@ button.large{
     display: flex;
     justify-content: center;
     align-items: center;
+
+    cursor: pointer;
 }
 
 button:hover {
