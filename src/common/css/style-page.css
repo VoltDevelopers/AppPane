@@ -78,7 +78,9 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center, 50%, 50%;
+
 }
+
 
 .icon-shopping-bag:hover {
     height: 58px;
@@ -88,6 +90,7 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center, 50%, 50%;
+
 }
 
 .bung {
@@ -138,6 +141,7 @@ footer {
     background-size: cover;
     background-position: bottom center, 50%, 50%;
 
+    cursor: pointer;
 }
 
 .icon-plus{
@@ -150,6 +154,7 @@ footer {
     background-size: cover;
     background-position: bottom center, 50%, 50%;
 
+    cursor: pointer;
 }
 
 .icon-minus{
@@ -161,6 +166,8 @@ footer {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center, 50%, 50%;
+
+    cursor: pointer;
 }
 
 
