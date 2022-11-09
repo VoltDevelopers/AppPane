@@ -1,3 +1,6 @@
+
+import CookieManager from "../../common/js/cookie-manager.js";
+import UtilsFetch from "../../common/js/utils-fetch.js";
 import ManagerCreateOrder from "./manager-create-order.js";
 
 class ProductInBagElement {
@@ -38,28 +41,29 @@ class ProductInBagElement {
     initEventListener() {
         this.elements.btnRemoveArticle.addEventListener('click', (event) => {
             this.elements.wrapperProduct.remove();
+            this.removeElement();
         });
 
         this.elements.btnAddQuantity.addEventListener('click', (event) => {
             const newQuantity = parseInt(this.elements.currentQuantity.textContent) + 1;
             this.elements.currentQuantity.innerHTML = newQuantity;
-            this.setProductInBagPrice(this.getNewPrice(true))
-            this.refreshOrderAll();
-            });
+            this.updateQuantity();
+            this.updateTotalPrice();
+        });
 
         this.elements.btnRemoveQuantity.addEventListener('click', (event) => {
             let newQuantity = parseInt(this.elements.currentQuantity.textContent);
             if (newQuantity > 1) {
                 newQuantity--;
                 this.elements.currentQuantity.innerHTML = newQuantity;
-                this.setProductInBagPrice(this.getNewPrice(false));
-                this.refreshOrderAll();
+                this.updateQuantity();
+                this.updateTotalPrice();
             }
         });
     }
 
     setProductInBagId(id) {
-        this.id = id;
+        this.productId = id;
     }
 
     setProductInBagName(name) {
@@ -82,27 +86,55 @@ class ProductInBagElement {
         this.elements.productPrice.innerHTML = '$' + price;
     }
 
-    getNewPrice(isPlus) {
-        let newPrice = 0;
-        let priceNum = this.elements.productPrice.textContent.split("$");
-        if (this.isFirstTime) {
-            this.productBasePrice = priceNum[1];
-            this.isFirstTime = false;
+    updateQuantity(){
+
+        if(CookieManager.getCookie('user_auth')){
+
+            const data ={
+                clientId: CookieManager.getCookie('user_auth'),
+                productId: this.productId,
+                productQuantity: this.elements.currentQuantity.textContent,
+
+            }
+            UtilsFetch.postData('./php/bag-update.php', data)
+                .then(response => {
+
+                    if(response.status == 200){
+
+                        document.location.reload();
+
+                    }else{
+
+
+                    }
+
+                });
+
+        }else {
+
+
         }
-        if (isPlus) {
-            newPrice = parseInt(priceNum[1]) + parseInt(this.productBasePrice);
-        } else {
-            newPrice = parseInt(priceNum[1]) - parseInt(this.productBasePrice);
+    }
+    
+    removeElement(){
+
+        if(CookieManager.getCookie('user_auth')){
+
+            const data = {
+
+                clientId: CookieManager.getCookie('user_auth'),
+                productId: this.productId,
+
+            }
+            console.log(data);
+            UtilsFetch.postData('./php/bag-remove-product.php', data)
+                .then(response =>{
+
+                    console.log(response);
+
+                });
         }
-        return newPrice;
     }
-
-    refreshOrderAll(){
-
-     
-
-    }
-
 }
 
 export default ProductInBagElement;
