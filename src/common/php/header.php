@@ -1,9 +1,9 @@
 <div class="wrapper-header-left wrapper-header">
     <h5>
-        <a <?=($page == 'main') ? $active : ''; ?> href="../main/main.php">Home</a>
+        <a <?=($page=='main') ? $active : ''; ?> href="../main/main.php">Home</a>
     </h5>
     <h5>
-        <a <?=($page == 'contacts') ? $active : ''; ?> href="../contact-us/contact-us.php">Contacts</a>
+        <a <?=($page=='contacts') ? $active : ''; ?> href="../contact-us/contact-us.php">Contacts</a>
     </h5>
 </div>
 <div class="wrapper-header-center wrapper-header ">
@@ -15,10 +15,10 @@
     if (TokenManager::isAuthenticated()) {
     ?>
     <h5>
-        <a <?=($page == 'orders') ? $active : ''; ?> href="../list-order/list-order.php">Orders</a>
+        <a <?=($page=='orders') ? $active : ''; ?> href="../list-order/list-order.php">Orders</a>
     </h5>
     <h5 class="wrapper-popup-block">
-        <a <?=($page == 'account') ? $active : ''; ?> href="../account/account.php">Account</a>
+        <a <?=($page=='account') ? $active : ''; ?> href="../account/account.php">Account</a>
         <div class="wrapper-popup-menu">
             <div class="popup-arrow ">
 
