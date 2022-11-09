@@ -77,7 +77,7 @@ await UtilsFetch.postData('./php/bag-product.php', data)
                                 product.setProductImg('../common/' + responceData.foto);
                                 product.setProductInBagDescription(responceData.descrizione);
                                 product.setProductInBagCurrentQuantity(data.quantity);
-                                product.setProductInBagPrice(responceData.prezzo);
+                                product.setProductInBagPrice(responceData.prezzo * data.quantity);
                                 productList.push(product);
 
                                 totalPrice += parseInt(responceData.prezzo);

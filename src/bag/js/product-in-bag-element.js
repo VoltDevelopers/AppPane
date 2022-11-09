@@ -47,8 +47,7 @@ class ProductInBagElement {
         this.elements.btnAddQuantity.addEventListener('click', (event) => {
             const newQuantity = parseInt(this.elements.currentQuantity.textContent) + 1;
             this.elements.currentQuantity.innerHTML = newQuantity;
-            this.updateQuantity();
-            this.updateTotalPrice();
+            this.updateAll();
         });
 
         this.elements.btnRemoveQuantity.addEventListener('click', (event) => {
@@ -56,8 +55,7 @@ class ProductInBagElement {
             if (newQuantity > 1) {
                 newQuantity--;
                 this.elements.currentQuantity.innerHTML = newQuantity;
-                this.updateQuantity();
-                this.updateTotalPrice();
+                this.updateAll();
             }
         });
     }
@@ -86,7 +84,7 @@ class ProductInBagElement {
         this.elements.productPrice.innerHTML = '$' + price;
     }
 
-    updateQuantity(){
+    updateAll(){
 
         if(CookieManager.getCookie('user_auth')){
 
@@ -111,7 +109,23 @@ class ProductInBagElement {
                 });
 
         }else {
+            const cookieProductsIndex = CookieManager.getCookie('temp_bag_product_index');
+            for(let i = 1; i <= cookieProductsIndex; i++) {
+                const currentProduct = CookieManager.getCookie('temp_product_in_bag_' + i);
+                if(this.productId == JSON.parse(currentProduct).idProduct){
+                    const data = {
+                        'idClient': CookieManager.getCookie('user_auth'),
+                        'idProduct': this.productId,
+                        'quantity': this.elements.currentQuantity.innerHTML,
+                        'token': CookieManager.getCookie('user_id'),
+                    };
+                    CookieManager.setCookie(`temp_product_in_bag_${i}`, JSON.stringify(data), 60 * 60);
+                    document.location.reload();
 
+                }
+                
+
+            }
 
         }
     }
@@ -133,6 +147,16 @@ class ProductInBagElement {
                     console.log(response);
 
                 });
+        }else {
+
+            const cookieProductsIndex = CookieManager.getCookie('temp_bag_product_index');
+            for(let i = 1; i <= cookieProductsIndex; i++) {
+                const currentProduct = CookieManager.getCookie('temp_product_in_bag_' + i);
+                if(currentProduct && this.productId == JSON.parse(currentProduct).idProduct){
+                    CookieManager.setCookie('temp_product_in_bag_' + i,null,1);
+                }
+            }
+
         }
     }
 }
