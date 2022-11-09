@@ -43,23 +43,8 @@
     gap: 100px;
     align-items: center;
     flex-direction: row;
-
-}
-
-.add-to-bag-btn {
-
-    width: 150px;
-    height: 65px;
     margin-top: 35px;
-    border-radius: 5px;
-    color: whitesmoke;
-    background: #1D1D1D;
-    transition: 0.1s linear all;
 
-}
-
-.add-to-bag-btn:hover {
-    background: #6A6A6A;
 }
 
 .wrapper-add-remove-quantity {

@@ -1,5 +1,6 @@
 import UtilsForm from '../../common/js/utlis-form.js';
 import UtilsFetch from '../../common/js/utils-fetch.js';
+import CookieManager from '../../common/js/cookie-manager.js';
 
 class ValidationFormCredentionals {
     constructor(parentElement) {
@@ -29,15 +30,19 @@ class ValidationFormCredentionals {
         this.elements.formRegistration.addEventListener('submit', (event) => {
             /* debugger */
             const emptyElements = this.utilsForm.getEmptyInput();
+            const userAuth = CookieManager.getCookie('user_auth');
 
-            console.log("Hello world");
+            const hashPsw = this.utilsForm.getHash(this.elements.inputPsw.value);
+            this.elements.inputPsw.value = '';
+            this.elements.inputPswHash.value = hashPsw;
+
             event.preventDefault();
 
             if (emptyElements == null) {
                 const data = {
                     'email': this.elements.inputEmail.value,
-                    'psw': this.elements.inputPsw.value,
                     'pswHash': this.elements.inputPswHash.value,
+                    'userId': userAuth,
                 };
 
                 UtilsFetch.postData('./php/account-credentials.php', data)

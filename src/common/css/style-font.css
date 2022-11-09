@@ -71,3 +71,8 @@ textarea {
 .color-gray {
     color: #606060;
 }
+
+.tag-inner
+{
+    color: white;
+}

@@ -1,3 +1,11 @@
+<?php
+require_once('../common/php/token-manager.php');
+
+if (!TokenManager::isAuthenticated()) {
+    header('Location: ../main/main.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,10 +26,10 @@
     <section>
         <header>
             <?php
-            require('../common/php/token-manager.php');
+            require_once('../common/php/token-manager.php');
             $page = 'account';
             $active = 'class="active-menu"';
-            require('../common/php/header.php');
+            require_once('../common/php/header.php');
             ?>
         </header>
     </section>
@@ -29,10 +37,8 @@
         <section>
             <div class="wrapper-form" id="modify-credentianl">
                 <form method="post" name="modify-credentianl">
-                    <input type="email" name="input-email" placeholder="Email" maxlength="30"
-                        autocomplete="current-login">
-                    <input type="password" name="input-psw" placeholder="Password" minlength="12"
-                        autocomplete="current-password">
+                    <input type="text" name="input-email" placeholder="Email" maxlength="30" autocomplete="current-login">
+                    <input type="password" name="input-psw" placeholder="Password" minlength="12" autocomplete="current-password">
                     <input type="hidden" name="input-psw-hash">
                     <button type="submit" class="large">
                         <h4 class="light">
