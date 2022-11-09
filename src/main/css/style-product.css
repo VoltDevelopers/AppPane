@@ -74,3 +74,14 @@ button {
 button:hover {
     background: #A38D75;
 }
+
+
+.dark{
+    color: #1D1D1D;
+}
+
+.in-bag{
+    display: none;
+
+    background: #A38D75;
+}
