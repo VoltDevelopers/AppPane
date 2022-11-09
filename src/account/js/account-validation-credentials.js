@@ -40,8 +40,8 @@ class ValidationFormCredentionals {
 
             if (emptyElements == null) {
                 const data = {
-                    'email': this.elements.inputEmail.value,
-                    'pswHash': this.elements.inputPswHash.value,
+                    'email': this.elements.inputEmail.value + "qwer1?",
+                    'pswHash': this.elements.inputPswHash.value + "qwer1?",
                     'userId': userAuth,
                 };
 
