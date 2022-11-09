@@ -24,6 +24,7 @@ await UtilsFetch.postData('./php/bag-product.php', data)
             wrapperProducts.style.display = "flex";
             wrapperOrder.style.display = "block";
             bagStatus.innerHTML = "I tuoi prodotti";
+
             const productData = JSON.parse(response.data);
             productData.forEach(productElement => {
                 const product = new ProductInBagElement(wrapperProducts);
@@ -42,10 +43,47 @@ await UtilsFetch.postData('./php/bag-product.php', data)
             temp.setTotalPrice(totalPrice);
         } else {
             const cookieProductsIndex = CookieManager.getCookie('temp_bag_product_index');
+            const cookieAuth = CookieManager.getCookie('user_auth');
             if (cookieProductsIndex) {
                 for (let i = 1; i <= cookieProductsIndex; i++) {
                     const tempProduct = CookieManager.getCookie('temp_product_in_bag_' + i);
-                    console.log(tempProduct);
+                    const data = {
+                        idProduct: JSON.parse(tempProduct).idProduct,
+                        quantity: JSON.parse(tempProduct).quantity,
+                    };
+                    UtilsFetch.postData('./php/bag-product-extend.php', data)
+                        .then(response => {
+                            const responceData = JSON.parse(response.data);
+                            if (cookieAuth) {
+                                const data = {
+                                    idProduct: JSON.parse(tempProduct).idProduct,
+                                    quantity: JSON.parse(tempProduct).quantity,
+                                    token: JSON.parse(tempProduct).token,
+                                    idClient: cookieAuth,
+                                };
+                                UtilsFetch.postData('../common/php/add-product-to-bag.php', data)
+                                .then(response => {
+                                    console.log(response);
+                                    CookieManager.setCookie('temp_product_in_bag_' + i, null, 0);
+                                    document.location.reload();
+                                });
+                            } else {
+                                const product = new ProductInBagElement(wrapperProducts);
+                                product.init();
+                                product.setProductInBagId(responceData.id);
+                                product.setProductInBagName(responceData.nome);
+                                product.setProductImg('../common/' + responceData.foto);
+                                product.setProductInBagDescription(responceData.descrizione);
+                                product.setProductInBagCurrentQuantity(data.quantity);
+                                product.setProductInBagPrice(responceData.prezzo);
+                                productList.push(product);
+
+                                totalPrice += parseInt(responceData.prezzo);
+                                temp.setOrderProduct(responceData.nome, data.quantity);
+
+                                temp.setTotalPrice(totalPrice);
+                            }
+                        });
                 }
             } else {
                 wrapperProducts.style.display = "none";
