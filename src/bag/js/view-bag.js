@@ -36,7 +36,7 @@ await UtilsFetch.postData('./php/bag-product.php', data)
                 product.setProductInBagPrice(productElement['prezzo'] * productElement['quantita']);
                 productList.push(product);
 
-                totalPrice += parseInt(productElement['prezzo'] * productElement['quantita']);
+                totalPrice += parseInt(productElement['prezzo']) * parseInt(productElement['quantita']);
                 managerOrder.setOrderProduct(productElement['nome'], productElement['quantita']);
             });
         }
@@ -79,7 +79,8 @@ await UtilsFetch.postData('./php/bag-product.php', data)
                                 product.setProductInBagPrice(responceData.prezzo * data.quantity);
                                 productList.push(product);
 
-                                totalPrice += parseInt(responceData.prezzo * data.quantity);
+                                totalPrice += (parseInt(responceData.prezzo) * parseInt(data.quantity));
+                                managerOrder.setTotalPrice(totalPrice);
                                 managerOrder.setOrderProduct(responceData.nome, data.quantity);
                             }
                         });
