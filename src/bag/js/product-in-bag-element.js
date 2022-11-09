@@ -1,3 +1,6 @@
+import CookieManager from "../../common/js/cookie-manager.js";
+import UtilsFetch from "../../common/js/utils-fetch.js";
+
 class ProductInBagElement {
     constructor(parentElement) {
         this.rootElement = parentElement;
@@ -41,7 +44,8 @@ class ProductInBagElement {
         this.elements.btnAddQuantity.addEventListener('click', (event) => {
             const newQuantity = parseInt(this.elements.currentQuantity.textContent) + 1;
             this.elements.currentQuantity.innerHTML = newQuantity;
-            this.setProductPrice(this.getNewPrice(true));
+            this.setProductInBagPrice(this.getNewPrice(true));
+            this.updateQuantity();
         });
 
         this.elements.btnRemoveQuantity.addEventListener('click', (event) => {
@@ -49,13 +53,14 @@ class ProductInBagElement {
             if (newQuantity > 1) {
                 newQuantity--;
                 this.elements.currentQuantity.innerHTML = newQuantity;
-                this.setProductPrice(this.getNewPrice(false));
+                this.setProductInBagPrice(this.getNewPrice(false));
+                this.updateQuantity();
             }
         });
     }
 
     setProductInBagId(id) {
-        this.id = id;
+        this.productId = id;
     }
 
     setProductInBagName(name) {
@@ -91,6 +96,37 @@ class ProductInBagElement {
             newPrice = parseInt(priceNum[1]) - parseInt(this.productBasePrice);
         }
         return newPrice;
+    }
+
+    updateQuantity(){
+
+        if(CookieManager.getCookie('user_auth')){
+
+            const data ={
+                clientId: CookieManager.getCookie('user_auth'),
+                productId: this.productId,
+                productQuantity: this.elements.currentQuantity.textContent,
+
+            }
+            console.log(data);
+            UtilsFetch.postData('./php/bag-update.php', data)
+                .then(response => {
+
+                    if(response.status == 200){
+
+                        document.location.reload();
+
+                    }else{
+
+
+                    }
+
+                });
+
+        }else {
+
+
+        }
     }
 }
 

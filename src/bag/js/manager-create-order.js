@@ -52,6 +52,7 @@ class ManagerCreateOrder {
     setTotalPrice(price){
         this.elements.orderPrice.innerHTML = `$${price}`;
     }
+    
 }
 
 export default ManagerCreateOrder;
