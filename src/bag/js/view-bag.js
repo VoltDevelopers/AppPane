@@ -24,7 +24,6 @@ await UtilsFetch.postData('./php/bag-product.php', data)
             wrapperProducts.style.display = "flex";
             wrapperOrder.style.display = "block";
             bagStatus.innerHTML = "I tuoi prodotti";
-
             const productData = JSON.parse(response.data);
             productData.forEach(productElement => {
                 const product = new ProductInBagElement(wrapperProducts);
@@ -34,7 +33,7 @@ await UtilsFetch.postData('./php/bag-product.php', data)
                 product.setProductImg('../common/' + productElement['foto']);
                 product.setProductInBagDescription(productElement['descrizione']);
                 product.setProductInBagCurrentQuantity(productElement['quantita']);
-                product.setProductInBagPrice(productElement['prezzo']);
+                product.setProductInBagPrice(productElement['prezzo'] * productElement['quantita']);
                 productList.push(product);
 
                 totalPrice += parseInt(productElement['prezzo']);
