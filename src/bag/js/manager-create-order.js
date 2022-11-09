@@ -19,22 +19,7 @@ class ManagerCreateOrder {
     }
 
     initEventListener() {
-        // this.elements.btnRemoveArticle.addEventListener('click', (event) => {
-        //     this.elements.wrapperProduct.remove();
-        // });
 
-        // this.elements.btnAddQuantity.addEventListener('click', (event) => {
-        //     const newQuantity = parseInt(this.elements.currentQuantity.textContent) + 1;
-        //     this.elements.currentQuantity.innerHTML = newQuantity;
-        // });
-
-        // this.elements.btnRemoveQuantity.addEventListener('click', (event) => {
-        //     let newQuantity = parseInt(this.elements.currentQuantity.textContent);
-        //     if (newQuantity > 1) {
-        //         newQuantity--;
-        //         this.elements.currentQuantity.innerHTML = newQuantity;
-        //     }
-        // });
     }
 
     setOrderProduct(product, productQuantity) {
