@@ -19,7 +19,9 @@ class ManagerCreateOrder {
     }
 
     initEventListener() {
-
+        this.elements.btnOrder.addEventListener('click', (event) => {
+            console.log('create order');
+        });
     }
 
     setOrderProduct(product, productQuantity) {
