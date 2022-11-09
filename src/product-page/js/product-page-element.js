@@ -40,7 +40,6 @@ class ProductPageElement {
         this.elements.btnAddQuantity.addEventListener("click", (event) => {
             const newQuantity = parseInt(this.elements.currentQuantity.textContent) + 1;
             this.elements.currentQuantity.innerHTML = newQuantity;
-            this.setProductPrice(this.getNewPrice(true));
         });
 
         this.elements.btnRemoveQuantity.addEventListener("click", (event) => {
@@ -48,7 +47,6 @@ class ProductPageElement {
             if (newQuantity > 1) {
                 newQuantity--;
                 this.elements.currentQuantity.innerHTML = newQuantity;
-                this.setProductPrice(this.getNewPrice(false));
             }
         });
     }
@@ -71,21 +69,6 @@ class ProductPageElement {
 
     setProductDescription(description) {
         this.elements.productDescription.innerHTML = description;
-    }
-
-    getNewPrice(isPlus) {
-        let newPrice = 0;
-        let priceNum = this.elements.productPrice.textContent.split("$");
-        if (this.isFirstTime) {
-            this.productBasePrice = priceNum[1];
-            this.isFirstTime = false;
-        }
-        if (isPlus) {
-            newPrice = parseInt(priceNum[1]) + parseInt(this.productBasePrice);
-        } else {
-            newPrice = parseInt(priceNum[1]) - parseInt(this.productBasePrice);
-        }
-        return newPrice;
     }
 }
 
