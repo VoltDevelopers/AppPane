@@ -5,6 +5,16 @@
     padding: 35px 20px;
 }
 
+.product-tag:hover {
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+}
+
+.wrapper-product-img:hover {
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+}
+
 .wrapper-product-img {
     position: relative;
     background-repeat: no-repeat;
@@ -27,6 +37,7 @@
         height: 300px;
     }
 }
+
 @media screen and (min-width: 1551px) {
     .wrapper-product-img {
         height: 360px;
