@@ -45,7 +45,7 @@ if (!TokenManager::isAuthenticated()) {
             </div>
         </section>
     </main>
-    <?php include '../common/php/footer.php'; ?>
+    
 </body>
 <script src="./js/view-list-order.js" type="module"></script>
 

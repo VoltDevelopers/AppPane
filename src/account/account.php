@@ -65,7 +65,7 @@ if (!TokenManager::isAuthenticated()) {
             </div>
         </section>
     </main>
-    <?php include '../common/php/footer.php'; ?>
+    
 </body>
 <script src="./js/view-account.js" type="module"></script>
 
