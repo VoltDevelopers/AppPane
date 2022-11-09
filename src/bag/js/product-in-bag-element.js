@@ -1,9 +1,7 @@
-<<<<<<< HEAD
+
 import CookieManager from "../../common/js/cookie-manager.js";
 import UtilsFetch from "../../common/js/utils-fetch.js";
-=======
 import ManagerCreateOrder from "./manager-create-order.js";
->>>>>>> origin
 
 class ProductInBagElement {
     constructor(parentElement) {
@@ -48,15 +46,9 @@ class ProductInBagElement {
         this.elements.btnAddQuantity.addEventListener('click', (event) => {
             const newQuantity = parseInt(this.elements.currentQuantity.textContent) + 1;
             this.elements.currentQuantity.innerHTML = newQuantity;
-<<<<<<< HEAD
             this.setProductInBagPrice(this.getNewPrice(true));
             this.updateQuantity();
         });
-=======
-            this.setProductInBagPrice(this.getNewPrice(true))
-            this.refreshOrderAll();
-            });
->>>>>>> origin
 
         this.elements.btnRemoveQuantity.addEventListener('click', (event) => {
             let newQuantity = parseInt(this.elements.currentQuantity.textContent);
@@ -64,11 +56,8 @@ class ProductInBagElement {
                 newQuantity--;
                 this.elements.currentQuantity.innerHTML = newQuantity;
                 this.setProductInBagPrice(this.getNewPrice(false));
-<<<<<<< HEAD
                 this.updateQuantity();
-=======
-                this.refreshOrderAll();
->>>>>>> origin
+    
             }
         });
     }
@@ -111,8 +100,6 @@ class ProductInBagElement {
         }
         return newPrice;
     }
-
-<<<<<<< HEAD
     updateQuantity(){
 
         if(CookieManager.getCookie('user_auth')){
@@ -143,14 +130,6 @@ class ProductInBagElement {
 
         }
     }
-=======
-    refreshOrderAll(){
-
-     
-
-    }
-
->>>>>>> origin
 }
 
 export default ProductInBagElement;
