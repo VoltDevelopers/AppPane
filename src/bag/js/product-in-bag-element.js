@@ -3,6 +3,8 @@ class ProductInBagElement {
         this.rootElement = parentElement;
         this.elements = {};
         this.productId = null;
+        this.isFirstTime = true;
+        this.productBasePrice = 0;
 
         const parser = new DOMParser();
         const templateString = '<div class="article-wrapper"> <div class="image-wrapper"> <div class="product-type-wrapper"></div></div><div class="right-wrapper"> <div class="product-header-wrapper"> <h4 class="product-name"></h4> <div class="icon-close"></div></div><div class="description-wrapper"> <h6 class="product-description"></h6> </div><div class="product-footer-wrapper"> <div class="add-remove-quantity-wrapper"> <div class="icon-plus"></div><h4 class="current-quantity">1</h4> <div class="icon-minus"></div></div><div class="price-wrapper"> <h5>Total: <span class="fuchsia product-price"></span></h5> </div></div></div></div>';
@@ -39,6 +41,7 @@ class ProductInBagElement {
         this.elements.btnAddQuantity.addEventListener('click', (event) => {
             const newQuantity = parseInt(this.elements.currentQuantity.textContent) + 1;
             this.elements.currentQuantity.innerHTML = newQuantity;
+            this.setProductPrice(this.getNewPrice(true));
         });
 
         this.elements.btnRemoveQuantity.addEventListener('click', (event) => {
@@ -46,6 +49,7 @@ class ProductInBagElement {
             if (newQuantity > 1) {
                 newQuantity--;
                 this.elements.currentQuantity.innerHTML = newQuantity;
+                this.setProductPrice(this.getNewPrice(false));
             }
         });
     }
@@ -72,6 +76,21 @@ class ProductInBagElement {
 
     setProductInBagPrice(price) {
         this.elements.productPrice.innerHTML = '$' + price;
+    }
+
+    getNewPrice(isPlus) {
+        let newPrice = 0;
+        let priceNum = this.elements.productPrice.textContent.split("$");
+        if (this.isFirstTime) {
+            this.productBasePrice = priceNum[1];
+            this.isFirstTime = false;
+        }
+        if (isPlus) {
+            newPrice = parseInt(priceNum[1]) + parseInt(this.productBasePrice);
+        } else {
+            newPrice = parseInt(priceNum[1]) - parseInt(this.productBasePrice);
+        }
+        return newPrice;
     }
 }
 
