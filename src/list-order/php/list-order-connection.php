@@ -11,14 +11,13 @@
     $clientId = $data->clientId;
 
     $stmt = $pdo->prepare('SELECT * FROM tordinimaster JOIN tordinidetail WHERE idCliente=:clientId');
-    $stmt->execute(['ClientId' => $clientId]);
 
     $result = null;
-    $order = $stmt ->fetch();
+    $orderList = $stmt ->fetchAll();
 
-    if($order != null){
+    if($orderList != null){
         $result = array(
-            'data' => json_encode($order),
+            'data' => json_encode($orderList),
             'status' => 200,
         );
     }else {

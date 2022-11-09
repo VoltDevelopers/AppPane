@@ -1,7 +1,7 @@
 <?php
 class ConnectionMySQL
 {
-     private const host = '127.0.0.1:3306';
+     private const host = '127.0.0.1:8889';
      private const db = 'appane';
      private const user = 'root';
      private const pass = '';

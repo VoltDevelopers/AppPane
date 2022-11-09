@@ -35,7 +35,7 @@ if (!TokenManager::isAuthenticated()) {
     </section>
     <main class="wrapper-main-block">
         <section>
-            <h3 class="wrapper-name">Your orders:</h3>
+            <h3 class="wrapper-name">I tuoi ordini:</h3>
             <div class="wrapper-order">
 
             </div>
