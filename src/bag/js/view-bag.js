@@ -11,8 +11,8 @@ const data = {
     'token': CookieManager.getCookie('user_id'),
 };
 
-const temp = new ManagerCreateOrder(wrapperOrder);
-temp.init();
+const managerOrder = new ManagerCreateOrder(wrapperOrder);
+managerOrder.init();
 
 const productInBagList = [];
 const productList = [];
@@ -36,9 +36,8 @@ await UtilsFetch.postData('./php/bag-product.php', data)
                 product.setProductInBagPrice(productElement['prezzo'] * productElement['quantita']);
                 productList.push(product);
 
-                totalPrice += parseInt(productElement['prezzo']);
-
-                temp.setOrderProduct(productElement['nome'], productElement['quantita']);
+                totalPrice += parseInt(productElement['prezzo']) * parseInt(productElement['quantita']);
+                managerOrder.setOrderProduct(productElement['nome'], productElement['quantita']);
             });
         }
 
@@ -80,17 +79,16 @@ await UtilsFetch.postData('./php/bag-product.php', data)
                                 product.setProductInBagPrice(responceData.prezzo * data.quantity);
                                 productList.push(product);
 
-                                totalPrice += parseInt(responceData.prezzo);
-                                temp.setOrderProduct(responceData.nome, data.quantity);
-
-                                temp.setTotalPrice(totalPrice);
+                                totalPrice += (parseInt(responceData.prezzo) * parseInt(data.quantity));
+                                managerOrder.setTotalPrice(totalPrice);
+                                managerOrder.setOrderProduct(responceData.nome, data.quantity);
                             }
                         });
                 }
             }
         }
 
-        temp.setTotalPrice(totalPrice);
+        managerOrder.setTotalPrice(totalPrice);
 
         if (response.status == 417 && !cookieProductsIndex) {
             wrapperProducts.style.display = "none";

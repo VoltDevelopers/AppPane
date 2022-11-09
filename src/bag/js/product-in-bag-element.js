@@ -158,6 +158,7 @@ class ProductInBagElement {
             }
 
         }
+        document.location.reload();
     }
 }
 
