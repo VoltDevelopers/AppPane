@@ -2,7 +2,6 @@ class ManagerCreateOrder {
     constructor(parentElement) {
         this.rootElement = parentElement;
         this.elements = {};
-        this.currentPrice = 0;
     }
 
     init() {
@@ -19,22 +18,9 @@ class ManagerCreateOrder {
     }
 
     initEventListener() {
-        // this.elements.btnRemoveArticle.addEventListener('click', (event) => {
-        //     this.elements.wrapperProduct.remove();
-        // });
-
-        // this.elements.btnAddQuantity.addEventListener('click', (event) => {
-        //     const newQuantity = parseInt(this.elements.currentQuantity.textContent) + 1;
-        //     this.elements.currentQuantity.innerHTML = newQuantity;
-        // });
-
-        // this.elements.btnRemoveQuantity.addEventListener('click', (event) => {
-        //     let newQuantity = parseInt(this.elements.currentQuantity.textContent);
-        //     if (newQuantity > 1) {
-        //         newQuantity--;
-        //         this.elements.currentQuantity.innerHTML = newQuantity;
-        //     }
-        // });
+        this.elements.btnOrder.addEventListener('click', (event) => {
+            console.log('create order');
+        });
     }
 
     setOrderProduct(product, productQuantity) {
@@ -49,7 +35,6 @@ class ManagerCreateOrder {
     }
 
     setTotalPrice(price){
-        this.currentPrice = price;
         this.elements.orderPrice.innerHTML = `$${price}`;
     }
     

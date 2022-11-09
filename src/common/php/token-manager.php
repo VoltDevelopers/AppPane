@@ -15,7 +15,7 @@ class TokenManager
         TokenManager::unauthenticate();
         unset($_SESSION['user_id']);
         setcookie("user_id", "", time() - (60*60*24), '/');
-        header("Location: /");
+        header("Location: ../../../index.php");
         exit;
     }
 
