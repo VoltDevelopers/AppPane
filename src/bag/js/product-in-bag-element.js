@@ -1,9 +1,7 @@
-<<<<<<< HEAD
+
 import CookieManager from "../../common/js/cookie-manager.js";
 import UtilsFetch from "../../common/js/utils-fetch.js";
-=======
 import ManagerCreateOrder from "./manager-create-order.js";
->>>>>>> origin
 
 class ProductInBagElement {
     constructor(parentElement) {
@@ -43,32 +41,23 @@ class ProductInBagElement {
     initEventListener() {
         this.elements.btnRemoveArticle.addEventListener('click', (event) => {
             this.elements.wrapperProduct.remove();
+            this.removeElement();
         });
 
         this.elements.btnAddQuantity.addEventListener('click', (event) => {
             const newQuantity = parseInt(this.elements.currentQuantity.textContent) + 1;
             this.elements.currentQuantity.innerHTML = newQuantity;
-<<<<<<< HEAD
-            this.setProductInBagPrice(this.getNewPrice(true));
             this.updateQuantity();
+            this.updateTotalPrice();
         });
-=======
-            this.setProductInBagPrice(this.getNewPrice(true))
-            this.refreshOrderAll();
-            });
->>>>>>> origin
 
         this.elements.btnRemoveQuantity.addEventListener('click', (event) => {
             let newQuantity = parseInt(this.elements.currentQuantity.textContent);
             if (newQuantity > 1) {
                 newQuantity--;
                 this.elements.currentQuantity.innerHTML = newQuantity;
-                this.setProductInBagPrice(this.getNewPrice(false));
-<<<<<<< HEAD
                 this.updateQuantity();
-=======
-                this.refreshOrderAll();
->>>>>>> origin
+                this.updateTotalPrice();
             }
         });
     }
@@ -97,22 +86,6 @@ class ProductInBagElement {
         this.elements.productPrice.innerHTML = '$' + price;
     }
 
-    getNewPrice(isPlus) {
-        let newPrice = 0;
-        let priceNum = this.elements.productPrice.textContent.split("$");
-        if (this.isFirstTime) {
-            this.productBasePrice = priceNum[1];
-            this.isFirstTime = false;
-        }
-        if (isPlus) {
-            newPrice = parseInt(priceNum[1]) + parseInt(this.productBasePrice);
-        } else {
-            newPrice = parseInt(priceNum[1]) - parseInt(this.productBasePrice);
-        }
-        return newPrice;
-    }
-
-<<<<<<< HEAD
     updateQuantity(){
 
         if(CookieManager.getCookie('user_auth')){
@@ -123,7 +96,6 @@ class ProductInBagElement {
                 productQuantity: this.elements.currentQuantity.textContent,
 
             }
-            console.log(data);
             UtilsFetch.postData('./php/bag-update.php', data)
                 .then(response => {
 
@@ -143,14 +115,26 @@ class ProductInBagElement {
 
         }
     }
-=======
-    refreshOrderAll(){
+    
+    removeElement(){
 
-     
+        if(CookieManager.getCookie('user_auth')){
 
+            const data = {
+
+                clientId: CookieManager.getCookie('user_auth'),
+                productId: this.productId,
+
+            }
+            console.log(data);
+            UtilsFetch.postData('./php/bag-remove-product.php', data)
+                .then(response =>{
+
+                    console.log(response);
+
+                });
+        }
     }
-
->>>>>>> origin
 }
 
 export default ProductInBagElement;
