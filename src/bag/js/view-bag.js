@@ -20,7 +20,7 @@ let totalPrice = 0;
 
 await UtilsFetch.postData('./php/bag-product.php', data)
     .then(response => {
-        if (response.status == '200') {
+        if (response.status == 200) {
             wrapperProducts.style.display = "flex";
             wrapperOrder.style.display = "block";
             bagStatus.innerHTML = "I tuoi prodotti";
@@ -41,13 +41,14 @@ await UtilsFetch.postData('./php/bag-product.php', data)
 
                 temp.setOrderProduct(productElement['nome'], productElement['quantita']);
             });
-            temp.setTotalPrice(totalPrice);
-        } else {
-            const cookieProductsIndex = CookieManager.getCookie('temp_bag_product_index');
-            const cookieAuth = CookieManager.getCookie('user_auth');
-            if (cookieProductsIndex) {
-                for (let i = 1; i <= cookieProductsIndex; i++) {
-                    const tempProduct = CookieManager.getCookie('temp_product_in_bag_' + i);
+        }
+
+        const cookieProductsIndex = CookieManager.getCookie('temp_bag_product_index');
+        const cookieAuth = CookieManager.getCookie('user_auth');
+        if (cookieProductsIndex) {
+            for (let i = 1; i <= cookieProductsIndex; i++) {
+                const tempProduct = CookieManager.getCookie('temp_product_in_bag_' + i);
+                if (tempProduct) {
                     const data = {
                         idProduct: JSON.parse(tempProduct).idProduct,
                         quantity: JSON.parse(tempProduct).quantity,
@@ -63,11 +64,12 @@ await UtilsFetch.postData('./php/bag-product.php', data)
                                     idClient: cookieAuth,
                                 };
                                 UtilsFetch.postData('../common/php/add-product-to-bag.php', data)
-                                .then(response => {
-                                    console.log(response);
-                                    CookieManager.setCookie('temp_product_in_bag_' + i, null, 0);
-                                    document.location.reload();
-                                });
+                                    .then(response => {
+                                        console.log(response);
+                                        CookieManager.setCookie('temp_product_in_bag_' + i, null, 1);
+                                        CookieManager.setCookie('temp_bag_product_index', cookieProductsIndex - i, 1);
+                                        document.location.reload();
+                                    });
                             } else {
                                 const product = new ProductInBagElement(wrapperProducts);
                                 product.init();
@@ -86,12 +88,16 @@ await UtilsFetch.postData('./php/bag-product.php', data)
                             }
                         });
                 }
-            } else {
-                wrapperProducts.style.display = "none";
-                wrapperOrder.style.display = "none";
-                bagStatus.innerHTML = "Non ci sono prodotti nel carrello";
-                // todo log error
             }
         }
+
+        temp.setTotalPrice(totalPrice);
+
+        if (response.status == 417 && !cookieProductsIndex) {
+            wrapperProducts.style.display = "none";
+            wrapperOrder.style.display = "none";
+            bagStatus.innerHTML = "Non ci sono prodotti nel carrello";
+        }
+       
     });
 
