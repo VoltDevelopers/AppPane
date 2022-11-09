@@ -55,3 +55,18 @@
     gap: 40px;
 
 }
+
+
+.color-white{
+    color: white;
+}
+
+.dark{
+    color: #1D1D1D;
+}
+
+.in-bag{
+    display: none;
+
+    background: #A38D75;
+}

@@ -8,7 +8,7 @@ class ProductElement {
         this.productId = null;
 
         const parser = new DOMParser();
-        const templateString = `<div class="wrapper-product"><div class="wrapper-product-img"><div class="product-tag"><div class="hide">See more </div><h6 class="tag-inner"></h6></div></div><div class="wrapper-product-desc"><div class="product-desc"><h5 class="product-name"></h5><h6 class="product-price color-gray"></h6></div><button><h6 class="light">Add to bag</h6></button><button class="in-bag"><h6 class="light">In bag</h6></button></div></div>`;
+       const templateString = `<div class="wrapper-product"><div class="wrapper-product-img"><div class="hide">See more </div><div class="product-tag"><h6 class="tag-inner"></h6></div></div><div class="wrapper-product-desc"><div class="product-desc"><h5 class="product-name"></h5><h6 class="product-price color-gray"></h6></div><button><h6 class="light">Add to bag</h6></button><button class="in-bag"><h6 class="in-bag">In bag</h6></button></div></div>`;
         const templateElement = parser.parseFromString(templateString, 'text/html');
         this.template = templateElement.documentElement.querySelector("body > div");
     }

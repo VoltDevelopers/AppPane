@@ -9,7 +9,7 @@ class ProductPageElement {
         this.productBasePrice = 0;
 
         const parser = new DOMParser();
-        const templateString = '<div class="wrapper-product"><div class="wrapper-image"></div><div class="wrapper-product-contents"><div class="wrapper-product-name"><h4 class="product-name"></h4></div><div class="wrapper-product-price"><h4 class = "product-price"></h4></div><div class="wrapper-product-description"><h6 class="product-description"></h6></div><div class="wrapper-product-bottom-content"><button type="button" class = "add-to-bag-btn"><h6 class="light">Add to bag</h6></button><div class="wrapper-add-remove-quantity"><div class="icon-plus"></div><h4 class = "current-quantity">1</h4><div class="icon-minus"></div></div></div></div></div>';
+        const templateString = '<div class="wrapper-product"><div class="wrapper-image"></div><div class="wrapper-product-contents"><div class="wrapper-product-name"><h4 class="product-name"></h4></div><div class="wrapper-product-price"><h4 class = "product-price"></h4></div><div class="wrapper-product-description"><h6 class="product-description"></h6></div><div class="wrapper-product-bottom-content"><button type="button" class = "add-to-bag-btn"><h6 class="light">Add to bag</h6></button><button class="in-bag"><h6 class="color-white">In bag</h6></button><div class="wrapper-add-remove-quantity"><div class="icon-plus"></div><h4 class = "current-quantity">1</h4><div class="icon-minus"></div></div></div></div></div>';
         const templateElement = parser.parseFromString(templateString, 'text/html');
         this.template = templateElement.documentElement.querySelector('body > div');
     }
@@ -29,6 +29,7 @@ class ProductPageElement {
             btnAddQuantity: this.template.querySelector(".icon-plus"),
             currentQuantity: this.template.querySelector(".current-quantity"),
             btnRemoveQuantity: this.template.querySelector(".icon-minus"),
+            buttoninbag: this.template.querySelector('.in-bag'),
         }
         this.rootElement.appendChild(this.template);
     }
@@ -38,9 +39,12 @@ class ProductPageElement {
             const data = {
                 'idClient': CookieManager.getCookie('user_auth'),
                 'idProduct': this.productId,
-                'quantity': this.template.querySelector(".current-quantity"),
+                'quantity': this.elements.currentQuantity.innerHTML,
                 'token': CookieManager.getCookie('user_id'),
             };
+
+            this.elements.btnAddToCart.style.display = "none";
+            this.elements.buttoninbag.style.display = "block";
 
             if (data.idClient) {
                 UtilsFetch.postData('../common/php/add-product-to-bag.php', data)
@@ -78,8 +82,35 @@ class ProductPageElement {
         });
     }
 
+    initbtn() {
+        const cookieProductsIndex = CookieManager.getCookie('temp_bag_product_index');
+        const cookieAuth = CookieManager.getCookie('user_auth');
+        debugger
+
+        if (cookieProductsIndex) {
+            // No LOGIN
+            for (let i = 1; i <= cookieProductsIndex; i++) {
+                const tempProduct = CookieManager.getCookie('temp_product_in_bag_' + i);
+                if (JSON.parse(tempProduct).idProduct == this.idProduct) {
+                    console.log("this product exists");
+                    debugger
+                }
+            }
+        } else if (cookieAuth) {
+            // YES LOGIN
+            UtilsFetch.postData('', data)
+            .then(response => {
+                if (response.status == 200) {
+                    console.log('this product exists');
+                }
+            });
+        }
+    }
+
+
     setProductId(id) {
         this.productId = id;
+        this.initbtn();
     }
 
     setProductImg(path) {

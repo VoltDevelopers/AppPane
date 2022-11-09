@@ -7,9 +7,7 @@ let product = [];
 console.log(idProduct);
 
 const data = {
-
     'idProduct': idProduct,
-
 };
 
 UtilsFetch.postData('./php/product-connection.php', data)
@@ -19,6 +17,7 @@ UtilsFetch.postData('./php/product-connection.php', data)
             product = JSON.parse(response.data);
             let temp = new ProductPageElement(document.querySelector(".main-container"));
             temp.init();
+            temp.setProductId(idProduct);
             temp.setProductImg(product['foto']);
             temp.setProductName(product['nome']);
             temp.setProductPrice(product['prezzo']);
