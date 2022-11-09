@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="./css/style-main.css">
     <link rel="stylesheet" href="./css/style-product.css">
     <link rel="stylesheet" href="./css/style-filter.css">
+    <link rel="stylesheet" href="../common/css/style-alert.css">
+
     <link rel="shortcut icon" href="../common/img/icon-shopping-bag.svg" />
 </head>
 
@@ -57,7 +59,6 @@
             </div>
         </section>
     </main>
-    
 </body>
 <script type="module" src="./js/view-main.js"></script>
 </html>

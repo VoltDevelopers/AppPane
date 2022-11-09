@@ -1,3 +1,4 @@
+import AlertExtend from "../../common/js/alert-manager.js";
 import CookieManager from "../../common/js/cookie-manager.js";
 import UtilsFetch from '../../common/js/utils-fetch.js';
 
@@ -58,13 +59,13 @@ class ProductElement {
                 CookieManager.setCookie(`temp_product_in_bag_${index}`, JSON.stringify(data), 60 * 60);
                 CookieManager.setCookie('temp_bag_product_index', index, 60 * 60);
             }
-
+            AlertExtend.showAlert("aggiunto al carrello", "aggiunta al carrello effettuata con successo");   
 
         });
         this.elements.productImg.addEventListener('click', (event) => {
             CookieManager.setCookie('temp_id_product', this.productId, 180);
             location.href = '../product-page/product-page.php';
-        });
+        });     
     }
 
     showProduct() {
