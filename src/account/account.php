@@ -19,7 +19,7 @@ if (!TokenManager::isAuthenticated()) {
     <link rel="stylesheet" href="./css/style-account.css">
     <link rel="stylesheet" href="../common/css/style-popup.css">
     <link rel="shortcut icon" href="../common/img/icon-shopping-bag.svg" />
-    <title>Main</title>
+    <title>Appane</title>
 </head>
 
 <body>

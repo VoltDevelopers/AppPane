@@ -24,7 +24,7 @@ temp2.setOrderProduct('Choccolate bread');
 temp2.setOrderDate('22 Novembre 2022');
 temp2.setOrderAddress('Via del pane 27');*/
 
-const clientId = CookieManager.getCookie('user_id');
+const clientId = CookieManager.getCookie('user_auth');
 console.log(clientId);
 let orderList;
 const data = {
