@@ -2,6 +2,7 @@ class ManagerCreateOrder {
     constructor(parentElement) {
         this.rootElement = parentElement;
         this.elements = {};
+        this.currentPrice = 0;
     }
 
     init() {
@@ -15,8 +16,6 @@ class ManagerCreateOrder {
             orderPrice: this.rootElement.querySelector(".order-price"),
             btnOrder: this.rootElement.querySelector(".btn-order"),
         }
-
-
     }
 
     initEventListener() {
@@ -50,6 +49,7 @@ class ManagerCreateOrder {
     }
 
     setTotalPrice(price){
+        this.currentPrice = price;
         this.elements.orderPrice.innerHTML = `$${price}`;
     }
 }
