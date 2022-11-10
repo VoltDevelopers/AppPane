@@ -94,10 +94,9 @@ await UtilsFetch.postData('./php/bag-product.php', data)
 
         managerOrder.setTotalPrice(totalPrice);
 
-        if (response.status == 417 && productList.length === 0 ) {
+        if (response.status == 417 && productList.length === 0) {
             wrapperProducts.style.display = "none";
             wrapperOrder.style.display = "none";
             bagStatus.innerHTML = "Non ci sono prodotti nel carrello";
         }
     });
-

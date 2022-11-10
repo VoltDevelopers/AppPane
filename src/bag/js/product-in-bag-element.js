@@ -63,6 +63,10 @@ class ProductInBagElement {
         this.productId = id;
     }
 
+    getProductId(){
+        return this.productId;
+    }
+
     setProductInBagName(name) {
         this.elements.productName.innerHTML = name;
     }
