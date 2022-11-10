@@ -14,9 +14,7 @@
     <?php
     if (TokenManager::isAuthenticated()) {
     ?>
-    <h5>
-        <a <?=($page=='orders') ? $active : ''; ?> href="../list-order/list-order.php">Orders</a>
-    </h5>
+    
     <h5 class="wrapper-popup-block">
         <a <?=($page=='account') ? $active : ''; ?> href="../account/account.php">Account</a>
         <div class="wrapper-popup-menu">
