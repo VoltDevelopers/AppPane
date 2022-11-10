@@ -21,7 +21,10 @@
     width: 550px;
     height: 390px;
 
-    background-color: aliceblue;
+    background: url('../../common/img/icon-main-image.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+
 }
 
 .wrapper-week-products {

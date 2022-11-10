@@ -34,7 +34,7 @@
                         Acquista i nostri prodotti
                     </h4>
                     <h6>
-                        Diamo la possibilità a tutti, amici, clienti e, soprattutto, chi abita distante da noi, di mangiare i nostri prodotti acquistandoli on-line!<br>
+                        Diamo la possibilità a tutti, amici, clienti e, soprattutto, chi a Trieste, di mangiare i nostri prodotti acquistandoli on-line!<br>
                         Il pane ed i nostri prodotti da forno si mantengono per diversi giorni, vi invitiamo a fare scorte sostanziose per rendere il servizio più efficiente e sostenibile.
                     </h6>
                 </div>
