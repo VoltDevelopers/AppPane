@@ -26,11 +26,13 @@ if ($user != null) {
         $price = $order['prezzo'] * $quantity;
 
         try {
+            if ($quantity != 0) {
+                $stmt = $pdo->prepare("INSERT INTO tordinidetail (`idProdotto`, `quantita`, `idOrdine`, `prezzo`) VALUES (:idProduct, :quantity, :idOrder, :price)");
+                $stmt->execute(['idProduct' => $idProduct, 'quantity' => $quantity, 'idOrder' => $idOrder, 'price' => $price]);
+            }
+
             $stmt = $pdo->prepare("UPDATE tcarrello SET quantita=0 WHERE id=:idOrder");
             $stmt->execute(['idOrder' => $idOrder]);
-
-            $stmt = $pdo->prepare("INSERT INTO tordinidetail (`idProdotto`, `quantita`, `idOrdine`, `prezzo`) VALUES (:idProduct, :quantity, :idOrder, :price)");
-            $stmt->execute(['idProduct' => $idProduct, 'quantity' => $quantity, 'idOrder' => $idOrder, 'price' => $price]);
 
             $result = array(
                 'data' => null,
