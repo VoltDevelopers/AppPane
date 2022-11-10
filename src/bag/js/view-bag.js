@@ -17,9 +17,10 @@ managerOrder.init();
 const productInBagList = [];
 const productList = [];
 let totalPrice = 0;
+let isCookieProd = false;
 
 await UtilsFetch.postData('./php/bag-product.php', data)
-    .then(response => {
+    .then(async response => {
         if (response.status == 200) {
             wrapperProducts.style.display = "flex";
             wrapperOrder.style.display = "block";
@@ -39,7 +40,7 @@ await UtilsFetch.postData('./php/bag-product.php', data)
 
                     totalPrice += parseInt(productElement['prezzo']) * parseInt(productElement['quantita']);
                     managerOrder.setOrderProduct(productElement['nome'], productElement['quantita']);
-                } 
+                }
             });
         }
 
@@ -53,7 +54,7 @@ await UtilsFetch.postData('./php/bag-product.php', data)
                         idProduct: JSON.parse(tempProduct).idProduct,
                         quantity: JSON.parse(tempProduct).quantity,
                     };
-                    UtilsFetch.postData('./php/bag-product-extend.php', data)
+                    await UtilsFetch.postData('./php/bag-product-extend.php', data)
                         .then(response => {
                             const responceData = JSON.parse(response.data);
                             if (cookieAuth) {
@@ -84,6 +85,7 @@ await UtilsFetch.postData('./php/bag-product.php', data)
                                 totalPrice += (parseInt(responceData.prezzo) * parseInt(data.quantity));
                                 managerOrder.setTotalPrice(totalPrice);
                                 managerOrder.setOrderProduct(responceData.nome, data.quantity);
+                                isCookieProd = true;
                             }
                         });
                 }
@@ -92,11 +94,10 @@ await UtilsFetch.postData('./php/bag-product.php', data)
 
         managerOrder.setTotalPrice(totalPrice);
 
-        if (response.status == 417 && !cookieProductsIndex || productList.length == 0) {
+        if (response.status == 417 && productList.length === 0 ) {
             wrapperProducts.style.display = "none";
             wrapperOrder.style.display = "none";
             bagStatus.innerHTML = "Non ci sono prodotti nel carrello";
         }
-
     });
 

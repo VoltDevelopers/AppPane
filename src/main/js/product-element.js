@@ -45,7 +45,7 @@ class ProductElement {
                 UtilsFetch.postData('../common/php/add-product-to-bag.php', data)
                     .then(response => {
                         if (response.status == '200') {
-                            // todo alert
+                            AlertExtend.showAlert("Carrello", "Il prodotto e' stato aggiunto nel carrello");
                             console.log('Added');
                         } else {
                             console.log(response.data);
@@ -58,9 +58,8 @@ class ProductElement {
                 const index = parseInt(CookieManager.getCookie('temp_bag_product_index')) + 1;
                 CookieManager.setCookie(`temp_product_in_bag_${index}`, JSON.stringify(data), 60 * 60);
                 CookieManager.setCookie('temp_bag_product_index', index, 60 * 60);
+                AlertExtend.showAlert("Carrello", "Il prodotto e' stato aggiunto nel carrello");
             }
-            AlertExtend.showAlert("aggiunto al carrello", "aggiunta al carrello effettuata con successo");
-
         });
         this.elements.productImg.addEventListener('click', (event) => {
             CookieManager.setCookie('temp_id_product', this.productId, 180);

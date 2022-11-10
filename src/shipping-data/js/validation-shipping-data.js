@@ -1,6 +1,7 @@
 import UtilsForm from '../../common/js/utlis-form.js';
 import UtilsFetch from '../../common/js/utils-fetch.js';
 import CookieManager from "../../common/js/cookie-manager.js";
+import AlertExtend from "../../common/js/alert-manager.js";
 
 class ValidationFormPersonalData {
     constructor(parentElement) {
@@ -56,10 +57,8 @@ class ValidationFormPersonalData {
                             };
                             UtilsFetch.postData('./php/create-order.php', data)
                             .then(response => {
-                                console.log(response);
                                 location.href = '../main/main.php';
                             });
-                            // todo add alert
                         } else {
                             console.log(response.data);
                         }
