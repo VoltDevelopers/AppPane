@@ -26,18 +26,20 @@ await UtilsFetch.postData('./php/bag-product.php', data)
             bagStatus.innerHTML = "I tuoi prodotti";
             const productData = JSON.parse(response.data);
             productData.forEach(productElement => {
-                const product = new ProductInBagElement(wrapperProducts);
-                product.init();
-                product.setProductInBagId(productElement['id']);
-                product.setProductInBagName(productElement['nome']);
-                product.setProductImg('../common/' + productElement['foto']);
-                product.setProductInBagDescription(productElement['descrizione']);
-                product.setProductInBagCurrentQuantity(productElement['quantita']);
-                product.setProductInBagPrice(productElement['prezzo'] * productElement['quantita']);
-                productList.push(product);
+                if (parseInt(productElement['quantita']) !== 0) {
+                    const product = new ProductInBagElement(wrapperProducts);
+                    product.init();
+                    product.setProductInBagId(productElement['id']);
+                    product.setProductInBagName(productElement['nome']);
+                    product.setProductImg('../common/' + productElement['foto']);
+                    product.setProductInBagDescription(productElement['descrizione']);
+                    product.setProductInBagCurrentQuantity(productElement['quantita']);
+                    product.setProductInBagPrice(productElement['prezzo'] * productElement['quantita']);
+                    productList.push(product);
 
-                totalPrice += parseInt(productElement['prezzo']) * parseInt(productElement['quantita']);
-                managerOrder.setOrderProduct(productElement['nome'], productElement['quantita']);
+                    totalPrice += parseInt(productElement['prezzo']) * parseInt(productElement['quantita']);
+                    managerOrder.setOrderProduct(productElement['nome'], productElement['quantita']);
+                } 
             });
         }
 
@@ -90,11 +92,11 @@ await UtilsFetch.postData('./php/bag-product.php', data)
 
         managerOrder.setTotalPrice(totalPrice);
 
-        if (response.status == 417 && !cookieProductsIndex) {
+        if (response.status == 417 && !cookieProductsIndex || productList.length == 0) {
             wrapperProducts.style.display = "none";
             wrapperOrder.style.display = "none";
             bagStatus.innerHTML = "Non ci sono prodotti nel carrello";
         }
-       
+
     });
 

@@ -1,7 +1,6 @@
 
 import CookieManager from "../../common/js/cookie-manager.js";
 import UtilsFetch from "../../common/js/utils-fetch.js";
-import ManagerCreateOrder from "./manager-create-order.js";
 
 class ProductInBagElement {
     constructor(parentElement) {
