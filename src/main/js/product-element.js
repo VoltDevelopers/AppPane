@@ -1,3 +1,4 @@
+import AlertExtend from "../../common/js/alert-manager.js";
 import CookieManager from "../../common/js/cookie-manager.js";
 import UtilsFetch from '../../common/js/utils-fetch.js';
 
@@ -48,6 +49,7 @@ class ProductElement {
                             // todo alert
                             console.log('Added');
                             this.initAddButton();
+                            AlertExtend.showAlert("Carrello", "Il prodotto e' stato aggiunto nel carrello");
                         } else {
                             console.log(response.data);
                         }
@@ -59,7 +61,6 @@ class ProductElement {
                 const index = parseInt(CookieManager.getCookie('temp_bag_product_index')) + 1;
                 CookieManager.setCookie(`temp_product_in_bag_${index}`, JSON.stringify(data), 60 * 60);
                 CookieManager.setCookie('temp_bag_product_index', index, 60 * 60);
-
                 const cookieProductsIndex = CookieManager.getCookie('temp_bag_product_index');
                 const cookieAuth = CookieManager.getCookie('user_auth');
 
@@ -77,6 +78,7 @@ class ProductElement {
                         }
                     }
                 }
+                AlertExtend.showAlert("Carrello", "Il prodotto e' stato aggiunto nel carrello");
             }
         });
 

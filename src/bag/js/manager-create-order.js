@@ -1,3 +1,5 @@
+import CookieManager from "../../common/js/cookie-manager.js";
+
 class ManagerCreateOrder {
     constructor(parentElement) {
         this.rootElement = parentElement;
@@ -19,7 +21,13 @@ class ManagerCreateOrder {
 
     initEventListener() {
         this.elements.btnOrder.addEventListener('click', (event) => {
-            console.log('create order');
+            const clientId = CookieManager.getCookie('user_auth');
+
+            if (clientId) {
+                location.href = '../shipping-data/shipping-data.php';
+            } else {
+                location.href = '../login/login.php';
+            }
         });
     }
 
@@ -34,10 +42,10 @@ class ManagerCreateOrder {
         this.elements.repOrder.innerHTML += templateProduct;
     }
 
-    setTotalPrice(price){
+    setTotalPrice(price) {
         this.elements.orderPrice.innerHTML = `$${price}`;
     }
-    
+
 }
 
 export default ManagerCreateOrder;

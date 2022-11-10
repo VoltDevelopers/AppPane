@@ -15,13 +15,24 @@ $token = $data->token;
 $result = null;
 
 try {
-    $stmt = $pdo->prepare("INSERT INTO tcarrello (idCliente, idProdotto, quantita, token) VALUES(:idClient, :idProduct, :quantity, :token);");
-    $stmt->execute(['idClient' => $idClient, 'idProduct' => $idProduct, 'quantity' => $quantity, 'token' => $token]);
+    $stmt = $pdo->prepare("SELECT * FROM tcarrello, tprodotti WHERE tcarrello.idCliente=:idC AND tcarrello.token=:tok AND tcarrello.idProdotto =:idProduct");
+    $stmt->execute(['idC' => $idClient, 'tok' => $token, 'idProduct' => $idProduct]);
+    $list = $stmt->fetchAll();
 
-    $result = array(
-        'data' => null,
-        'status' => 200,
-    );
+    if ($list == null) {
+        $stmt = $pdo->prepare("INSERT INTO tcarrello (idCliente, idProdotto, quantita, token) VALUES(:idClient, :idProduct, :quantity, :token);");
+        $stmt->execute(['idClient' => $idClient, 'idProduct' => $idProduct, 'quantity' => $quantity, 'token' => $token]);
+
+        $result = array(
+            'data' => null,
+            'status' => 200,
+        );
+    } else {
+        $result = array(
+            'data' => null,
+            'status' => 504,
+        );
+    }
 } catch (PDOException $e) {
     $result = array(
         'data' => $e,

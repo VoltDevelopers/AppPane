@@ -4,7 +4,6 @@ import UtilsFetch from "../../common/js/utils-fetch.js";
 
 const idProduct = CookieManager.getCookie('temp_id_product');
 let product = [];
-console.log(idProduct);
 
 const data = {
     'idProduct': idProduct,

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../common/css/style-popup.css">
     <link rel="shortcut icon" href="../common/img/icon-shopping-bag.svg" />
     <link rel="stylesheet" href="./css/product-page-style.css" />
+    <link rel="stylesheet" href="../common/css/style-alert.css">
 </head>
 
 <body>

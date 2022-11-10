@@ -1,7 +1,6 @@
 
 import CookieManager from "../../common/js/cookie-manager.js";
 import UtilsFetch from "../../common/js/utils-fetch.js";
-import ManagerCreateOrder from "./manager-create-order.js";
 
 class ProductInBagElement {
     constructor(parentElement) {
@@ -62,6 +61,10 @@ class ProductInBagElement {
 
     setProductInBagId(id) {
         this.productId = id;
+    }
+
+    getProductId(){
+        return this.productId;
     }
 
     setProductInBagName(name) {

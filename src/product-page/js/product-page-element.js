@@ -1,5 +1,6 @@
 import CookieManager from "../../common/js/cookie-manager.js";
 import UtilsFetch from '../../common/js/utils-fetch.js';
+import AlertExtend from "../../common/js/alert-manager.js";
 class ProductPageElement {
     constructor(parentElement) {
         this.rootElement = parentElement;
@@ -36,16 +37,15 @@ class ProductPageElement {
 
     initEventListeners() {
         this.elements.btnAddToCart.addEventListener("click", (event) => {
+        
             const data = {
                 'idClient': CookieManager.getCookie('user_auth'),
                 'idProduct': this.productId,
                 'quantity': this.elements.currentQuantity.innerHTML,
                 'token': CookieManager.getCookie('user_id'),
             };
-
             this.elements.btnAddToCart.style.display = "none";
             this.elements.buttonInbag.style.display = "block";
-
             if (data.idClient) {
                 UtilsFetch.postData('../common/php/add-product-to-bag.php', data)
                     .then(response => {
@@ -53,6 +53,7 @@ class ProductPageElement {
                             // todo alert
                             this.initBtn();
                             console.log('Added');
+                            AlertExtend.showAlert("Carrello", "Il prodotto e' stato aggiunto nel carrello");
                         } else {
                             console.log(response.data);
                         }
@@ -64,10 +65,8 @@ class ProductPageElement {
                 const index = parseInt(CookieManager.getCookie('temp_bag_product_index')) + 1;
                 CookieManager.setCookie(`temp_product_in_bag_${index}`, JSON.stringify(data), 60 * 60);
                 CookieManager.setCookie('temp_bag_product_index', index, 60 * 60);
-
                 const cookieProductsIndex = CookieManager.getCookie('temp_bag_product_index');
-                const cookieAuth = CookieManager.getCookie('user_auth');
-        
+                const cookieAuth = CookieManager.getCookie('user_auth');  
                 if (cookieProductsIndex) {
                     for (let i = 1; i <= cookieProductsIndex; i++) {
                         const tempProduct = CookieManager.getCookie('temp_product_in_bag_' + i);
@@ -82,9 +81,9 @@ class ProductPageElement {
                         }
                     }
                 }
+            
+                AlertExtend.showAlert("Carrello", "Il prodotto e' stato aggiunto nel carrello");
             }
-
-
         });
 
         this.elements.btnAddQuantity.addEventListener("click", (event) => {
