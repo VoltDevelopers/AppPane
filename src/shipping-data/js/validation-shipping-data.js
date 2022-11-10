@@ -50,7 +50,15 @@ class ValidationFormPersonalData {
                     .then(response => {
                         console.log(response);
                         if (response.status == '200') {
-                            location.href = '../main/main.php';
+                            const data = {
+                                'userId' : CookieManager.getCookie('user_auth'),
+                                'userToken': CookieManager.getCookie('user_id'),
+                            };
+                            UtilsFetch.postData('./php/create-order.php', data)
+                            .then(response => {
+                                console.log(response);
+                                location.href = '../main/main.php';
+                            });
                             // todo add alert
                         } else {
                             console.log(response.data);
