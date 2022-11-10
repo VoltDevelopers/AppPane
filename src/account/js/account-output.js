@@ -2,7 +2,7 @@ import UtilsForm from '../../common/js/utlis-form.js';
 import UtilsFetch from '../../common/js/utils-fetch.js';
 import CookieManager from '../../common/js/cookie-manager.js';
 
-class ValidationFormCredentionals {
+class AccountOutput {
     constructor(parentElement) {
         this.rootElement = parentElement;
         this.elements = {};
@@ -45,7 +45,7 @@ class ValidationFormCredentionals {
                     'userId': userAuth,
                 };
 
-                UtilsFetch.postData('./php/account-credentials.php', data)
+                UtilsFetch.postData('./php/account-credentials-output.php', data)
                     .then(response => {
                         if (response.status == '200') {
                             location.href = '../main/main.php';
@@ -53,6 +53,7 @@ class ValidationFormCredentionals {
                             console.log(response.data);
                         }
                     });
+
             } else {
                 emptyElements.forEach(element => {
                     element.style.border = "2px solid red";
@@ -62,4 +63,4 @@ class ValidationFormCredentionals {
         });
     }
 }
-export default ValidationFormCredentionals;
+export default AccountOutput;
