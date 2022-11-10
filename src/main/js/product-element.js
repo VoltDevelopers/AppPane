@@ -54,10 +54,22 @@ class ProductElement {
                 if (!CookieManager.getCookie('temp_bag_product_index')) {
                     CookieManager.setCookie('temp_bag_product_index', '0', 60 * 60);
                 }
-                const index = parseInt(CookieManager.getCookie('temp_bag_product_index')) + 1;
-                CookieManager.setCookie(`temp_product_in_bag_${index}`, JSON.stringify(data), 60 * 60);
-                CookieManager.setCookie('temp_bag_product_index', index, 60 * 60);
-                AlertExtend.showAlert("Carrello", "Il prodotto e' stato aggiunto nel carrello");
+                const currentIndex = CookieManager.getCookie('temp_bag_product_index');
+                let isProduct = false;
+                for (let i = 1; i <= currentIndex; i++) {  
+                    const tempProduct = CookieManager.getCookie('temp_product_in_bag_' + i);
+
+                    if (tempProduct && JSON.stringify(data) == tempProduct) {
+                        isProduct = true;
+                    }                  
+                }
+
+                if (!isProduct) {
+                    const index = parseInt(CookieManager.getCookie('temp_bag_product_index')) + 1;
+                    CookieManager.setCookie(`temp_product_in_bag_${index}`, JSON.stringify(data), 60 * 60);
+                    CookieManager.setCookie('temp_bag_product_index', index, 60 * 60);
+                    AlertExtend.showAlert("Carrello", "Il prodotto e' stato aggiunto nel carrello");
+                }
             }
         });
         this.elements.productImg.addEventListener('click', (event) => {
