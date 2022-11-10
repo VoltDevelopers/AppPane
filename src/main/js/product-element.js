@@ -9,7 +9,7 @@ class ProductElement {
         this.isInBag = false;
 
         const parser = new DOMParser();
-        const templateString = `<div class="wrapper-product"><div class="wrapper-product-img"><div class="hide">See more </div><div class="product-tag"><h6 class="tag-inner"></h6></div></div><div class="wrapper-product-desc"><div class="product-desc"><h5 class="product-name"></h5><h6 class="product-price color-gray"></h6></div><button class = "add-to-bag"><h6 class="light">Add to bag</h6></button><button class="in-bag"><h6 class="in-bag">In bag</h6></button></div></div>`;
+        const templateString = `<div class="wrapper-product"><div class="wrapper-product-img"><div class="hide">See more </div><div class="product-tag"><h6 class="tag-inner"></h6></div></div><div class="wrapper-product-desc"><div class="product-desc"><h5 class="product-name"></h5><h6 class="product-price color-gray"></h6></div><button class = "add-to-bag"><h6 class="light">Add to bag</h6></button><button class="in-bag-btn"><h6 class="in-bag">In bag</h6></button></div></div>`;
         const templateElement = parser.parseFromString(templateString, 'text/html');
         this.template = templateElement.documentElement.querySelector("body > div");
     }
@@ -27,7 +27,8 @@ class ProductElement {
             productName: this.template.querySelector('.product-name'),
             productPrice: this.template.querySelector('.product-price'),
             buttonAddToBag: this.template.querySelector('.add-to-bag'),
-            buttonInbag: this.template.querySelector('.in-bag'),
+            buttonInbag: this.template.querySelector('.in-bag-btn'),
+            buttonInBagText: this.template.querySelector('.in-bag'),
         };
         this.rootElement.appendChild(this.template);
     }
@@ -80,9 +81,12 @@ class ProductElement {
                 if (response.status == 417) {
                     this.elements.buttonAddToBag.style.display = 'unset';
                     this.elements.buttonInbag.style.display = 'none';
+                    this.elements.buttonInBagText.style.display = 'none';
+                    
                 } else {
                     this.elements.buttonAddToBag.style.display = 'none';
                     this.elements.buttonInbag.style.display = 'unset';
+                    this.elements.buttonInBagText.style.display = 'unset';
                 }
             });
         } else {
