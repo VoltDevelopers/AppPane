@@ -28,7 +28,6 @@ class ProductElement {
             productPrice: this.template.querySelector('.product-price'),
             buttonAddToBag: this.template.querySelector('.add-to-bag'),
             buttonInbag: this.template.querySelector('.in-bag-btn'),
-            buttonInBagText: this.template.querySelector('.in-bag'),
         };
         this.rootElement.appendChild(this.template);
     }
@@ -60,6 +59,24 @@ class ProductElement {
                 const index = parseInt(CookieManager.getCookie('temp_bag_product_index')) + 1;
                 CookieManager.setCookie(`temp_product_in_bag_${index}`, JSON.stringify(data), 60 * 60);
                 CookieManager.setCookie('temp_bag_product_index', index, 60 * 60);
+
+                const cookieProductsIndex = CookieManager.getCookie('temp_bag_product_index');
+                const cookieAuth = CookieManager.getCookie('user_auth');
+
+                if (cookieProductsIndex) {
+                    for (let i = 1; i <= cookieProductsIndex; i++) {
+                        const tempProduct = CookieManager.getCookie('temp_product_in_bag_' + i);
+                        if (this.productId && tempProduct && JSON.parse(tempProduct).idProduct == this.productId) {
+                            this.elements.buttonAddToBag.style.display = 'none';
+                            this.elements.buttonInbag.style.display = 'unset';
+
+                        } else {
+                            this.elements.buttonAddToBag.style.display = 'none';
+                            this.elements.buttonInbag.style.display = 'unset';
+
+                        }
+                    }
+                }
             }
         });
 
@@ -77,20 +94,35 @@ class ProductElement {
         }
         if (data.idClient) {
             UtilsFetch.postData('./php/main-cart-connection.php', data)
-            .then(response => {
-                if (response.status == 417) {
-                    this.elements.buttonAddToBag.style.display = 'unset';
-                    this.elements.buttonInbag.style.display = 'none';
-                    this.elements.buttonInBagText.style.display = 'none';
-                    
-                } else {
-                    this.elements.buttonAddToBag.style.display = 'none';
-                    this.elements.buttonInbag.style.display = 'unset';
-                    this.elements.buttonInBagText.style.display = 'unset';
-                }
-            });
+                .then(response => {
+                    console.log(response);
+                    if (response.status == 417) {
+                        this.elements.buttonAddToBag.style.display = 'unset';
+                        this.elements.buttonInbag.style.display = 'none';
+
+                    } else {
+                        this.elements.buttonAddToBag.style.display = 'none';
+                        this.elements.buttonInbag.style.display = 'unset';
+                    }
+                });
         } else {
-            console.log('cookie');
+            const cookieProductsIndex = CookieManager.getCookie('temp_bag_product_index');
+            const cookieAuth = CookieManager.getCookie('user_auth');
+
+            if (cookieProductsIndex) {
+                for (let i = 1; i <= cookieProductsIndex; i++) {
+                    const tempProduct = CookieManager.getCookie('temp_product_in_bag_' + i);
+                    if (this.productId && tempProduct && JSON.parse(tempProduct).idProduct == this.productId) {
+                        this.elements.buttonAddToBag.style.display = 'none';
+                        this.elements.buttonInbag.style.display = 'unset';
+
+                    } else {
+                        this.elements.buttonAddToBag.style.display = 'none';
+                        this.elements.buttonInbag.style.display = 'unset';
+
+                    }
+                }
+            }
         }
     }
 

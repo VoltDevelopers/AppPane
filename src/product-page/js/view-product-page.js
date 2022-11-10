@@ -18,6 +18,7 @@ UtilsFetch.postData('./php/product-connection.php', data)
             let temp = new ProductPageElement(document.querySelector(".main-container"));
             temp.init();
             temp.setProductId(idProduct);
+            temp.initBtn();
             temp.setProductImg(product['foto']);
             temp.setProductName(product['nome']);
             temp.setProductPrice(product['prezzo']);
