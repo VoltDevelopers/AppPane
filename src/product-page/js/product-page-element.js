@@ -1,4 +1,6 @@
 import CookieManager from "../../common/js/cookie-manager.js";
+import UtilsFetch from '../../common/js/utils-fetch.js';
+import AlertExtend from "../../common/js/alert-manager.js";
 class ProductPageElement {
     constructor(parentElement) {
         this.rootElement = parentElement;
@@ -33,8 +35,32 @@ class ProductPageElement {
     }
 
     initEventListeners() {
-        this.elements.btnAddToCart.addEventListener("click", (event) => {
-            //todo
+        this.elements.btnAddToCart.addEventListener('click', (event) => {
+            const data = {
+                'idClient': CookieManager.getCookie('user_auth'),
+                'idProduct': this.productId,
+                'quantity': this.elements.currentQuantity.innerHTML,
+                'token': CookieManager.getCookie('user_id'),
+            };
+
+            if (data.idClient) {
+                UtilsFetch.postData('../common/php/add-product-to-bag.php', data)
+                    .then(response => {
+                        if (response.status == '200') {
+                            AlertExtend.showAlert("Carrello", "Il prodotto e' stato aggiunto nel carrello");
+                        } else {
+                            console.log(response.data);
+                        }
+                    });
+            } else {
+                if (!CookieManager.getCookie('temp_bag_product_index')) {
+                    CookieManager.setCookie('temp_bag_product_index', '0', 60 * 60);
+                }
+                const index = parseInt(CookieManager.getCookie('temp_bag_product_index')) + 1;
+                CookieManager.setCookie(`temp_product_in_bag_${index}`, JSON.stringify(data), 60 * 60);
+                CookieManager.setCookie('temp_bag_product_index', index, 60 * 60);
+                AlertExtend.showAlert("Carrello", "Il prodotto e' stato aggiunto nel carrello");
+            }
         });
 
         this.elements.btnAddQuantity.addEventListener("click", (event) => {

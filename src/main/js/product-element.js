@@ -46,7 +46,6 @@ class ProductElement {
                     .then(response => {
                         if (response.status == '200') {
                             AlertExtend.showAlert("Carrello", "Il prodotto e' stato aggiunto nel carrello");
-                            console.log('Added');
                         } else {
                             console.log(response.data);
                         }

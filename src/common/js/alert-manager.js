@@ -1,7 +1,6 @@
 class AlertExtend {
 
     static showAlert(title, description) {
-
         console.log("godo");
         const wrapper = document.createElement('div');
         wrapper.className = "wrapper-alert";
@@ -9,22 +8,20 @@ class AlertExtend {
         wrapper.innerHTML = templateString;
         document.body.appendChild(wrapper);
 
-        setTimeout(function() {
+        setTimeout(function () {
             wrapper.style.opacity = 1;
             wrapper.style.top = "60px";
         }, 10);
 
-        setTimeout(function() {
+        setTimeout(function () {
             wrapper.style.opacity = 0;
             wrapper.style.top = "-200px";
         }, 4000);
 
-        setTimeout(function() {
+        setTimeout(function () {
             wrapper.remove();
         }, 5000);
-
     }
-
 }
 
 export default AlertExtend;

@@ -4,7 +4,6 @@ import UtilsFetch from "../../common/js/utils-fetch.js";
 
 const idProduct = CookieManager.getCookie('temp_id_product');
 let product = [];
-console.log(idProduct);
 
 const data = {
 
@@ -19,6 +18,7 @@ UtilsFetch.postData('./php/product-connection.php', data)
             product = JSON.parse(response.data);
             let temp = new ProductPageElement(document.querySelector(".main-container"));
             temp.init();
+            temp.setProductId(idProduct);
             temp.setProductImg(product['foto']);
             temp.setProductName(product['nome']);
             temp.setProductPrice(product['prezzo']);
