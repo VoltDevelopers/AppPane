@@ -47,7 +47,7 @@ class ProductPageElement {
                 UtilsFetch.postData('../common/php/add-product-to-bag.php', data)
                     .then(response => {
                         if (response.status == '200') {
-                            AlertExtend.showAlert("Carrello", "Il prodotto e' stato aggiunto nel carrello");
+                            // AlertExtend.showAlert("Carrello", "Il prodotto e' stato aggiunto nel carrello");
                         } else {
                             console.log(response.data);
                         }
@@ -70,7 +70,7 @@ class ProductPageElement {
                     const index = parseInt(CookieManager.getCookie('temp_bag_product_index')) + 1;
                     CookieManager.setCookie(`temp_product_in_bag_${index}`, JSON.stringify(data), 60 * 60);
                     CookieManager.setCookie('temp_bag_product_index', index, 60 * 60);
-                    AlertExtend.showAlert("Carrello", "Il prodotto e' stato aggiunto nel carrello");
+                    // AlertExtend.showAlert("Carrello", "Il prodotto e' stato aggiunto nel carrello");
                 }
             }
         });
