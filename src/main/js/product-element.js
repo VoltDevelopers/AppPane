@@ -33,7 +33,6 @@ class ProductElement {
     }
 
     initEventListeners() {
-
         this.elements.buttonAddToBag.addEventListener('click', (event) => {
             const data = {
                 'idClient': CookieManager.getCookie('user_auth'),
@@ -42,40 +41,13 @@ class ProductElement {
                 'token': CookieManager.getCookie('user_id'),
             };
 
-            console.log(this.isInBag);
-            if (data.idClient && !this.isInBag) {
+            if (data.idClient) {
                 UtilsFetch.postData('../common/php/add-product-to-bag.php', data)
                     .then(response => {
                         if (response.status == '200') {
                             // todo alert
                             console.log('Added');
-
-                            const data = {
-
-                                'idClient': CookieManager.getCookie('user_auth'),
-                                'idProduct': this.productId,
-
-                            }
-                            UtilsFetch.postData('./php/main-cart-connection.php', data)
-                                .then(response => {
-
-                                    if (response.status == 417) {
-
-                                        this.elements.buttonAddToBag.style.display = 'block';
-                                        this.elements.buttonInbag.style.display = "none";
-                                        this.isInBag = false;
-
-                                    } else {
-
-                                        this.elements.buttonAddToBag.style.display = 'none';
-                                        this.elements.buttonInbag.style.display = "block";
-                                        this.isInBag = true;
-
-                                    }
-
-                                });
-
-
+                            this.initAddButton();
                         } else {
                             console.log(response.data);
                         }
@@ -88,14 +60,34 @@ class ProductElement {
                 CookieManager.setCookie(`temp_product_in_bag_${index}`, JSON.stringify(data), 60 * 60);
                 CookieManager.setCookie('temp_bag_product_index', index, 60 * 60);
             }
-
-
         });
 
         this.elements.productImg.addEventListener('click', (event) => {
             CookieManager.setCookie('temp_id_product', this.productId, 180);
             location.href = '../product-page/product-page.php';
         });
+    }
+
+    initAddButton() {
+        const data = {
+            'idClient': CookieManager.getCookie('user_auth'),
+            'idProduct': this.productId,
+            'token': CookieManager.getCookie('user_id'),
+        }
+        if (data.idClient) {
+            UtilsFetch.postData('./php/main-cart-connection.php', data)
+            .then(response => {
+                if (response.status == 417) {
+                    this.elements.buttonAddToBag.style.display = 'unset';
+                    this.elements.buttonInbag.style.display = 'none';
+                } else {
+                    this.elements.buttonAddToBag.style.display = 'none';
+                    this.elements.buttonInbag.style.display = 'unset';
+                }
+            });
+        } else {
+            console.log('cookie');
+        }
     }
 
     showProduct() {

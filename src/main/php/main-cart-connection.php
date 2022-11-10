@@ -9,9 +9,10 @@ $data = json_decode($json);
 
 $idClient = $data->idClient;
 $idProduct = $data->idProduct;
+$userToken = $data->token;
 
-$stmt = $pdo->prepare("SELECT * FROM tcarrello WHERE idCliente=:idClient AND idProdotto=:idProduct");
-$stmt->execute(['idClient' => $idClient, 'idProduct' => $idProduct]);
+$stmt = $pdo->prepare("SELECT * FROM tcarrello WHERE idCliente=:idClient AND idProdotto=:idProduct AND token=:userToken");
+$stmt->execute(['idClient' => $idClient, 'idProduct' => $idProduct, 'userToken' => $userToken]);
 $result = null;
 $productInCart = $stmt->fetchAll();
 

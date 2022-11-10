@@ -37,6 +37,7 @@ await dataProduct.forEach(product => {
     const productElement = new ProductElement(wrapperProducts);
     productElement.init();
     productElement.setProductId(product['id']);
+    productElement.initAddButton();
     productElement.setProductImg('../common/' + product['foto']);
     productElement.setProductTag(dataFilter[product['idCategoria'] - 1]['categoria']);
     productElement.setProductName(product['nome']);
