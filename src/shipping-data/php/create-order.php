@@ -16,6 +16,9 @@ $stmt = $pdo->prepare('SELECT tcarrello.id, tcarrello.idProdotto, tcarrello.quan
 $stmt->execute(['userid' => $userid, 'userToken' => $userToken]);
 $user = $stmt->fetchAll();
 
+$stmt = $pdo->prepare("INSERT INTO tordinimaster (`idCliente`, `numero`, `datains`, `nota`) VALUES (:userid, 0, :todaysDay, 'check in account')");
+$stmt->execute(['userid' => $userid, 'todaysDay' => date('Y-m-d H:i:s')]);
+
 
 
 if ($user != null) {
@@ -26,12 +29,12 @@ if ($user != null) {
         $price = $order['prezzo'] * $quantity;
 
         try {
-            // if ($quantity != 0) {
+            if ($quantity != 0) {
                 $stmt = $pdo->prepare("INSERT INTO tordinidetail (`idProdotto`, `quantita`, `idOrdine`, `prezzo`) VALUES (:idProduct, :quantity, :idOrder, :price)");
                 $stmt->execute(['idProduct' => $idProduct, 'quantity' => $quantity, 'idOrder' => $idOrder, 'price' => $price]);
-            // }
+            }
 
-            $stmt = $pdo->prepare("DELETE from tcarrello WHERE id=:idOrder");
+            $stmt = $pdo->prepare("UPDATE tcarrello SET quantita=0 WHERE id=:idOrder");
             $stmt->execute(['idOrder' => $idOrder]);
 
             $result = array(
@@ -45,9 +48,6 @@ if ($user != null) {
             );
         }
     }
-
-    $stmt = $pdo->prepare("INSERT INTO tordinimaster (`idCliente`, `numero`, `datains`, `nota`) VALUES (:userid, 0, :todaysDay, 'check in account')");
-    $stmt->execute(['userid' => $userid, 'todaysDay' => date('Y-m-d H:i:s')]);
 } else {
     $result = array(
         'data' => null,
