@@ -115,10 +115,10 @@ class ProductInBagElement {
             const cookieProductsIndex = CookieManager.getCookie('temp_bag_product_index');
             for(let i = 1; i <= cookieProductsIndex; i++) {
                 const currentProduct = CookieManager.getCookie('temp_product_in_bag_' + i);
-                if(this.productId == JSON.parse(currentProduct).idProduct){
+                if(currentProduct && this.productId == JSON.parse(currentProduct).idProduct){
                     const data = {
                         'idClient': CookieManager.getCookie('user_auth'),
-                        'idProduct': this.productId,
+                        'idProduct': parseInt(this.productId),
                         'quantity': this.elements.currentQuantity.innerHTML,
                         'token': CookieManager.getCookie('user_id'),
                     };

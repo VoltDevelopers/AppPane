@@ -25,12 +25,9 @@ temp2.setOrderDate('22 Novembre 2022');
 temp2.setOrderAddress('Via del pane 27');*/
 
 const clientId = CookieManager.getCookie('user_auth');
-console.log(clientId);
 let orderList;
 const data = {
-
     'clientId': clientId,
-
 };
 
 await UtilsFetch.postData('./php/list-order-connection.php', data)
@@ -50,16 +47,20 @@ await UtilsFetch.postData('./php/list-order-connection.php', data)
     });
 
 function assignData() {
+    let data = null;
+    let temp;
     orderList.forEach(order => {
-        const temp = new OrderElement(document.querySelector('.wrapper-order'));
-        temp.init();
+        if (order['datains'] != data) {
+            temp = new OrderElement(document.querySelector('.wrapper-order'));
+            temp.init();
+        }
         temp.setOrderId(order['idOrdine']);
-        temp.setOrderPrice(order['prezzo']);
-        //SET products
-        //SET quantity
+        temp.setOrderPrice('$' + order['prezzo']);
+        temp.setOrderProduct(order['nome']);
+        temp.setOrderId(order['quantita']);
         //SET address
 
-
+        data = order['datains'];
     });
 }
 

@@ -19,6 +19,14 @@ try {
     $stmt->execute(['idC' => $idClient, 'tok' => $token, 'idProduct' => $idProduct]);
     $list = $stmt->fetchAll();
 
+    // $isPrd = false;
+
+    // foreach ($list as $record) {
+    //     if ($record['quantity'] == 0) {
+    //         $isPrd = true;
+    //     }
+    // }
+
     if ($list == null) {
         $stmt = $pdo->prepare("INSERT INTO tcarrello (idCliente, idProdotto, quantita, token) VALUES(:idClient, :idProduct, :quantity, :token);");
         $stmt->execute(['idClient' => $idClient, 'idProduct' => $idProduct, 'quantity' => $quantity, 'token' => $token]);

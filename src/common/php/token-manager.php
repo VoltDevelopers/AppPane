@@ -35,6 +35,9 @@ class TokenManager
     }
     static function isLogged()
     {
+        if (isset($_SESSION['user_id']) && !isset($_COOKIE['user_id'])) {
+            $_COOKIE['user_id'] = $_SESSION['user_id'];
+        }
         return isset($_COOKIE['user_id']);
     }
 }

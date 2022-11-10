@@ -32,9 +32,6 @@ if ($user != null) {
             $stmt = $pdo->prepare("INSERT INTO tordinidetail (`idProdotto`, `quantita`, `idOrdine`, `prezzo`) VALUES (:idProduct, :quantity, :idOrder, :price)");
             $stmt->execute(['idProduct' => $idProduct, 'quantity' => $quantity, 'idOrder' => $idOrder, 'price' => $price]);
 
-            $stmt = $pdo->prepare("INSERT INTO tordinidetail (`idProdotto`, `quantita`, `idOrdine`, `prezzo`) VALUES (:idProduct, :quantity, :idOrder, :price)");
-            $stmt->execute(['idProduct' => $idProduct, 'quantity' => $quantity, 'idOrder' => $idOrder, 'price' => $price]);
-
             $result = array(
                 'data' => null,
                 'status' => 200,
@@ -46,6 +43,9 @@ if ($user != null) {
             );
         }
     }
+
+    $stmt = $pdo->prepare("INSERT INTO tordinimaster (`idCliente`, `numero`, `datains`, `nota`) VALUES (:userid, 0, :todaysDay, 'check in account')");
+    $stmt->execute(['userid' => $userid, 'todaysDay' => date('Y-m-d H:i:s')]);
 } else {
     $result = array(
         'data' => null,

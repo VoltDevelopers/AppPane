@@ -10,10 +10,11 @@
 
     $clientId = $data->clientId;
 
-    $stmt = $pdo->prepare('SELECT * FROM tordinimaster JOIN tordinidetail WHERE idCliente=:clientId');
+    $stmt = $pdo->prepare('SELECT * FROM tordinimaster, tcarrello, tordinidetail, tprodotti WHERE tordinidetail.idOrdine=tcarrello.id AND tcarrello.idCliente=:clientId AND tprodotti.id=tcarrello.idProdotto AND tordinimaster.idCliente=:clientId2');
+    $stmt->execute(['clientId' => $clientId, 'clientId2' => $clientId]);
+    $orderList = $stmt->fetchAll();
 
     $result = null;
-    $orderList = $stmt ->fetchAll();
 
     if($orderList != null){
         $result = array(

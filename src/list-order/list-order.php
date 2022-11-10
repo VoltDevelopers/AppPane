@@ -42,10 +42,9 @@ if (!TokenManager::isAuthenticated()) {
             <div class="wrapper-block">
 
             </div>
-            </div>
         </section>
     </main>
-    
+
 </body>
 <script src="./js/view-list-order.js" type="module"></script>
 
