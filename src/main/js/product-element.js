@@ -1,3 +1,4 @@
+import AlertExtend from "../../common/js/alert-manager.js";
 import CookieManager from "../../common/js/cookie-manager.js";
 import UtilsFetch from '../../common/js/utils-fetch.js';
 
@@ -42,14 +43,14 @@ class ProductElement {
 
             if (data.idClient) {
                 UtilsFetch.postData('../common/php/add-product-to-bag.php', data)
-                .then(response => {
-                    if (response.status == '200') {
-                        // todo alert
-                        console.log('Added');
-                    } else {
-                        console.log(response.data);
-                    }
-                });
+                    .then(response => {
+                        if (response.status == '200') {
+                            // todo alert
+                            console.log('Added');
+                        } else {
+                            console.log(response.data);
+                        }
+                    });
             } else {
                 if (!CookieManager.getCookie('temp_bag_product_index')) {
                     CookieManager.setCookie('temp_bag_product_index', '0', 60 * 60);
@@ -58,7 +59,7 @@ class ProductElement {
                 CookieManager.setCookie(`temp_product_in_bag_${index}`, JSON.stringify(data), 60 * 60);
                 CookieManager.setCookie('temp_bag_product_index', index, 60 * 60);
             }
-
+            AlertExtend.showAlert("aggiunto al carrello", "aggiunta al carrello effettuata con successo");
 
         });
         this.elements.productImg.addEventListener('click', (event) => {
