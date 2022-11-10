@@ -6,9 +6,10 @@ class ProductElement {
         this.rootElement = parentElement;
         this.elements = {};
         this.productId = null;
+        this.isInBag = false;
 
         const parser = new DOMParser();
-       const templateString = `<div class="wrapper-product"><div class="wrapper-product-img"><div class="hide">See more </div><div class="product-tag"><h6 class="tag-inner"></h6></div></div><div class="wrapper-product-desc"><div class="product-desc"><h5 class="product-name"></h5><h6 class="product-price color-gray"></h6></div><button><h6 class="light">Add to bag</h6></button><button class="in-bag"><h6 class="in-bag">In bag</h6></button></div></div>`;
+        const templateString = `<div class="wrapper-product"><div class="wrapper-product-img"><div class="hide">See more </div><div class="product-tag"><h6 class="tag-inner"></h6></div></div><div class="wrapper-product-desc"><div class="product-desc"><h5 class="product-name"></h5><h6 class="product-price color-gray"></h6></div><button class = "add-to-bag"><h6 class="light">Add to bag</h6></button><button class="in-bag"><h6 class="in-bag">In bag</h6></button></div></div>`;
         const templateElement = parser.parseFromString(templateString, 'text/html');
         this.template = templateElement.documentElement.querySelector("body > div");
     }
@@ -25,10 +26,9 @@ class ProductElement {
             productTag: this.template.querySelector('.tag-inner'),
             productName: this.template.querySelector('.product-name'),
             productPrice: this.template.querySelector('.product-price'),
-            buttonAddToBag: this.template.querySelector('button'),
-            buttoninbag : this.template.querySelector('.in-bag'),
+            buttonAddToBag: this.template.querySelector('.add-to-bag'),
+            buttonInbag: this.template.querySelector('.in-bag'),
         };
-
         this.rootElement.appendChild(this.template);
     }
 
@@ -42,16 +42,40 @@ class ProductElement {
                 'token': CookieManager.getCookie('user_id'),
             };
 
-            this.elements.buttonAddToBag.style.display = "none";
-            this.elements.buttoninbag.style.display = "block";
-
-
-            if (data.idClient) {
+            console.log(this.isInBag);
+            if (data.idClient && !this.isInBag) {
                 UtilsFetch.postData('../common/php/add-product-to-bag.php', data)
                     .then(response => {
                         if (response.status == '200') {
                             // todo alert
                             console.log('Added');
+
+                            const data = {
+
+                                'idClient': CookieManager.getCookie('user_auth'),
+                                'idProduct': this.productId,
+
+                            }
+                            UtilsFetch.postData('./php/main-cart-connection.php', data)
+                                .then(response => {
+
+                                    if (response.status == 417) {
+
+                                        this.elements.buttonAddToBag.style.display = 'block';
+                                        this.elements.buttonInbag.style.display = "none";
+                                        this.isInBag = false;
+
+                                    } else {
+
+                                        this.elements.buttonAddToBag.style.display = 'none';
+                                        this.elements.buttonInbag.style.display = "block";
+                                        this.isInBag = true;
+
+                                    }
+
+                                });
+
+
                         } else {
                             console.log(response.data);
                         }
@@ -67,6 +91,7 @@ class ProductElement {
 
 
         });
+
         this.elements.productImg.addEventListener('click', (event) => {
             CookieManager.setCookie('temp_id_product', this.productId, 180);
             location.href = '../product-page/product-page.php';

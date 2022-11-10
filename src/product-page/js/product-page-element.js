@@ -85,7 +85,6 @@ class ProductPageElement {
     initbtn() {
         const cookieProductsIndex = CookieManager.getCookie('temp_bag_product_index');
         const cookieAuth = CookieManager.getCookie('user_auth');
-        debugger
 
         if (cookieProductsIndex) {
             // No LOGIN
@@ -93,7 +92,7 @@ class ProductPageElement {
                 const tempProduct = CookieManager.getCookie('temp_product_in_bag_' + i);
                 if (JSON.parse(tempProduct).idProduct == this.idProduct) {
                     console.log("this product exists");
-                    debugger
+
                 }
             }
         } else if (cookieAuth) {
